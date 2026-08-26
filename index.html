@@ -424,10 +424,51 @@ nav {
 @media (max-width: 900px) { .showcase-inner { grid-template-columns: 1fr; } }
 
 .showcase-copy .section-title span { background: var(--white); }
-.showcase-video {
-  width: 100%; border: var(--stroke); border-radius: 24px;
-  box-shadow: var(--pop-xl); background: var(--ink);
-  transform: rotate(1.2deg); overflow: hidden;
+.showcase-video { display: none; } /* legacy */
+
+/* Mosaic — 3 photo asymmetric grid replacing old video */
+.showcase-mosaic {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 520px;
+}
+@media (max-width: 900px) { .showcase-mosaic { height: 420px; } }
+@media (max-width: 640px) {
+  .showcase-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.4fr 1fr;
+    height: 380px;
+    gap: 12px;
+  }
+}
+.showcase-mosaic figure {
+  margin: 0;
+  border: var(--stroke);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--pop-md);
+  background: var(--white);
+  transition: transform .3s;
+}
+.showcase-mosaic figure img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mosaic-a {
+  grid-row: 1 / span 2;
+  transform: rotate(-1deg);
+  box-shadow: var(--pop-xl) !important;
+}
+.mosaic-b { transform: rotate(1.2deg); }
+.mosaic-c { transform: rotate(-.6deg); }
+.showcase-mosaic figure:hover { transform: rotate(0) translateY(-3px); }
+@media (max-width: 640px) {
+  .mosaic-a { grid-row: 1 / span 1; grid-column: 1 / span 2; }
+  .mosaic-b { grid-row: 2 / span 1; grid-column: 1 / span 1; }
+  .mosaic-c { grid-row: 2 / span 1; grid-column: 2 / span 1; }
 }
 .showcase-meta {
   display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
@@ -740,7 +781,7 @@ footer p + p { margin-top: 6px; }
 
 .gal-card {
   flex: 0 0 auto;
-  width: min(78vw, 380px);
+  width: min(82vw, 460px);
   scroll-snap-align: center;
   background: var(--white);
   border: var(--stroke);
@@ -1120,18 +1161,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="showcase-copy">
       <div class="section-tag fade-up">Veja em ação</div>
       <h2 class="section-title fade-up">Brinquedões <span class="accent">em uso real</span></h2>
-      <p class="section-sub fade-up">Famílias e crianças aproveitando um dos nossos projetos instalados. É essa a experiência que vai fazer seu cliente voltar todo fim de semana.</p>
+      <p class="section-sub fade-up">Cada projeto sai da nossa fábrica no Rio de Janeiro pronto pra virar o ponto favorito das crianças — e o motivo das famílias voltarem toda semana.</p>
       <div class="showcase-meta fade-up">
         <div class="showcase-meta-item"><span class="proof-icon">🎯</span> Projeto sob medida</div>
         <div class="showcase-meta-item"><span class="proof-icon">🛡️</span> Equipamentos certificados</div>
         <div class="showcase-meta-item"><span class="proof-icon">⏱️</span> Pronto pra uso pesado</div>
       </div>
     </div>
-    <div class="showcase-video fade-up" aria-label="Vídeo de brinquedão GP Toys instalado">
-      <video autoplay muted loop playsinline preload="metadata" poster="assets/hero.jpg">
-        <source src="assets/showcase.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-      </video>
+    <div class="showcase-mosaic fade-up">
+      <figure class="mosaic-a">
+        <img src="assets/gp-03-parede-escalada.jpg" alt="Brinquedão com parede de escalada, ball pit e nets coloridas" loading="lazy">
+      </figure>
+      <figure class="mosaic-b">
+        <img src="assets/gp-06-crianca-brincando.jpg" alt="Criança brincando em plataforma colorida do brinquedão" loading="lazy">
+      </figure>
+      <figure class="mosaic-c">
+        <img src="assets/gp-02-divan-madeira.jpg" alt="Brinquedão no restaurante Divan, piso de madeira e escorrega azul" loading="lazy">
+      </figure>
     </div>
   </div>
 </section>
@@ -1146,20 +1192,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="gallery-shell fade-up">
     <button class="gal-nav gal-nav-prev" type="button" aria-label="Foto anterior" onclick="galScroll(-1)">‹</button>
     <div class="gallery-track" id="galleryTrack">
-      <figure class="gal-card"><img src="assets/gp-01-restaurante-tubos.jpg" alt="Brinquedão em restaurante com escorregas duplos e tubo amarelo" loading="lazy"><figcaption>Restaurante · Escorregas + tubo</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-02-divan-madeira.jpg" alt="Brinquedão em restaurante Divan com piso de madeira e escorrega azul" loading="lazy"><figcaption>Divan · Piso madeira</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-03-parede-escalada.jpg" alt="Brinquedão com parede de escalada e piscina de bolinhas" loading="lazy"><figcaption>Buffet · Parede de escalada</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-04-todiboa-cavalos.jpg" alt="Área kids Tôdiboa Bar com cavalinhos e balanço" loading="lazy"><figcaption>Tôdiboa · Cavalinhos + balanço</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-05-parede-amarela.jpg" alt="Brinquedão sob medida em restaurante com parede amarela" loading="lazy"><figcaption>Restaurante · Sob medida</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-06-crianca-brincando.jpg" alt="Criança brincando em plataforma colorida do brinquedão" loading="lazy"><figcaption>Em ação · Retorno diário</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-03-parede-escalada.jpg" alt="Brinquedão com parede de escalada, piscina de bolinhas e nets coloridas" loading="lazy"><figcaption>Buffet · Parede de escalada</figcaption></figure>
       <figure class="gal-card"><img src="assets/gp-07-escola-turma.jpg" alt="Brinquedão instalado em escola com decoração temática" loading="lazy"><figcaption>Escola · Ambiente temático</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-08-tubos-verticais.jpg" alt="Brinquedão vertical com tubos verdes e vermelhos" loading="lazy"><figcaption>Condomínio · Tubos verticais</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-09-piedra-laranja.jpg" alt="Restaurante rústico com escorrega laranja e piscina de bolinhas" loading="lazy"><figcaption>Rústico · Escorrega laranja</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-10-detalhe-tubos.jpg" alt="Detalhe de acabamento colorido dos tubos" loading="lazy"><figcaption>Detalhe · Acabamento</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-11-compacto-amarelo.jpg" alt="Brinquedão compacto contra parede amarela vibrante" loading="lazy"><figcaption>Compacto · Espaços menores</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-12-compacto-frontal.jpg" alt="Vista frontal do brinquedão compacto" loading="lazy"><figcaption>Compacto · Frontal</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-13-vista-frontal.jpg" alt="Vista frontal de estrutura completa" loading="lazy"><figcaption>Estrutura completa</figcaption></figure>
-      <figure class="gal-card"><img src="assets/gp-14-amarelo-azul.jpg" alt="Restaurante com brinquedão amarelo e azul" loading="lazy"><figcaption>Amarelo + azul</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-13-vista-frontal.jpg" alt="Estrutura completa vista frontal com ball pit e climbing wall" loading="lazy"><figcaption>Estrutura completa</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-14-amarelo-azul.jpg" alt="Escorrega azul duplo com piso colorido em restaurante" loading="lazy"><figcaption>Restaurante · Piso colorido</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-02-divan-madeira.jpg" alt="Brinquedão no restaurante Divan com piso de madeira e escorrega azul" loading="lazy"><figcaption>Divan · Ambiente premium</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-06-crianca-brincando.jpg" alt="Criança brincando dentro do brinquedão colorido" loading="lazy"><figcaption>Em ação · Retorno diário</figcaption></figure>
     </div>
     <button class="gal-nav gal-nav-next" type="button" aria-label="Próxima foto" onclick="galScroll(1)">›</button>
   </div>
