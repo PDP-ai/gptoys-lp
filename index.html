@@ -708,6 +708,110 @@ footer p + p { margin-top: 6px; }
   .fade-up { opacity: 1; transform: none; }
 }
 
+/* ═══════════════ GALLERY / CARROSSEL ═══════════════ */
+.gallery {
+  padding: 90px 0 60px;
+  background: var(--paper);
+  border-top: var(--stroke);
+  border-bottom: var(--stroke);
+  overflow: hidden;
+}
+.gallery .container { text-align: center; }
+.gallery .section-title { margin-left: auto; margin-right: auto; }
+.gallery .section-sub { margin-left: auto; margin-right: auto; text-align: center; }
+
+.gallery-shell {
+  position: relative;
+  max-width: 1440px;
+  margin: 32px auto 0;
+  padding: 0 12px;
+}
+.gallery-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 28px 32px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+
+.gal-card {
+  flex: 0 0 auto;
+  width: min(78vw, 380px);
+  scroll-snap-align: center;
+  background: var(--white);
+  border: var(--stroke);
+  border-radius: 24px;
+  box-shadow: var(--pop-lg);
+  overflow: hidden;
+  transition: transform .2s;
+  margin: 0;
+}
+.gal-card:nth-child(odd)  { transform: rotate(-.8deg); }
+.gal-card:nth-child(even) { transform: rotate(.8deg); background: var(--yellow-cream); }
+.gal-card:hover { transform: rotate(0) translateY(-4px); box-shadow: var(--pop-xl); }
+.gal-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-bottom: var(--stroke);
+  background: var(--cream);
+}
+.gal-card figcaption {
+  padding: 14px 18px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+}
+
+.gal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: var(--stroke);
+  box-shadow: var(--pop-md);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .12s, box-shadow .12s;
+}
+.gal-nav:hover { transform: translateY(-50%) translate(-2px,-2px); box-shadow: var(--pop-lg); }
+.gal-nav:active { transform: translateY(-50%) translate(3px,3px); box-shadow: var(--pop-xs); }
+.gal-nav-prev { left: -4px; }
+.gal-nav-next { right: -4px; }
+.gal-nav-prev span, .gal-nav-next span { display: block; margin-top: -3px; }
+
+.gal-hint {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 16px;
+  letter-spacing: .5px;
+}
+
+@media (max-width: 640px) {
+  .gallery { padding: 60px 0 40px; }
+  .gal-card { width: 82vw; }
+  .gal-nav { width: 48px; height: 48px; font-size: 28px; }
+  .gal-nav-prev { left: 4px; }
+  .gal-nav-next { right: 4px; }
+}
+
 /* ═══════════════ Utility ═══════════════ */
 .red { color: var(--red); }
 .yellow-bg { background: var(--yellow); }
@@ -1030,6 +1134,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </video>
     </div>
   </div>
+</section>
+
+<!-- GALLERY / CARROSSEL DE PROJETOS -->
+<section class="gallery" id="projetos">
+  <div class="container">
+    <div class="section-tag fade-up">Projetos entregues</div>
+    <h2 class="section-title fade-up">Alguns dos nossos <span class="accent">brinquedões instalados</span></h2>
+    <p class="section-sub fade-up">Cada projeto é sob medida — feito pra encaixar no espaço, no público e no orçamento do cliente.</p>
+  </div>
+  <div class="gallery-shell fade-up">
+    <button class="gal-nav gal-nav-prev" type="button" aria-label="Foto anterior" onclick="galScroll(-1)">‹</button>
+    <div class="gallery-track" id="galleryTrack">
+      <figure class="gal-card"><img src="assets/gp-01-restaurante-tubos.jpg" alt="Brinquedão em restaurante com escorregas duplos e tubo amarelo" loading="lazy"><figcaption>Restaurante · Escorregas + tubo</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-02-divan-madeira.jpg" alt="Brinquedão em restaurante Divan com piso de madeira e escorrega azul" loading="lazy"><figcaption>Divan · Piso madeira</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-03-parede-escalada.jpg" alt="Brinquedão com parede de escalada e piscina de bolinhas" loading="lazy"><figcaption>Buffet · Parede de escalada</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-04-todiboa-cavalos.jpg" alt="Área kids Tôdiboa Bar com cavalinhos e balanço" loading="lazy"><figcaption>Tôdiboa · Cavalinhos + balanço</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-05-parede-amarela.jpg" alt="Brinquedão sob medida em restaurante com parede amarela" loading="lazy"><figcaption>Restaurante · Sob medida</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-06-crianca-brincando.jpg" alt="Criança brincando em plataforma colorida do brinquedão" loading="lazy"><figcaption>Em ação · Retorno diário</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-07-escola-turma.jpg" alt="Brinquedão instalado em escola com decoração temática" loading="lazy"><figcaption>Escola · Ambiente temático</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-08-tubos-verticais.jpg" alt="Brinquedão vertical com tubos verdes e vermelhos" loading="lazy"><figcaption>Condomínio · Tubos verticais</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-09-piedra-laranja.jpg" alt="Restaurante rústico com escorrega laranja e piscina de bolinhas" loading="lazy"><figcaption>Rústico · Escorrega laranja</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-10-detalhe-tubos.jpg" alt="Detalhe de acabamento colorido dos tubos" loading="lazy"><figcaption>Detalhe · Acabamento</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-11-compacto-amarelo.jpg" alt="Brinquedão compacto contra parede amarela vibrante" loading="lazy"><figcaption>Compacto · Espaços menores</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-12-compacto-frontal.jpg" alt="Vista frontal do brinquedão compacto" loading="lazy"><figcaption>Compacto · Frontal</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-13-vista-frontal.jpg" alt="Vista frontal de estrutura completa" loading="lazy"><figcaption>Estrutura completa</figcaption></figure>
+      <figure class="gal-card"><img src="assets/gp-14-amarelo-azul.jpg" alt="Restaurante com brinquedão amarelo e azul" loading="lazy"><figcaption>Amarelo + azul</figcaption></figure>
+    </div>
+    <button class="gal-nav gal-nav-next" type="button" aria-label="Próxima foto" onclick="galScroll(1)">›</button>
+  </div>
+  <div class="gal-hint">← arraste ou use as setas →</div>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -1572,6 +1706,16 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('input[type=tel], #ctaPhone').forEach(attach);
   });
 })();
+</script>
+<script>
+// === Carrossel de projetos ===
+function galScroll(dir){
+  var track = document.getElementById('galleryTrack');
+  if(!track) return;
+  var card = track.querySelector('.gal-card');
+  var step = card ? (card.getBoundingClientRect().width + 22) : 320;
+  track.scrollBy({ left: dir * step, behavior: 'smooth' });
+}
 </script>
 <script>
 // Fade-up on scroll (only when JS + IntersectionObserver available)
