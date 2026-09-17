@@ -1419,7 +1419,7 @@ function getUTMs() {
 const utms = getUTMs();
 
 const CONFIG = Object.assign({
-  LEAD_ENDPOINT_URL: '/api/lead',
+  LEAD_ENDPOINT_URL: 'https://app.estimatesystemusa.com/api/visibility/gptoys/entrada',
   WHATSAPP_NUMBER: '5521966827441' // só dígitos, com DDI (55) + DDD (21) + número
 }, (typeof window !== 'undefined' && window.GPTOYS_CONFIG) || {});
 
@@ -1524,28 +1524,7 @@ function quizSubmit(e) {
     keepalive: true
   }).catch(err => console.warn('[GPtoys] POST do lead falhou:', err));
 
-// ── Make webhook → Planilha ──────────────────────────────────────
-fetch('https://hook.us1.make.celonis.com/ty6vmbd7v1fxiydtuhpgb0p917cbnhzr', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    nome:            payload.nome,
-    whatsapp:        payload.whatsapp,
-    cidade:          payload.cidade,
-    espaco_definido: payload.espaco_definido,
-    segmento:        payload.segmento,
-    tipo_solucao:    payload.tipo_solucao,
-    prazo:           payload.prazo,
-    orcamento:       payload.orcamento,
-    classificacao:   payload.classificacao,
-    data_hora:       new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
-    utm_source:   utms.utm_source,
-    utm_medium:   utms.utm_medium,
-    utm_campaign: utms.utm_campaign,
-    utm_content:  utms.utm_content,
-    utm_term:     utms.utm_term
-  })
-}).catch(() => {});
+// (16/09/2026) o lead vai direto pro motor da Visibility (CONFIG.LEAD_ENDPOINT_URL acima); o Make de terceiro saiu.
 // ── GTM: dispara evento lead_enviado ─────────────────────────────
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
