@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.gptoys.com.br/respostas/sitemap.xml
+Sitemap: https://www.gptoys.com.br/modelos/sitemap.xml

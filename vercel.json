@@ -1,10 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
-    { "source": "/respostas/", "destination": "/respostas", "permanent": true }
+    { "source": "/respostas/", "destination": "/respostas", "permanent": true },
+    { "source": "/modelos/", "destination": "/modelos", "permanent": true }
   ],
   "rewrites": [
     { "source": "/respostas", "destination": "https://visibility-system.pages.dev/respostas/gptoys" },
-    { "source": "/respostas/:path+", "destination": "https://visibility-system.pages.dev/respostas/gptoys/:path+" }
+    { "source": "/respostas/:path+", "destination": "https://visibility-system.pages.dev/respostas/gptoys/:path+" },
+    { "source": "/modelos", "destination": "https://visibility-system.pages.dev/modelos/gptoys" },
+    { "source": "/modelos/:path+", "destination": "https://visibility-system.pages.dev/modelos/gptoys/:path+" }
   ]
 }
