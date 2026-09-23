@@ -4,6 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GP Toys — Área Kids que Aumenta seu Faturamento</title>
+<meta name="description" content="Fábrica de brinquedões e playgrounds sob medida para restaurantes, escolas, buffets e condomínios. Fabricação própria em Realengo, Rio de Janeiro. Projetos a partir de R$ 15.900.">
+<link rel="canonical" href="https://www.gptoys.com.br/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "GP Toys",
+  "description": "Fábrica de brinquedões e playgrounds sob medida para restaurantes, escolas, buffets e condomínios.",
+  "url": "https://www.gptoys.com.br/",
+  "logo": "https://www.gptoys.com.br/assets/logo.png",
+  "image": "https://www.gptoys.com.br/assets/hero.jpg",
+  "telephone": "+55-21-97024-1861",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Brasil, 28823",
+    "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "areaServed": "BR",
+  "sameAs": ["https://www.instagram.com/gptoys_brinquedao/"]
+}
+</script>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1329,10 +1352,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STEP 4: ORÇAMENTO -->
         <div class="quiz-step" id="ctaStep4">
           <div class="quiz-q">Qual a faixa de investimento que você considera?</div>
+          <p style="margin-top:6px;font-size:14px;color:var(--muted)">Nossos projetos começam em R$ 15.900.</p>
           <div class="quiz-options">
-            <button type="button" class="quiz-opt" onclick="quizNext(4,'ate_5k')"><span class="qopt-icon">💰</span><span class="qopt-text">Até R$ 5.000</span><span class="qopt-arrow">→</span></button>
-            <button type="button" class="quiz-opt" onclick="quizNext(4,'5_15k')"><span class="qopt-icon">💰</span><span class="qopt-text">R$ 5.000 a R$ 15.000</span><span class="qopt-arrow">→</span></button>
-            <button type="button" class="quiz-opt" onclick="quizNext(4,'15_30k')"><span class="qopt-icon">💰</span><span class="qopt-text">R$ 15.000 a R$ 30.000</span><span class="qopt-arrow">→</span></button>
+            <button type="button" class="quiz-opt" onclick="quizNext(4,'15_30k')"><span class="qopt-icon">💰</span><span class="qopt-text">R$ 15.900 a R$ 30.000</span><span class="qopt-arrow">→</span></button>
             <button type="button" class="quiz-opt" onclick="quizNext(4,'acima_30k')"><span class="qopt-icon">🏆</span><span class="qopt-text">Acima de R$ 30.000</span><span class="qopt-arrow">→</span></button>
             <button type="button" class="quiz-opt" onclick="quizNext(4,'recomendacao')"><span class="qopt-icon">💬</span><span class="qopt-text">Quero uma recomendação</span><span class="qopt-arrow">→</span></button>
           </div>
@@ -1392,7 +1414,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
   <div class="footer-logo"><img src="assets/logo.png" alt="GP Toys" style="height:80px;width:auto;display:block;margin:0 auto 12px;"></div>
   <p>Fabricante Brasileiro de Brinquedões e Espaços Kids · Rio de Janeiro</p>
-  <p style="margin-top:8px;"><a href="/respostas" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Perguntas e respostas</a></p>
+  <p style="margin-top:8px;">Av. Brasil, 28823 · Realengo · Rio de Janeiro/RJ</p>
+  <p style="margin-top:4px;"><a href="tel:+5521970241861" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">(21) 97024-1861</a> · <a href="https://www.instagram.com/gptoys_brinquedao/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">@gptoys_brinquedao</a></p>
   <p style="margin-top:8px;font-size:12px;">© 2026 GP Toys. Todos os direitos reservados.</p>
 </footer>
 
@@ -1488,8 +1511,9 @@ function updateProgress(step) {
 // ── LEAD SCORING ──
 // Regras (Pedro / GPtoys):
 //  Quente: prazo ≤4 semanas + orçamento R$15k+ + espaço pronto
-//  Frio:  prazo "pesquisando" OU orçamento até R$5k
-//  Morno: tudo mais (inclui prazo 1-3 meses e orçamento R$5k–15k)
+//  Frio:  prazo "pesquisando"
+//  Morno: tudo mais (inclui prazo 1-3 meses e "quero uma recomendação")
+// (23/09/2026) faixas abaixo de R$15.900 saíram do formulário; 'ate_5k' fica aceito só por leads antigos.
 // Frio é avaliado antes de Quente para que sinais explícitos de baixa intenção
 // dominem mesmo quando outros critérios são fortes.
 function classifyLead(d) {
