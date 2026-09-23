@@ -4,17 +4,23 @@ Quem lê: pessoa leiga. "Limite" = o que a documentação oficial diz. Consultad
 
 ## Limites (fontes oficiais)
 
+Reconferido na semana 2 (23/09/2026) abrindo o texto das páginas.
+
 | Item | Web (model-viewer) | Android Scene Viewer | iOS Quick Look |
 |---|---|---|---|
-| Formato | NÃO VERIFICADO (página do modelviewer.dev não abriu com conteúdo) | glTF 2.0 / GLB (só extensões KHR_materials_unlit e KHR_texture_transform) | Só USDZ é citado na página da Apple; GLB não é citado |
-| Materiais | NÃO VERIFICADO | limite recomendado 10, dos quais 2 podem ter alpha | não especificado na página consultada |
-| Texturas | NÃO VERIFICADO | máx. 2048 x 2048 | não especificado |
-| UVs | NÃO VERIFICADO | 1 UV por malha (limite rígido) | não especificado |
+| Formato | só glTF/GLB (docs no repositório google/model-viewer, arquivo docs.json, atributo src) | glTF 2.0 / GLB (só extensões KHR_materials_unlit e KHR_texture_transform) | página da Apple cita só USDZ; GLB não é citado |
+| Materiais | NÃO VERIFICADO | recomendado 10, dos quais 2 podem ter alpha; "mire no menor número possível" | não especificado na página consultada |
+| Texturas | NÃO VERIFICADO | máx. 2048 x 2048 (aviso, não erro) | não especificado |
+| UVs | NÃO VERIFICADO | 1 UV por malha (limite rígido, erro do validador) | não especificado |
+| Vertex colors | NÃO VERIFICADO | NÃO suportado (erro VERTEX_COLOR_USED) | não especificado |
 | Triângulos | NÃO VERIFICADO | recomendado até 100 mil; ideal 30 a 50 mil | não especificado |
-| Tamanho do arquivo | NÃO VERIFICADO | 10 MB (maiores dão experiência ruim) | não especificado |
-| Draco / KTX2 / meshopt | NÃO VERIFICADO | a documentação não menciona suporte | não especificado |
+| Tamanho do arquivo | NÃO VERIFICADO | recomendado 10 MB ("maiores podem dar experiência ruim"); o validador do Google avisa acima de 15 MB | não especificado |
+| Draco / KTX2 / meshopt | NÃO VERIFICADO | só duas extensões aceitas (acima); qualquer outra dá erro UNSUPPORTED_GLTF_EXTENSION_USED | não especificado |
+| Modo de primitiva | NÃO VERIFICADO | só lista, tira e leque de triângulos | não especificado |
 
-Fontes: developers.google.com/ar/develop/scene-viewer (aberta); developer.apple.com/augmented-reality/quick-look (aberta, sem limites técnicos); modelviewer.dev/docs (NÃO abriu conteúdo). Observação: na página do Google o texto diz "recomendado" para materiais e tamanho; o "máx. 15 MB" informado antes NÃO apareceu nesta leitura e fica NÃO VERIFICADO. Como o site usa `ar-modes="webxr scene-viewer quick-look"`, o iOS depende da conversão automática de GLB para USDZ feita pelo model-viewer, que NÃO VERIFICADO aqui.
+Sobre o model-viewer (confirmado no docs.json do repositório oficial): sem `ios-src`, com `quick-look` em `ar-modes`, ele gera o USDZ na hora quando o botão de RA é tocado, e a própria documentação diz que "a geração de USDZ não é perfeita". Se essa geração respeita textura, alphaMode MASK e dupla face: NÃO VERIFICADO. `ar-scale="fixed"` mantém 100% da escala (confirmado). `shadow-intensity` padrão é 0 e `environment-image` sem valor usa iluminação neutra padrão (confirmado); estes só afetam a tela do site.
+
+Fontes abertas: developers.google.com/ar/develop/scene-viewer; developer.apple.com/augmented-reality/quick-look (sem limites técnicos); github.com/google/model-viewer (README e packages/modelviewer.dev/data/docs.json). A página modelviewer.dev/docs continua sem conteúdo legível sem JavaScript, por isso usei o arquivo-fonte dela. Os limites de material, textura, triângulos e tamanho do lado da Apple continuam NÃO VERIFICADOS.
 
 ## Status de cada modelo (medido com medir.mjs)
 
