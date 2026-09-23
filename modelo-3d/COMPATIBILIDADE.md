@@ -22,20 +22,18 @@ Sobre o model-viewer (confirmado no docs.json do repositório oficial): sem `ios
 
 Fontes abertas: developers.google.com/ar/develop/scene-viewer; developer.apple.com/augmented-reality/quick-look (sem limites técnicos); github.com/google/model-viewer (README e packages/modelviewer.dev/data/docs.json). A página modelviewer.dev/docs continua sem conteúdo legível sem JavaScript, por isso usei o arquivo-fonte dela. Os limites de material, textura, triângulos e tamanho do lado da Apple continuam NÃO VERIFICADOS.
 
-## Status de cada modelo (medido com medir.mjs)
+## Status de cada modelo (semana 2, medido com medir.mjs; validador glTF 0 erros e 0 avisos)
 
 | Limite (Scene Viewer) | 4 m | 6 m | 6 m grande |
 |---|---|---|---|
-| Materiais (rec. 10) | 11: ACIMA | 11: ACIMA | 11: ACIMA |
+| Materiais (rec. 10) | 7: ok | 7: ok | 7: ok |
 | Com alpha (até 2) | 1: ok | 1: ok | 1: ok |
-| Texturas | 0: ok | 0: ok | 0: ok |
+| Texturas (máx. 2048; usamos até 512) | 5: ok | 5: ok | 5: ok |
 | UV por malha (1) | 1: ok | 1: ok | 1: ok |
-| Triângulos | 32.016: ok (perto do ideal) | 43.600: ideal | 72.232: abaixo de 100 mil, acima do ideal |
-| Tamanho (10 MB) | 2,21 MB: ok | 3,00 MB: ok | 4,97 MB: ok |
-| Validador glTF | 0 erros | 0 erros | 0 erros |
-| Draco/KTX2/meshopt | não usa | não usa | não usa |
+| Vertex colors (não suportado) | não tem: ok | não tem: ok | não tem: ok |
+| Triângulos (ideal 30 a 50 mil; máx. rec. 100 mil) | 14.920: ok | 18.740: ok | 28.324: ok |
+| Tamanho (rec. 10 MB) | 1,92 MB: ok | 2,34 MB: ok | 3,37 MB: ok |
+| Extensões glTF | nenhuma: ok | nenhuma: ok | nenhuma: ok |
 
-Teste em aparelho real (Android/iPhone): NÃO FEITO. A RA continua não testada.
-
-## Correção proposta para a semana 2
-Os 3 modelos têm 11 materiais (10 cores + a rede transparente). Proposta: fundir cores muito parecidas (por exemplo verde e verde-claro, azul e azul-claro) ou a que menos aparece, chegando a 10 ou menos, sem mudar a aparência de forma notável. Fazer isso junto com a semana 2 (texturas) e reconferir com medir.mjs. Para o 6 m grande, considerar também reduzir triângulos (menos gomos por tubo) rumo a 50 mil.
+Antes (semana 1) os 3 tinham 11 materiais (acima do recomendado); agora 7.
+Teste em aparelho real (Android/iPhone): NÃO FEITO. A RA continua não testada. Quick Look: a conversão de GLB para USDZ é feita pelo model-viewer na hora e não foi verificada (texturas, alphaMode MASK, dupla face e normal map podem se comportar diferente).

@@ -1,4 +1,4 @@
-# Inventário dos modelos Kid Play (semana 1, base)
+# Inventário dos modelos Kid Play (semana 1 base, semana 2 realismo)
 
 Texto para leigo. Regra deste projeto: só a caixa externa tem medida oficial. Nada aqui tem preço, prazo ou promessa. Nenhuma foto está identificada com um modelo específico (4 m, 6 m ou 6 m grande), então não afirmamos que "a foto X é o modelo Y".
 
@@ -57,3 +57,39 @@ As 4 malhas com UV são as paredes de rede transparente. Validador glTF (gltf-va
 
 ## Como os 3 foram gerados
 Cada modelo tem um arquivo em `skus/`. O 6 m gerado pela configuração ficou IDÊNTICO byte a byte ao GLB anterior (mesmo tamanho e conteúdo). O 4 m e o 6 m grande reusam os mesmos módulos, escalados para a caixa externa oficial; a altura do deck (1,0 m no 4 m e no 6 m; 1,5 m no grande) e a posição do escorregador são ilustrativas. Medidas lidas no navegador (comprimento x altura x largura): 4 x 2,02 x 2 m, 6 x 2,02 x 2 m e 6 x 3,02 x 3,8 m. Os 0,02 m a mais na altura vêm dos tubos do protótipo.
+
+
+## Semana 2: realismo dentro dos limites de RA (antes x depois, medido com `node medir.mjs`)
+
+Arquivos agora em `modelos/<modelo>/web.glb` e `ar.glb`. Nesta semana os dois são IGUAIS byte a byte (não houve ganho de compressão medido; nada de Draco, KTX2 ou meshopt). O model-viewer usa o `src` atual também na RA, por isso a página carrega o `web.glb` (não existe atributo separado para "arquivo de RA"). Validador glTF: 0 erros e 0 avisos nos 6 arquivos.
+
+| Meta | Semana 1 (4 m / 6 m / 6 m grande) | Semana 2 (4 m / 6 m / 6 m grande) | Meta batida? |
+|---|---|---|---|
+| Materiais (máx. 10) | 11 / 11 / 11 | 7 / 7 / 7 | sim |
+| Materiais com alpha (máx. 1) | 1 / 1 / 1 | 1 / 1 / 1 (rede, MASK) | sim |
+| Triângulos (máx. 50.000) | 32.016 / 43.600 / 72.232 | 14.920 / 18.740 / 28.324 | sim (o 6 m grande caiu 61%) |
+| UV por malha (1) | 1 / 1 / 1 | 1 / 1 / 1 | sim |
+| Vertex colors | não | não | sim |
+| Texturas (máx. 6, até 1024 x 1024) | 0 | 5 por modelo: 512, 512, 512, 256, 512 | sim |
+| Extensões glTF | nenhuma | nenhuma | sim |
+| Peso (máx. 10 MB) | 2,21 / 3,00 / 4,97 MB | 1,92 / 2,34 / 3,37 MB | sim |
+| Caixa medida dentro do arquivo (comp. x alt. x larg.) | 4 x 2,02 x 2 / 6 x 2,02 x 2 / 6 x 3,02 x 3,8 | 4 x 2 x 2 / 6 x 2 x 2 / 6 x 3 x 3,8 | sim (tirei os 2 cm a mais) |
+
+Nenhuma meta ficou de fora. O que NÃO foi possível medir: desempenho em celular real e a conversão automática para USDZ no iPhone.
+
+### Como ficaram os 7 materiais (um por família)
+1. Vinil de tubo (trama em normal map e mapa de rugosidade, 512 x 512 cada, uma célula por gomo, cor vem do atlas). 2. Plataforma (vinil liso e brilhante, cor do atlas). 3. Tatame. 4. Escorregador de plástico (também as pegadas hexagonais da parede). 5. Bolinhas (uma geometria só, 20 triângulos cada, sorteadas por seed). 6. Metal (miolo dos tubos e capas de canto). 7. Rede (painéis com losangos pretos, alphaMode MASK, dupla face, textura 512 x 512 que cobre 1 m).
+O atlas de cores tem 256 x 256 (4 x 4 amostras). Cada peça aponta o UV para a amostra da sua cor; por isso não há vertex color. Cores calibradas por amostragem das fotos gp-13 e gp-14 (aproximadas, não oficiais).
+
+### O que melhorou (comparando capturas em `capturas/` da semana 1 com `capturas-semana2/`)
+- Tubos com gomos abaulados, trama de vinil visível de perto e anéis de metal entre os gomos, como nas fotos.
+- Rede de losangos pretos no lugar do plano acinzentado quase transparente.
+- Bolinhas individuais e mais numerosas na visão de perto; escorregador em duas calhas em U; cantos com capas de metal.
+- Fundo do site com iluminação neutra e sombra moderada (só na tela do site).
+
+### O que continua aproximado (não é "igual ao real")
+- Interior (módulos, deck, posições, cores por peça) é ilustrativo; só a caixa externa é oficial.
+- A quantidade de bolinhas desenhada não é a da ficha (500 / 1.000 / 2.500) e a página não diz isso.
+- Tatames e plataformas são cor lisa com brilho: não têm a trama/ruga do vinil porque o modelo só pode ter um conjunto de UV e as cores vêm do atlas (trama só nos tubos).
+- Rede: sem mipmap na textura (para o fio não sumir de longe). De longe aparece moiré e a rede é mais densa que na foto ao ver o modelo inteiro. Se o modo de RA (Scene Viewer ou a conversão para USDZ) respeita esse ajuste: NÃO VERIFICADO.
+- RA continua NÃO testada em aparelho real; as capturas foram feitas em Chrome headless (software), que não prova nada sobre iPhone ou Android.
