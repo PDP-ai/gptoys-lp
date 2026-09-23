@@ -1,5 +1,5 @@
-// Gerador procedural do Kid Play. Uso: node gerar.mjs <comprimento> <largura> <altura> <saida.glb> [pulapula]
-// Medidas em metros. So a caixa externa e oficial; o interior e ilustrativo (proporcional a caixa).
+// Gerador procedural do Kid Play. Uso: node gerar.mjs skus/kidplay-6m.json saida.glb
+// Le a configuracao do modelo (JSON). So a caixa externa e oficial; o interior e ilustrativo (proporcional a caixa).
 import * as THREE from 'three';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
@@ -10,12 +10,14 @@ globalThis.FileReader = class {
   readAsDataURL(b) { b.arrayBuffer().then(r => { this.result = 'data:application/octet-stream;base64,' + Buffer.from(r).toString('base64'); this.onloadend?.(); }); }
 };
 
-const [L, W, H] = process.argv.slice(2, 5).map(Number);
-const out = process.argv[5] || 'kidplay.glb';
-if (!(L > 0 && W > 0 && H > 0)) { console.error('uso: node gerar.mjs L W H saida.glb'); process.exit(1); }
+const [cfgPath, out] = process.argv.slice(2, 4);
+if (!cfgPath || !out) { console.error('uso: node gerar.mjs skus/kidplay-6m.json saida.glb'); process.exit(1); }
+const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
+const { comprimento: L, largura: W, altura: H } = cfg.caixa_externa_m;
+if (!(L > 0 && W > 0 && H > 0)) { console.error('medidas invalidas em', cfgPath); process.exit(1); }
+const P = cfg.proporcoes;
 
-const C = { verde: 0x1fa64a, rosa: 0xe8318f, amarelo: 0xffd400, azul: 0x1f4fd8, vermelho: 0xe0202a, laranja: 0xff6a1a,
-  roxo: 0x5b2a9a, branco: 0xf4f4f0, azulclaro: 0x2f9be8, verdeclaro: 0x8fe02b, preto: 0x111111 };
+const C = Object.fromEntries(Object.entries(cfg.paleta).map(([k, v]) => [k, parseInt(v.replace('#', ''), 16)]));
 const groups = {}; // cor -> lista de geometrias
 const add = (cor, geo, m) => { geo = geo.clone(); geo.applyMatrix4(m || new THREE.Matrix4()); if (geo.index) geo = geo.toNonIndexed(); geo.deleteAttribute('uv'); (groups[cor] ||= []).push(geo); };
 const T = (x, y, z) => new THREE.Matrix4().makeTranslation(x, y, z);
@@ -34,7 +36,7 @@ const caixa = (cor, x0, y0, z0, x1, y1, z1) => add(cor, new THREE.BoxGeometry(x1
 const r = 0.055;
 
 // ---- proporcoes (ilustrativas), tudo relativo a caixa externa ----
-const deckY = Math.min(1.1, H * 0.5), poolX = L * 0.30, wallX = L * 0.55, slideX = L * 0.84;
+const deckY = cfg.niveis.deck_m, poolX = L * P.piscina_fim, wallX = L * P.parede_fim, slideX = L * P.escorregador_inicio;
 // coordenadas: x 0..L, y 0..H, z 0..W
 
 // 1) tubos das quinas e travessas (moldura externa)
@@ -44,7 +46,7 @@ const xs = (x) => Math.min(Math.max(x, r), L - r), zs = (z) => Math.min(Math.max
 const cor = (i, l) => l[i % l.length];
 for (const [y, lst] of [[H - r, ['verde', 'rosa', 'amarelo', 'azul']], [r, ['vermelho', 'roxo', 'rosa']], [deckY, ['laranja', 'azul']]]) {
   [0, W].forEach((z0, k) => {
-    const z = zs(z0), nseg = 4;
+    const z = zs(z0), nseg = P.travessas_por_lado;
     for (let i = 0; i < nseg; i++) tubo(cor(i + k, lst), [r + (L - 2 * r) * i / nseg, y, z], [r + (L - 2 * r) * (i + 1) / nseg, y, z]);
   });
   [0, L].forEach((x0, k) => tubo(cor(k, lst), [xs(x0), y, r], [xs(x0), y, W - r]));
@@ -53,8 +55,8 @@ for (const [y, lst] of [[H - r, ['verde', 'rosa', 'amarelo', 'azul']], [r, ['ver
 for (const x of [poolX, wallX, slideX]) [0, W].forEach((z, k) => tubo(['azul', 'vermelho', 'amarelo'][k + (x > wallX ? 1 : 0)], [x, 0, zs(z)], [x, H, zs(z)]));
 
 // 2) piso de tatames coloridos (grade)
-const pal = ['vermelho', 'roxo', 'rosa', 'azulclaro', 'verde', 'laranja', 'amarelo', 'azul'];
-const nx = Math.round(L / 0.5), nz = Math.max(1, Math.round(W / 0.5));
+const pal = cfg.paleta_tatames;
+const nx = Math.round(L / P.tatame_m), nz = Math.max(1, Math.round(W / P.tatame_m));
 for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++) {
   const x0 = L * i / nx, x1 = L * (i + 1) / nx;
   if (x1 <= poolX) continue; // piscina no lugar
@@ -64,10 +66,10 @@ for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++) {
 caixa('azulclaro', 0.02, 0, 0.02, poolX, 0.03, W - 0.02);
 const bord = 0.32;
 caixa('azul', 0.02, 0, 0.02, poolX, bord, 0.08); caixa('azul', 0.02, 0, W - 0.08, poolX, bord, W - 0.02); caixa('azul', 0.02, 0, 0.02, 0.08, bord, W - 0.02);
-let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-const bcores = ['vermelho', 'amarelo', 'azul', 'verde'];
+let seed = cfg.seed; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const bcores = cfg.paleta_bolinhas;
 const bg = new THREE.SphereGeometry(0.075, 8, 6);
-const nb = Math.round(320 * (poolX * W) / (1.8 * 2)); // densidade ~constante
+const nb = Math.round(P.bolinhas_ref * (poolX * W) / (P.bolinhas_ref_area_m2)); // densidade ~constante
 for (let i = 0; i < nb; i++) add(bcores[i % 4], bg, T(0.13 + rnd() * (poolX - 0.22), 0.06 + rnd() * 0.22, 0.14 + rnd() * (W - 0.28)));
 
 // 4) plataforma superior (andar 2) sobre a area direita

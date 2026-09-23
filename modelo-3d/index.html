@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Kid Play 6 m em 3D | GP Toys</title>
+<title>Kid Play em 3D | GP Toys</title>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 <style>
   :root{--fundo:#faf9f6;--texto:#1d1d1f;--suave:#5c5c60;--linha:#e2e0da;--acento:#1f4fd8}
@@ -15,14 +15,22 @@
   p{margin:0 0 12px;color:var(--suave)}
   model-viewer{width:100%;height:62vh;min-height:320px;background:#ecebe6;border-radius:12px;--poster-color:#ecebe6}
   button[slot=ar-button]{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:var(--acento);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:600 1rem system-ui}
+  .seletor{display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap}
+  .seletor button{flex:1;min-width:96px;background:#fff;color:var(--texto);border:1px solid var(--linha);border-radius:8px;padding:10px 12px;font:600 .95rem system-ui;cursor:pointer}
+  .seletor button[aria-pressed=true]{background:var(--acento);color:#fff;border-color:var(--acento)}
   .medidas{border-top:1px solid var(--linha);margin-top:20px;padding-top:16px}
   .aviso{font-size:.9rem;border-left:3px solid var(--acento);padding-left:12px;color:var(--texto)}
 </style>
 </head>
 <body>
 <main>
-  <h1>Kid Play 6 m</h1>
+  <h1 id="titulo">Kid Play 6 m</h1>
   <p>Gire o modelo com o dedo. No celular, toque em “Ver no seu espaço” para colocá-lo no tamanho real no ambiente.</p>
+  <div class="seletor" role="group" aria-label="Escolha o modelo">
+    <button type="button" data-m="kidplay-4m" aria-pressed="false">Kid Play 4 m</button>
+    <button type="button" data-m="kidplay-6m" aria-pressed="true">Kid Play 6 m</button>
+    <button type="button" data-m="kidplay-6m-grande" aria-pressed="false">Kid Play 6 m grande</button>
+  </div>
   <model-viewer id="mv" src="kidplay-6m.glb" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
     ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed"
     camera-controls touch-action="pan-y" shadow-intensity="1" exposure="1.1"
@@ -30,9 +38,24 @@
     <button slot="ar-button">Ver no seu espaço</button>
   </model-viewer>
   <div class="medidas">
-    <p><strong>Medidas oficiais (caixa externa):</strong> 6 m de comprimento × 2 m de largura × 2 m de altura.</p>
-    <p class="aviso">Representação ilustrativa, as dimensões oficiais são as da caixa externa. Posição de plataformas, escorregador e parede de escalada são aproximações e podem diferir do produto real.</p>
+    <p><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">6 m de comprimento × 2 m de largura × 2 m de altura</span>.</p>
+    <p class="aviso">Representação ilustrativa, as dimensões oficiais são as da caixa externa. O arranjo interno (módulos, plataformas, escorregador, parede de escalada e bolinhas) é genérico e ilustrativo, não é o formato real das peças, e pode diferir do produto real.</p>
   </div>
 </main>
+<script>
+  var M={"kidplay-4m":["Kid Play 4 m","4 m de comprimento × 2 m de largura × 2 m de altura"],
+    "kidplay-6m":["Kid Play 6 m","6 m de comprimento × 2 m de largura × 2 m de altura"],
+    "kidplay-6m-grande":["Kid Play 6 m grande","6 m de comprimento × 3,80 m de largura × 3 m de altura"]};
+  var mv=document.getElementById('mv');
+  function escolher(b){
+    var id=b.dataset.m;
+    document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    mv.src=id+'.glb'; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
+    document.getElementById('titulo').textContent=M[id][0];
+    document.getElementById('medidas').textContent=M[id][1];
+  }
+  document.querySelectorAll('.seletor button').forEach(function(b){b.addEventListener('click',function(){escolher(b)});});
+  var q=new URLSearchParams(location.search).get('m'), bq=q&&document.querySelector('.seletor button[data-m="'+q+'"]'); if(bq) escolher(bq);
+</script>
 </body>
 </html>
