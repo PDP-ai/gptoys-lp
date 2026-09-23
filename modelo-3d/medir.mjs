@@ -20,6 +20,13 @@ function ler(caminho) {
     if (uvs.size) comUV++;
     maxUVporMalha = Math.max(maxUVporMalha, uvs.size);
   }
+  // texturas: dimensoes lidas do cabecalho PNG; vertex colors; caixa (min/max dos POSITION, sem transformacoes de no)
+  const dims = (j.images || []).map(im => { const v = j.bufferViews[im.bufferView], o = 20 + tamJson + 8 + v.byteOffset; return buf.readUInt32BE(o + 16) + 'x' + buf.readUInt32BE(o + 20); });
+  let vertexColors = false; const mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
+  for (const m of j.meshes || []) for (const p of m.primitives) {
+    if (Object.keys(p.attributes).some(a => a.startsWith('COLOR_'))) vertexColors = true;
+    const a = j.accessors[p.attributes.POSITION]; if (a.min) for (let i = 0; i < 3; i++) { mn[i] = Math.min(mn[i], a.min[i]); mx[i] = Math.max(mx[i], a.max[i]); }
+  }
   const mats = j.materials || [];
   const comAlpha = mats.filter(m => (m.alphaMode && m.alphaMode !== 'OPAQUE')).length;
   return {
@@ -28,6 +35,7 @@ function ler(caminho) {
     materiais: mats.length, materiais_com_alpha: comAlpha,
     texturas: (j.textures || []).length, imagens: (j.images || []).length,
     extensoes_usadas: j.extensionsUsed || [], extensoes_exigidas: j.extensionsRequired || [],
+    texturas_dimensoes: dims, vertex_colors: vertexColors, caixa_m: mn.map((v, i) => +(mx[i] - v).toFixed(3)),
     malhas_com_UV: comUV, max_UVs_por_malha: maxUVporMalha
   };
 }

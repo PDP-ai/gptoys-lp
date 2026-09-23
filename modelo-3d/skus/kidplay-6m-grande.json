@@ -41,16 +41,16 @@
     "observacao_bolinhas": "quantidade desenhada e ilustrativa (densidade ~constante), nao e a quantidade oficial"
   },
   "paleta": {
-    "verde": "#1fa64a",
-    "rosa": "#e8318f",
-    "amarelo": "#ffd400",
-    "azul": "#1f4fd8",
-    "vermelho": "#e0202a",
-    "laranja": "#ff6a1a",
-    "roxo": "#5b2a9a",
-    "branco": "#f4f4f0",
-    "azulclaro": "#2f9be8",
-    "verdeclaro": "#8fe02b",
+    "verde": "#1d8a4a",
+    "rosa": "#d8368a",
+    "amarelo": "#f0c800",
+    "azul": "#2b5fd9",
+    "vermelho": "#d9303f",
+    "laranja": "#f56a2c",
+    "roxo": "#5a3a8c",
+    "branco": "#e8e2d2",
+    "azulclaro": "#2a8fe8",
+    "verdeclaro": "#9fd94a",
     "preto": "#111111"
   },
   "paleta_tatames": [
@@ -68,5 +68,6 @@
     "amarelo",
     "azul",
     "verde"
-  ]
+  ],
+  "paleta_observacao": "cores calibradas por amostragem das fotos gp-13 e gp-14 do site da GP Toys (aproximadas, nao oficiais)"
 }
