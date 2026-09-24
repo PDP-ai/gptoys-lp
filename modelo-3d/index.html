@@ -32,11 +32,15 @@
     <button type="button" data-m="kidplay-6m-grande" aria-pressed="false">Kid Play 6 m grande</button>
     <button type="button" data-m="kidplay-7m-pula-pula" aria-pressed="false">Kid Play 7 m com pula-pula</button>
   </div>
-  <model-viewer id="mv" src="modelos/kidplay-6m/web.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
-    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed"
+  <model-viewer id="mv" src="modelos/kidplay-6m/ar.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor"
     camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
     camera-orbit="-35deg 70deg auto" interaction-prompt="auto">
-    <button slot="ar-button">Ver no seu espaço</button>
+    <button slot="ar-button">Ver no seu espaço (tamanho real)</button>
+  </model-viewer>
+  <model-viewer id="mv2" src="modelos/kidplay-6m/ar.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Miniatura do brinquedão Kid Play 6 m"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor" style="height:90px;min-height:0;margin-top:10px" disable-zoom>
+    <button slot="ar-button">Ver em miniatura (sobre uma mesa)</button>
   </model-viewer>
   <div class="medidas">
     <p><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">6 m de comprimento × 2 m de largura × 2 m de altura</span>.</p>
@@ -48,11 +52,11 @@
     "kidplay-6m":["Kid Play 6 m","6 m de comprimento × 2 m de largura × 2 m de altura"],
     "kidplay-6m-grande":["Kid Play 6 m grande","6 m de comprimento × 3,80 m de largura × 3 m de altura"],
     "kidplay-7m-pula-pula":["Kid Play 7 m com pula-pula","7 m de comprimento × 2 m de largura × 2,70 m de altura, com área de pula-pula de 2 m × 2 m"]};
-  var mv=document.getElementById('mv');
+  var mv=document.getElementById('mv'), mv2=document.getElementById('mv2');
   function escolher(b){
     var id=b.dataset.m;
     document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    mv.src='modelos/'+id+'/web.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb = web.glb; ar.usdz e o arquivo do iPhone (Quick Look) */ mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
+    mv.src='modelos/'+id+'/ar.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb (rede em geometria) na tela e no Android; ar.usdz no iPhone (Quick Look) */ mv2.src=mv.src; mv2.iosSrc=mv.iosSrc; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
     document.getElementById('titulo').textContent=M[id][0];
     document.getElementById('medidas').textContent=M[id][1];
   }

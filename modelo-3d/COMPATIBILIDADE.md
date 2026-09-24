@@ -54,3 +54,16 @@ Teste em aparelho real (Android/iPhone): NÃO FEITO. A RA continua não testada.
 - Resultado do `usdchecker --arkit`: Success! nos 3. Conferido reabrindo com `verificar_usdz.py`: caixa 4x2x2, 6x2x2 e 6x3x3,8 m (altura no eixo Y), texturas presentes, rede com limiar e dupla face. Pesos: 1,52 MB, 1,87 MB, 2,75 MB (meta: abaixo de 10 MB).
 - Captura do USDZ: feita com `usdrecord` (renderizador de teste do próprio USD, em `capturas-usdz/`). NÃO é o Quick Look da Apple; o `qlmanage` deste Mac travou. NÃO VERIFICADO no iPhone real: abertura, escala na tela, aparência da rede e do normal.
 - Ligado em `index.html` com `ios-src` para os 3 modelos.
+
+## Rodada de 23/09/2026 (depois do teste no iPhone): rede em geometria, conectores, pivô
+
+Teste real no iPhone mostrou: escala, cores, trama e bolinhas bons; rede NÃO apareceu; conectores de canto brancos; modelo "em cima" do usuário e girando em volta do canto.
+
+1. Rede no `ar.glb` agora é GEOMETRIA: faixas planas finas de 10 mm, uma faixa contínua por diagonal em cada painel, losango de 20 cm, dupla face, material opaco #333, zero materiais com alpha. O `web.glb` mantém a rede em textura (MASK). Variantes testadas em 6 m: fio 10 mm com losango de 15, 20 e 25 cm (12 mm no de 25); escolhido 10 mm x 20 cm (o de 15 cm ficou denso, o de 25 cm deixou o fio irregular). Custo: +1,9 a 2,4 mil triângulos por modelo; o 6 m grande ficou com 30.684 (meta 50.000). Não foi preciso aumentar o losango no 6 m grande.
+2. Conectores de canto no `ar.glb`: metalness 0, roughness 0,5, cor #8a8f96. O `web.glb` ficou como estava (metal 0,8), pois a página agora carrega o `ar.glb` também na tela.
+3. Pivô: origem no centro da base (x e z de -C/2 a +C/2, y=0 no piso), nos 3 arquivos. Conferido nos acessores POSITION e no USDZ reaberto com pxr.
+4. `index.html`: `src` = `ar.glb` (tela e Android), `ios-src` = `ar.usdz`; `ar-placement="floor"`, `ar-scale="fixed"` no botão de tamanho real e um segundo visualizador com `ar-scale="auto"` ("Ver em miniatura").
+
+Como o model-viewer escolhe o arquivo (docs.json oficial, github.com/google/model-viewer): `src` é o modelo para a tela; `ios-src` é usado no Quick Look do iPhone. Não encontrei atributo oficial equivalente para Android: o Scene Viewer recebe o `src` (dedução da documentação, que só descreve `src` e `ios-src`). Por isso o `src` agora é o `ar.glb`. Semântica exata de `ar-scale` e `ar-placement` na doc oficial: NÃO VERIFICADO nesta rodada (só consta que `ar-scale="fixed"` mantém 100 % da escala, já confirmado antes).
+
+Ainda NÃO VERIFICADO: aparência da rede geométrica e dos conectores no iPhone/Android reais; se o pivô resolve o problema relatado. Só um novo teste no celular confirma. Capturas em `capturas-rede-geometrica/` (Chrome headless com renderização por software; nas capturas "antes" a rede em textura aparece bem no Chrome, o problema era só no visualizador do celular; a captura "antes-media" do 4 m/6 m pode sair em branco por falha da captura).

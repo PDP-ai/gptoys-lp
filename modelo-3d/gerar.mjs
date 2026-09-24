@@ -15,7 +15,9 @@ const P = cfg.proporcoes;
 
 // ---- atlas: ordem fixa das cores (ate 16 celulas) ----
 const chaves = [...Object.keys(cfg.paleta), 'metal'];
-const hexes = [...Object.values(cfg.paleta), '#b9bdc4'];
+const METAL_WEB = process.env.METAL_WEB || '#b9bdc4', METAL_AR = '#8a8f96'; // AR: cinza medio nao-metal (correcao 2)
+const hexes = [...Object.values(cfg.paleta), METAL_WEB];
+const hexesAr = [...Object.values(cfg.paleta), METAL_AR];
 if (chaves.length > 16) throw new Error('atlas comporta 16 cores');
 const idx = (c) => { const i = chaves.indexOf(c); if (i < 0) throw new Error('cor fora do atlas: ' + c); return i; };
 
@@ -207,10 +209,41 @@ add('plataforma', 'roxo', new THREE.CylinderGeometry(0.16, 0.16, Math.min(0.8, W
   painel(L, H, 0, [L / 2, H / 2, 0.005]); painel(L, H, 0, [L / 2, H / 2, W - 0.005]); painel(W, H, Math.PI / 2, [0.005, H / 2, W / 2]); painel(W, H, Math.PI / 2, [L - 0.005, H / 2, W / 2]);
 }
 
+// 8b) rede em GEOMETRIA para o ar.glb (sem alpha): faixas planas finas, uma faixa continua por diagonal e por painel,
+//     dupla face, material opaco #333. w = largura do fio (m), p = passo do losango (m, medido no eixo).
+const REDE_GEO_W = +(process.env.REDE_GEO_W || 0.010), REDE_GEO_P = +(process.env.REDE_GEO_P || 0.20);
+const redeAr = { pos: [], nor: [], uv: [] };
+{
+  const w = REDE_GEO_W, p = REDE_GEO_P, h = w / 2, ins = h;
+  const painel = (a, b, ry, pt) => {
+    const tris = [];
+    for (const s of [1, -1]) {
+      const kmin = s === 1 ? 0 : -Math.ceil(b / p) - 1, kmax = s === 1 ? Math.ceil((a + b) / p) : Math.ceil(a / p) + 1;
+      for (let k = kmin; k <= kmax; k++) {
+        const c = k * p; let x0, x1;
+        if (s === 1) { x0 = Math.max(ins, c - (b - ins)); x1 = Math.min(a - ins, c - ins); } else { x0 = Math.max(ins, c + ins); x1 = Math.min(a - ins, c + b - ins); }
+        if (x1 - x0 < 1e-4) continue;
+        const y = (x) => (s === 1 ? c - x : x - c);
+        const P0 = [x0, y(x0)], P1 = [x1, y(x1)], dx = P1[0] - P0[0], dy = P1[1] - P0[1], l = Math.hypot(dx, dy), nx = -dy / l * h, ny = dx / l * h;
+        const A = [P0[0] - nx, P0[1] - ny], B = [P1[0] - nx, P1[1] - ny], C = [P1[0] + nx, P1[1] + ny], D = [P0[0] + nx, P0[1] + ny];
+        for (const t of [A, B, C, A, C, D]) tris.push(t[0] - a / 2, t[1] - b / 2, 0);
+      }
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(tris, 3)); g.rotateY(ry); g.translate(...pt);
+    const n = tris.length / 3, nor = new Float32Array(n * 3), v = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), ry);
+    for (let i = 0; i < n; i++) nor.set([v.x, v.y, v.z], i * 3);
+    redeAr.pos.push(g.attributes.position.array); redeAr.nor.push(nor); redeAr.uv.push(new Float32Array(n * 2));
+  };
+  painel(L, H, 0, [L / 2, H / 2, 0.005]); painel(L, H, 0, [L / 2, H / 2, W - 0.005]); painel(W, H, Math.PI / 2, [0.005, H / 2, W / 2]); painel(W, H, Math.PI / 2, [L - 0.005, H / 2, W / 2]);
+}
+
 // ---- escreve o GLB (sem extensoes, 1 conjunto de UV, sem vertex colors) ----
 const cat = (arrs) => { const n = arrs.reduce((s, a) => s + a.length, 0), o = new Float32Array(n); let k = 0; for (const a of arrs) { o.set(a, k); k += a.length; } return o; };
-const vin = vinilTubo(hexes);
-const imagens = [vin.cor, vin.normal, vin.rugosidade, atlasSolido(hexes), redeLosangos()];
+const vin = vinilTubo(hexes), vinAr = vinilTubo(hexesAr);
+const METAL_WEB_PBR = process.env.METAL_WEB_NAOMETAL ? { metallicFactor: 0, roughnessFactor: 0.5 } : { metallicFactor: 0.8, roughnessFactor: 0.35 };
+function escrever(ar) {
+const FAMx = ar ? { ...FAM, rede: redeAr } : FAM;
+const imagens = ar ? [vin.cor, vin.normal, vin.rugosidade, atlasSolido(hexesAr)] : [vin.cor, vin.normal, vin.rugosidade, atlasSolido(hexes), redeLosangos()];
 const nomesImg = ['vinil_cor', 'vinil_normal', 'vinil_rugosidade', 'atlas_cores', 'rede_losangos'];
 const materiais = {
   vinil_tubo: { pbrMetallicRoughness: { baseColorTexture: { index: 0 }, metallicRoughnessTexture: { index: 2 }, metallicFactor: 0, roughnessFactor: 1 }, normalTexture: { index: 1, scale: 0.8 } },
@@ -219,16 +252,17 @@ const materiais = {
   escorregador_plastico: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.22 } },
   cama: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.85 } },
   bolinhas: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.28 } },
-  metal: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0.8, roughnessFactor: 0.35 } },
-  rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: +(process.env.REDE_CORTE || 0.25), doubleSided: true },
+  metal: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, ...(ar ? { metallicFactor: 0, roughnessFactor: 0.5 } : METAL_WEB_PBR) } },
+  rede: ar ? { pbrMetallicRoughness: { baseColorFactor: [0.0331, 0.0331, 0.0331, 1], metallicFactor: 0, roughnessFactor: 0.8 }, doubleSided: true } : { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: +(process.env.REDE_CORTE || 0.25), doubleSided: true },
 };
 const partes = []; let off = 0;
 const view = (buf, target) => { const pad = (4 - (off % 4)) % 4; if (pad) { partes.push(Buffer.alloc(pad)); off += pad; } const v = { buffer: 0, byteOffset: off, byteLength: buf.length }; if (target) v.target = target; partes.push(buf); off += buf.length; return v; };
 const j = { asset: { version: '2.0', generator: 'gerar.mjs (GP Toys, prototipo)', extras: { aviso: cfg.aviso, caixa_externa_m: cfg.caixa_externa_m } }, scene: 0, scenes: [{ nodes: [0] }], nodes: [{ name: `KidPlay_${L}x${W}x${H}m`, children: [] }], meshes: [], materials: [], accessors: [], bufferViews: [], images: [], textures: [], samplers: [{ magFilter: 9729, minFilter: 9987, wrapS: 33071, wrapT: 33071 }, { magFilter: 9729, minFilter: 9987, wrapS: 10497, wrapT: 10497 }] };
 const bv = (v) => j.bufferViews.push(v) - 1, ac = (a) => j.accessors.push(a) - 1;
 imagens.forEach((b, i) => { j.images.push({ name: nomesImg[i], mimeType: 'image/png', bufferView: bv(view(b)) }); j.textures.push({ source: i, sampler: i === 4 ? 1 : 0 }); });
-for (const [nome, f] of Object.entries(FAM)) {
-  const pos = cat(f.pos), nor = cat(f.nor), uv = cat(f.uv), n = pos.length / 3;
+for (const [nome, f] of Object.entries(FAMx)) {
+  const pos = cat(f.pos); for (let i = 0; i < pos.length; i += 3) { pos[i] -= L / 2; pos[i + 2] -= W / 2; } /* pivo no centro da base: x,z centrados, y=0 no piso */
+  const nor = cat(f.nor), uv = cat(f.uv), n = pos.length / 3;
   const mn = [Infinity, Infinity, Infinity], mx = [-Infinity, -Infinity, -Infinity];
   for (let i = 0; i < pos.length; i++) { mn[i % 3] = Math.min(mn[i % 3], pos[i]); mx[i % 3] = Math.max(mx[i % 3], pos[i]); }
   const aP = ac({ bufferView: bv(view(Buffer.from(pos.buffer), 34962)), componentType: 5126, count: n, type: 'VEC3', min: mn, max: mx });
@@ -245,7 +279,10 @@ const binP = Buffer.concat([bin, Buffer.alloc((4 - bin.length % 4) % 4)]);
 const head = Buffer.alloc(12); head.writeUInt32LE(0x46546c67, 0); head.writeUInt32LE(2, 4); head.writeUInt32LE(12 + 8 + js.length + 8 + binP.length, 8);
 const ch = (t, b) => { const h = Buffer.alloc(8); h.writeUInt32LE(b.length, 0); h.writeUInt32LE(t, 4); return Buffer.concat([h, b]); };
 const glb = Buffer.concat([head, ch(0x4e4f534a, js), ch(0x004e4942, binP)]);
+return glb;
+}
 fs.mkdirSync(outDir, { recursive: true });
-// web.glb e ar.glb: nesta semana sao IGUAIS (nao houve ganho de compressao medido; sem Draco/KTX2/meshopt)
-for (const n of ['web.glb', 'ar.glb']) fs.writeFileSync(path.join(outDir, n), glb);
-console.log(outDir, glb.length, 'bytes por arquivo');
+// web.glb: rede em textura MASK; ar.glb: rede em geometria opaca e metal nao-metalico (sem Draco/KTX2/meshopt)
+const gw = escrever(false), ga = escrever(true);
+fs.writeFileSync(path.join(outDir, 'web.glb'), gw); fs.writeFileSync(path.join(outDir, 'ar.glb'), ga);
+console.log(outDir, 'web', gw.length, 'ar', ga.length, 'bytes');

@@ -5,3 +5,4 @@
 3. Para o iPhone, gere o `ar.usdz` de cada um: `python3 glb_para_usdz.py modelos/<modelo>/ar.glb modelos/<modelo>/ar.usdz` (precisa de `pip install usd-core`). Confira com `node medir.mjs arquivo.glb` e `python3 verificar_usdz.py arquivo.usdz`.
 4. O que falta: a fábrica confirmar o desenho interno e as peças (ver lacunas no `INVENTARIO.md`); testar a RA em iPhone e Android de verdade (NÃO testada); conferir cores e a rede contra fotos reais.
 5. Nada aqui tem preço, prazo ou promessa, e nada está "igual ao real". Não faça deploy sem revisão humana. Limites de Android e iPhone: `COMPATIBILIDADE.md`.
+6. Rodada 23/09: `ar.glb` tem rede em geometria (sem transparência) e conectores cinza não-metálicos; origem dos modelos no centro da base. Tamanho real = `ar-scale="fixed"`; a página tem também "Ver em miniatura" (`ar-scale="auto"`). Detalhes em `COMPATIBILIDADE.md`.

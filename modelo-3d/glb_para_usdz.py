@@ -44,8 +44,11 @@ for m in j['materials']:
     rd = UsdShade.Shader.Define(st, mp + '/LeitorST'); rd.CreateIdAttr('UsdPrimvarReader_float2')
     rd.CreateInput('varname', Sdf.ValueTypeNames.String).Set('st'); rd.CreateOutput('result', Sdf.ValueTypeNames.Float2)
     pbr = m['pbrMetallicRoughness']
-    bc = tex_node(mp, 'Cor', imgs[j['textures'][pbr['baseColorTexture']['index']]['source']], 'rgb', True, rd)
-    sh.CreateInput('diffuseColor', Sdf.ValueTypeNames.Color3f).ConnectToSource(bc.ConnectableAPI(), 'rgb')
+    if 'baseColorTexture' in pbr:
+        bc = tex_node(mp, 'Cor', imgs[j['textures'][pbr['baseColorTexture']['index']]['source']], 'rgb', True, rd)
+        sh.CreateInput('diffuseColor', Sdf.ValueTypeNames.Color3f).ConnectToSource(bc.ConnectableAPI(), 'rgb')
+    else:  # cor constante opaca (rede em geometria): baseColorFactor linear
+        f = pbr['baseColorFactor']; sh.CreateInput('diffuseColor', Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(f[0], f[1], f[2]))
     sh.CreateInput('metallic', Sdf.ValueTypeNames.Float).Set(float(pbr.get('metallicFactor', 0)))
     if 'metallicRoughnessTexture' in pbr:
         rg = tex_node(mp, 'Rugosidade', imgs[j['textures'][pbr['metallicRoughnessTexture']['index']]['source']], 'g', False, rd)
