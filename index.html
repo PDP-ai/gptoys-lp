@@ -6,8 +6,9 @@
 <title>GP Toys — Área Kids que Aumenta seu Faturamento</title>
 <meta name="description" content="Fábrica de brinquedões e playgrounds sob medida para restaurantes, escolas, buffets e condomínios. Fabricação própria em Realengo, Rio de Janeiro. Atendemos RJ, SP, MG e ES. Projetos a partir de R$ 15.900.">
 <link rel="canonical" href="https://www.gptoys.com.br/">
-<link rel="icon" type="image/png" href="/assets/logo.png">
-<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/marca/icone-gp-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/marca/icone-gp-48.png">
+<link rel="apple-touch-icon" href="/assets/marca/icone-gp-180.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="GP Toys">
@@ -786,10 +787,7 @@ footer {
   display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 .footer-logo img {
-  height: 88px; width: auto; display: block;
-  background: var(--white); padding: 8px;
-  border: var(--stroke); border-radius: 20px;
-  box-shadow: 4px 4px 0 var(--yellow);
+  height: 110px; width: auto; display: block;
 }
 .footer-logo span { color: var(--red); }
 footer p { font-size: 14px; margin-top: 12px; color: rgba(255,246,209,.7); }
@@ -819,6 +817,48 @@ footer p + p { margin-top: 6px; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .fade-up, .js-anim .fade-up { opacity: 1; transform: none; }
+}
+
+
+/* ═══════════════ MARCA ANIMADA ═══════════════ */
+.brand-anim { position: relative; width: 200px; height: 184px; margin: 0 auto 22px; }
+.brand-anim .ba-logo { width: 200px; height: auto; display: block; position: relative; z-index: 2; filter: drop-shadow(5px 6px 0 rgba(20,20,20,.9)); }
+.brand-anim.play .ba-logo { animation: baPop .9s cubic-bezier(.34,1.56,.64,1) both, baFloat 3.6s ease-in-out .9s infinite; }
+.ba-spark { position: absolute; width: 18px; height: 18px; z-index: 3; opacity: 0;
+  clip-path: polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%); }
+.ba-spark.s1 { top: -6px; left: 6px; background: var(--red); }
+.ba-spark.s2 { top: 18px; right: -14px; background: var(--blue); width: 22px; height: 22px; }
+.ba-spark.s3 { bottom: 26px; left: -18px; background: var(--white); }
+.ba-spark.s4 { bottom: -4px; right: 10px; background: var(--red); width: 14px; height: 14px; }
+.ba-spark.s5 { top: 70px; left: -24px; background: var(--blue); width: 12px; height: 12px; }
+.ba-spark.s6 { top: -14px; right: 48px; background: var(--white); width: 14px; height: 14px; }
+.brand-anim.play .ba-spark { animation: baTwinkle 2.4s ease-in-out infinite; }
+.brand-anim.play .s2 { animation-delay: .4s; } .brand-anim.play .s3 { animation-delay: .8s; }
+.brand-anim.play .s4 { animation-delay: 1.2s; } .brand-anim.play .s5 { animation-delay: 1.6s; }
+.brand-anim.play .s6 { animation-delay: 2s; }
+.ba-ball { position: absolute; bottom: 0; width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--ink); z-index: 1; opacity: 0; }
+.ba-ball.b1 { left: -46px; background: var(--red); }
+.ba-ball.b2 { right: -46px; background: var(--blue); width: 18px; height: 18px; }
+.brand-anim.play .ba-ball { opacity: 1; animation: baBounce 1.1s cubic-bezier(.5,0,.5,1) infinite alternate; }
+.brand-anim.play .b2 { animation-delay: .55s; }
+@keyframes baPop { 0% { opacity: 0; transform: scale(.3) rotate(-14deg); } 60% { opacity: 1; transform: scale(1.08) rotate(3deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes baFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-8px) rotate(-1.5deg); } }
+@keyframes baTwinkle { 0%, 100% { opacity: 0; transform: scale(.4) rotate(0); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+@keyframes baBounce { 0% { transform: translateY(0) scaleY(.85); } 100% { transform: translateY(-70px) scaleY(1); } }
+@media (max-width: 480px) { .ba-ball.b1 { left: -30px; } .ba-ball.b2 { right: -30px; } }
+
+.brand-celebrate { display: flex; justify-content: center; margin-bottom: 14px; position: relative; }
+.brand-celebrate img { width: 130px; height: auto; filter: drop-shadow(4px 5px 0 rgba(20,20,20,.9)); }
+#ctaSuccess.active .brand-celebrate img { animation: baCelebrate 1s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes baCelebrate { 0% { transform: scale(.2) rotate(-25deg); } 55% { transform: scale(1.15) rotate(8deg); } 75% { transform: scale(.95) rotate(-3deg); } 100% { transform: scale(1) rotate(0); } }
+.confetti-piece { position: absolute; top: 40%; left: 50%; width: 10px; height: 14px; border: 2px solid var(--ink); border-radius: 3px; pointer-events: none;
+  animation: confettiBurst 1.3s cubic-bezier(.2,.6,.4,1) forwards; }
+@keyframes confettiBurst { 0% { transform: translate(-50%,-50%) rotate(0); opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-anim .ba-logo, .brand-anim.play .ba-logo, #ctaSuccess.active .brand-celebrate img { animation: none !important; }
+  .ba-spark, .ba-ball, .brand-anim.play .ba-spark, .brand-anim.play .ba-ball { display: none; }
+  .confetti-piece { display: none; }
 }
 
 /* ═══════════════ GALLERY / CARROSSEL ═══════════════ */
@@ -941,7 +981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><img src="assets/logo.png" alt="GP Toys" style="height:52px;width:auto;display:block;"></div>
+  <div class="nav-logo"><picture><source srcset="assets/marca/logo-selo-320.webp" type="image/webp"><img src="assets/marca/logo-selo-320.png" alt="GP Toys" width="57" height="52" style="height:52px;width:auto;display:block;"></picture></div>
   <div class="nav-links">
     <a href="#segmentos">Para quem é</a>
     <a href="#como-funciona">Como funciona</a>
@@ -1354,6 +1394,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="cta-wrap fade-up">
       <div class="cta-header">
+        <div class="brand-anim" aria-hidden="true">
+          <span class="ba-spark s1"></span><span class="ba-spark s2"></span><span class="ba-spark s3"></span>
+          <span class="ba-spark s4"></span><span class="ba-spark s5"></span><span class="ba-spark s6"></span>
+          <span class="ba-ball b1"></span><span class="ba-ball b2"></span>
+          <picture><source srcset="assets/marca/logo-selo-640.webp" type="image/webp"><img src="assets/marca/logo-selo-640.png" alt="" width="200" height="184" loading="lazy" class="ba-logo"></picture>
+        </div>
         <h2>Pronto para <span>transformar</span> seu espaço?</h2>
         <p>Preencha abaixo e receba um orçamento personalizado em até 24 horas. Sem compromisso.</p>
       </div>
@@ -1449,7 +1495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- SUCCESS -->
         <div class="quiz-step" id="ctaSuccess">
           <div style="text-align:center;padding:20px 0">
-            <div style="font-size:60px;margin-bottom:14px">🎉</div>
+            <div class="brand-celebrate" aria-hidden="true"><picture><source srcset="assets/marca/logo-selo-320.webp" type="image/webp"><img src="assets/marca/logo-selo-320.png" alt="" width="130" height="119" loading="lazy"></picture></div>
             <div style="font-family:'Fredoka',sans-serif;font-size:32px;font-weight:700;color:var(--green);margin-bottom:8px">Recebemos seu pedido!</div>
             <p style="font-size:15px;color:var(--gray-dark);line-height:1.7;margin-bottom:24px">Nossa equipe entra em contato em até 24 horas com seu orçamento personalizado.</p>
             <a href="#" id="ctaWaBtn" class="btn-primary" style="display:none;margin:0 auto;justify-content:center" target="_blank" rel="noopener">💬 Falar agora no WhatsApp</a>
@@ -1462,7 +1508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><img src="assets/logo.png" alt="GP Toys" style="height:80px;width:auto;display:block;margin:0 auto 12px;"></div>
+  <div class="footer-logo"><picture><source srcset="assets/marca/logo-selo-320.webp" type="image/webp"><img src="assets/marca/logo-selo-320.png" alt="GP Toys" width="120" height="110" loading="lazy" style="height:110px;width:auto;display:block;margin:0 auto 12px;"></picture></div>
   <p>Fabricante Brasileiro de Brinquedões e Espaços Kids · Rio de Janeiro</p>
   <p style="margin-top:8px;">Av. Brasil, 28823 · Realengo · Rio de Janeiro/RJ</p>
   <p style="margin-top:4px;">Seg a sex, 9h às 18h · Sáb, 9h às 13h · Atendemos RJ, SP, MG e ES</p>
@@ -1611,6 +1657,7 @@ window.dataLayer.push({
 
 
   showStep('Success');
+  if (window.gpConfetti) window.gpConfetti();
   updateProgress('Success');
 
   // Fallback: se houver número configurado, abre WhatsApp pré-preenchido após 2s
@@ -1821,6 +1868,33 @@ function galScroll(dir){
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+})();
+
+// ── MARCA ANIMADA: dispara quando a chamada final entra na tela; confete no sucesso ──
+(function(){
+  var ba = document.querySelector('.brand-anim');
+  if (ba) {
+    if ('IntersectionObserver' in window) {
+      var o = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { ba.classList.add('play'); o.disconnect(); } }); }, { threshold: 0.4 });
+      o.observe(ba);
+    } else { ba.classList.add('play'); }
+  }
+  window.gpConfetti = function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var box = document.querySelector('#ctaSuccess .brand-celebrate'); if (!box) return;
+    var cores = ['#FFD23F','#E3001B','#1E7BE0','#2FAE5B','#ffffff'];
+    for (var i = 0; i < 26; i++) {
+      var c = document.createElement('span'); c.className = 'confetti-piece';
+      var ang = Math.random() * Math.PI * 2, dist = 90 + Math.random() * 110;
+      c.style.setProperty('--dx', Math.round(Math.cos(ang) * dist) + 'px');
+      c.style.setProperty('--dy', Math.round(Math.sin(ang) * dist - 30) + 'px');
+      c.style.setProperty('--rot', Math.round(Math.random() * 720 - 360) + 'deg');
+      c.style.background = cores[i % cores.length];
+      c.style.animationDelay = (Math.random() * 0.15) + 's';
+      box.appendChild(c);
+      setTimeout(function(el){ return function(){ el.remove(); }; }(c), 1600);
+    }
+  };
 })();
 </script>
 </body>
