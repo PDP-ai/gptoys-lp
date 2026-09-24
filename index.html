@@ -299,6 +299,21 @@ footer a { display: inline-block; padding: 12px 2px; }
   transition: transform .3s;
 }
 .hero-toy-img:hover { transform: rotate(0deg) scale(1.02); }
+/* Celular: produto na primeira tela — título → foto → orçamento; seletor de negócio depois */
+@media (max-width: 900px) {
+  .hero-inner--split { display: flex; flex-direction: column; align-items: stretch; gap: 0; text-align: left; }
+  .hero-inner--split > div:first-child > * { margin-left: 0; margin-right: 0; }
+  .hero-inner--split > div:first-child { display: contents; }
+  .hero-badge { order: 1; align-self: flex-start; }
+  .hero-title { order: 2; margin-bottom: 8px; }
+  .hero-toy-wrap { order: 3; padding: 12px 8px 28px; }
+  .hero-actions { order: 4; }
+  .hero-note { order: 5; margin-bottom: 24px; }
+  .hero-sub { order: 6; }
+  .hero-stats { order: 7; margin: 0 0 28px; }
+  .hero-seg-label { order: 8; }
+  .hero-seg-pills { order: 9; margin-bottom: 0; }
+}
 .hero-toy-badge {
   position: absolute; top: 8px; right: 8px;
   background: var(--yellow); color: var(--ink);
