@@ -220,7 +220,7 @@ const materiais = {
   cama: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.85 } },
   bolinhas: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.28 } },
   metal: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0.8, roughnessFactor: 0.35 } },
-  rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: 0.25, doubleSided: true },
+  rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: +(process.env.REDE_CORTE || 0.25), doubleSided: true },
 };
 const partes = []; let off = 0;
 const view = (buf, target) => { const pad = (4 - (off % 4)) % 4; if (pad) { partes.push(Buffer.alloc(pad)); off += pad; } const v = { buffer: 0, byteOffset: off, byteLength: buf.length }; if (target) v.target = target; partes.push(buf); off += buf.length; return v; };
