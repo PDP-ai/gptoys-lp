@@ -6,3 +6,4 @@
 4. O que falta: a fábrica confirmar o desenho interno e as peças (ver lacunas no `INVENTARIO.md`); testar a RA em iPhone e Android de verdade (NÃO testada); conferir cores e a rede contra fotos reais.
 5. Nada aqui tem preço, prazo ou promessa, e nada está "igual ao real". Não faça deploy sem revisão humana. Limites de Android e iPhone: `COMPATIBILIDADE.md`.
 6. Rodada 23/09: `ar.glb` tem rede em geometria (sem transparência) e conectores cinza não-metálicos; origem dos modelos no centro da base. Tamanho real = `ar-scale="fixed"`; a página tem também "Ver em miniatura" (`ar-scale="auto"`). Detalhes em `COMPATIBILIDADE.md`.
+6. Miniatura de mesa 1:10: `python3 escalar_mini.py modelos/<modelo>/ar.glb modelos/<modelo>/mini.glb` e depois `python3 glb_para_usdz.py modelos/<modelo>/mini.glb modelos/<modelo>/mini.usdz` (gera `mini.glb` e `mini.usdz`, escala aplicada na geometria). Miniatura sobre mesa no iPhone/Android: NÃO VERIFICADO em aparelho.

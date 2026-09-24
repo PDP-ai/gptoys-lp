@@ -38,9 +38,10 @@
     camera-orbit="-35deg 70deg auto" interaction-prompt="auto">
     <button slot="ar-button">Ver no seu espaço (tamanho real)</button>
   </model-viewer>
-  <model-viewer id="mv2" src="modelos/kidplay-6m/ar.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Miniatura do brinquedão Kid Play 6 m"
-    ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor" style="height:90px;min-height:0;margin-top:10px" disable-zoom>
-    <button slot="ar-button">Ver em miniatura (sobre uma mesa)</button>
+  <p class="aviso"><strong>Tamanho real</strong>: para ver o brinquedão no espaço do cliente. <strong>Miniatura de mesa</strong>: escala 1:10 (o de 6 m vira 60 cm), para mostrar numa mesa. A miniatura sobre a mesa é NÃO VERIFICADO em aparelho.</p>
+  <model-viewer id="mv2" src="modelos/kidplay-6m/mini.glb" ios-src="modelos/kidplay-6m/mini.usdz" alt="Miniatura de mesa 1:10 do brinquedão Kid Play 6 m"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" style="height:90px;min-height:0;margin-top:10px" disable-zoom>
+    <button slot="ar-button">Miniatura de mesa 1:10 (NÃO VERIFICADO em aparelho)</button>
   </model-viewer>
   <div class="medidas">
     <p><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">6 m de comprimento × 2 m de largura × 2 m de altura</span>.</p>
@@ -56,7 +57,7 @@
   function escolher(b){
     var id=b.dataset.m;
     document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    mv.src='modelos/'+id+'/ar.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb (rede em geometria) na tela e no Android; ar.usdz no iPhone (Quick Look) */ mv2.src=mv.src; mv2.iosSrc=mv.iosSrc; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
+    mv.src='modelos/'+id+'/ar.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb (rede em geometria) na tela e no Android; ar.usdz no iPhone (Quick Look) */ mv2.src='modelos/'+id+'/mini.glb'; mv2.iosSrc='modelos/'+id+'/mini.usdz'; mv2.alt='Miniatura de mesa 1:10 do brinquedão '+M[id][0]; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
     document.getElementById('titulo').textContent=M[id][0];
     document.getElementById('medidas').textContent=M[id][1];
   }
