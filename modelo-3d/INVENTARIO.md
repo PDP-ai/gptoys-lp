@@ -4,12 +4,12 @@ Texto para leigo. Regra deste projeto: só a caixa externa tem medida oficial. N
 
 ## O que cada modelo tem de oficial
 
-| | Kid Play 4 m | Kid Play 6 m | Kid Play 6 m grande |
-|---|---|---|---|
-| Caixa externa (comprimento x largura x altura) | 4 x 2 x 2 m | 6 x 2 x 2 m | 6 x 3,80 x 3 m |
-| Estrutura citada na ficha | 2 curvas túnel, 4 soquinhos, 2 morrinhos, 2 passagens geométricas | 3 passagens, 6 saguinhos, 4 marinhos | 6 passagens, 8 saguinhos, 7 marinhos, 4 curvas |
-| Escorregador | não citado na ficha | duplo | duplo |
-| Bolinhas (ficha) | 500 | 1.000 | 2.500 |
+| | Kid Play 4 m | Kid Play 6 m | Kid Play 6 m grande | Kid Play 7 m com pula-pula |
+|---|---|---|---|---|
+| Caixa externa (comprimento x largura x altura) | 4 x 2 x 2 m | 6 x 2 x 2 m | 6 x 3,80 x 3 m | 7 x 2 x 2,70 m |
+| Estrutura citada na ficha | 2 curvas túnel, 4 soquinhos, 2 morrinhos, 2 passagens geométricas | 3 passagens, 6 saguinhos, 4 marinhos | 6 passagens, 8 saguinhos, 7 marinhos, 4 curvas | 9 passagens, 12 saguinhos, 13 marinhos, 2 curvas; área de pula-pula de 2 x 2 m |
+| Escorregador | não citado na ficha | duplo | duplo | não citado nesta ficha (o modelo desenha o duplo, ilustrativo) |
+| Bolinhas (ficha) | 500 | 1.000 | 2.500 | 2.000 |
 
 "Soquinho", "saguinho" e "marinho" são nomes internos da fábrica. Não sabemos o formato exato, então NÃO foram desenhados literalmente: o modelo usa peças genéricas (tubos, tatames, piscina, deck, parede de escalada, escorregador, rolo). O arranjo interno é ilustrativo.
 
@@ -96,3 +96,31 @@ O atlas de cores tem 256 x 256 (4 x 4 amostras). Cada peça aponta o UV para a a
 
 ## Peças inspiradas nas fotos (semana 3)
 Acrescentadas aos 4 modelos, INSPIRADAS nas fotos gp-13, gp-14, gp-03 e gp-06 e SEM medida oficial (tamanho, posição e cor são ilustrativos): 3 saquinhos-pêndulo azuis pendurados por cordas numa travessa alta sobre o deck; um túnel cilíndrico deitado no deck (com dois anéis nas pontas); um painel azul com janela triangular vazada na borda do deck; o rolo no deck já existia. Usam os materiais que já existiam (plataforma e metal); nenhum material novo.
+
+## Semana 3: os 4 modelos (medido com `node medir.mjs`, `verificar_usdz.py`, `usdchecker --arkit` e gltf-validator)
+
+| | Kid Play 4 m | Kid Play 6 m | Kid Play 6 m grande | Kid Play 7 m com pula-pula |
+|---|---|---|---|---|
+| Caixa oficial | 4 x 2 x 2 m | 6 x 2 x 2 m | 6 x 3,80 x 3 m | 7 x 2 x 2,70 m |
+| Caixa medida no navegador (Chrome) | 4 x 2 x 2 | 6 x 2 x 2 | 6 x 3,8 x 3 | 7 x 2,7 x 2 |
+| Caixa medida no USDZ (pxr, metros) | 4 x 2 x 2 | 6 x 2 x 2 | 6 x 3 x 3,8 (eixo Y = altura) | 7 x 2,7 x 2 |
+| Triângulos (antes → depois) | 14.920 → 16.384 | 18.740 → 20.204 | 28.324 → 30.076 | novo: 23.600 |
+| Materiais (com alpha) | 7 (1) | 7 (1) | 7 (1) | 8 (1), o novo é a cama do pula-pula |
+| Texturas (lados) | 5: 512, 512, 512, 256, 1024 | igual | igual | igual |
+| Peso do GLB | 1,93 → 2,08 MB | 2,35 → 2,50 MB | 3,38 → 3,57 MB | 2,99 MB |
+| Peso do USDZ | 1,52 → 1,65 MB | 1,87 → 2,00 MB | 2,75 → 2,91 MB | 2,31 MB |
+| Checador ARKit (`usdchecker --arkit`) | passou | passou | passou | passou |
+| Validador glTF | 0 erros, 0 avisos | 0 erros, 0 avisos | 0 erros, 0 avisos | 0 erros, 0 avisos |
+
+Metas (até 10 materiais, no máximo 1 com alpha, até 50.000 triângulos, um UV por malha, sem vertex colors, sem extensões, texturas até 1024 x 1024 e no máximo 6, GLB abaixo de 10 MB): TODAS batidas nos 4 modelos.
+
+Pula-pula (7 m): a área de 2 x 2 m é oficial e fica no início do comprimento, dentro da caixa. A cama preta, a borda acolchoada vermelha, a moldura de tubos, a altura da cama (0,45 m) e a altura do deck (1,30 m) são ILUSTRATIVAS. O arranjo das outras peças foi só reposicionado (piscina depois do pula-pula), sem medida oficial. Os termos passagem, saguinho e marinho seguem sem formato conhecido.
+
+### Rede: última afinação
+Testadas 4 variantes no 6 m, olhando 3 distâncias (geral, média, close; em `capturas-rede-semana3/`): A antes (fio #111, corte 0,25); B fio cinza-escuro #333, corte 0,25; C fio #333, corte 0,40; D fio #444, mais grosso, corte 0,50. C e D quebram o fio em pontinhos de longe. Escolhida a B: linha contínua nas 3 distâncias e menos escura que a A. Continua um material só (MASK, dupla face). Anisotropia não é ajustável no glTF; o filtro com mipmap já estava ligado. Moiré em ângulo rasante diminuiu, mas não some totalmente no Chrome de software; comparação com a foto real ainda é visual e subjetiva.
+
+### Lacunas para perguntar à fábrica (atualizadas para o 7 m)
+As 11 perguntas acima continuam valendo. Só do 7 m: 12. Onde fica o pula-pula no comprimento (início, meio ou fim)? Qual a altura da cama e da borda? 13. Como se encaixam 9 passagens, 12 saguinhos, 13 marinhos e 2 curvas em 7 x 2 m com 2,70 m de altura? 14. O escorregador existe neste modelo? Sobre as peças novas das fotos (saquinhos-pêndulo, túnel, painel com janela triangular): existem em todos os modelos? Quais as medidas e cores?
+
+### O que continua aproximado ou NÃO verificado
+Interior ilustrativo; peças novas inspiradas nas fotos, sem medida oficial; quantidade de bolinhas desenhada não é a da ficha; RA NÃO testada em iPhone nem Android reais (só Chrome de software e checador ARKit); "igual ao real": NÃO afirmamos.
