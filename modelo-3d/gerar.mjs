@@ -71,6 +71,7 @@ function tubo(cor, a, b, r = 0.055) {
 }
 const caixa = (cor, x0, y0, z0, x1, y1, z1, fam = 'plataforma') => add(fam, cor, new THREE.BoxGeometry(x1 - x0, y1 - y0, z1 - z0), T((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2));
 const r = 0.055;
+const PP = cfg.pula_pula || null, ppX1 = PP ? PP.x_ini + PP.comprimento : 0; // area de pula-pula (2 x 2 m oficial); resto ilustrativo
 
 // ---- proporcoes (ilustrativas), tudo relativo a caixa externa ----
 const deckY = cfg.niveis.deck_m, poolX = L * P.piscina_fim, wallX = L * P.parede_fim, slideX = L * P.escorregador_inicio;
@@ -103,15 +104,28 @@ for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++) {
   caixa(pal[(i * 3 + j * 5) % pal.length], x0 + 0.005, 0, W * j / nz + 0.005, x1 - 0.005, 0.04, W * (j + 1) / nz - 0.005, 'tatame');
 }
 // 3) piscina de bolinhas: borda acolchoada + fundo + bolinhas individuais (baixa resolucao, reproduziveis por seed)
-caixa('azulclaro', 0.02, 0, 0.02, poolX, 0.03, W - 0.02);
+const px0 = PP ? ppX1 + 0.02 : 0.02; // a piscina comeca depois do pula-pula
+caixa('azulclaro', px0, 0, 0.02, poolX, 0.03, W - 0.02);
 const bord = 0.32;
-caixa('azul', 0.02, 0, 0.02, poolX, bord, 0.08); caixa('azul', 0.02, 0, W - 0.08, poolX, bord, W - 0.02); caixa('azul', 0.02, 0, 0.02, 0.08, bord, W - 0.02);
+caixa('azul', px0, 0, 0.02, poolX, bord, 0.08); caixa('azul', px0, 0, W - 0.08, poolX, bord, W - 0.02); caixa('azul', px0, 0, 0.02, px0 + 0.06, bord, W - 0.02);
 let seed = cfg.seed; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 const bcores = cfg.paleta_bolinhas;
 const bg = new THREE.IcosahedronGeometry(0.075, 0); // 20 triangulos
-const nb = Math.round(P.bolinhas_ref * (poolX * W) / (P.bolinhas_ref_area_m2)); // densidade ~constante; NAO e a quantidade oficial
-for (let i = 0; i < nb; i++) add('bolinhas', bcores[i % 4], bg, T(0.13 + rnd() * (poolX - 0.22), 0.09 + rnd() * 0.2, 0.14 + rnd() * (W - 0.28)), 'centro', true);
+const nb = Math.round(P.bolinhas_ref * ((poolX - (PP ? ppX1 : 0)) * W) / (P.bolinhas_ref_area_m2)); // densidade ~constante; NAO e a quantidade oficial
+for (let i = 0; i < nb; i++) add('bolinhas', bcores[i % 4], bg, T(px0 + 0.11 + rnd() * (poolX - px0 - 0.20), 0.09 + rnd() * 0.2, 0.14 + rnd() * (W - 0.28)), 'centro', true);
 
+// 3b) area de pula-pula (so quando o SKU tem 'pula_pula'): cama elastica preta, borda acolchoada colorida, moldura de tubos
+if (PP) {
+  const yb = PP.altura_cama_m, x0 = PP.x_ini, x1 = ppX1, z0 = (W - PP.largura) / 2, z1 = z0 + PP.largura, pd = 0.25, ins = 0.12;
+  caixa('roxo', x0 + 0.01, 0, z0 + 0.01, x1 - 0.01, 0.03, z1 - 0.01, 'tatame'); // base de piso
+  caixa('preto', x0 + pd, yb, z0 + pd, x1 - pd, yb + 0.03, z1 - pd, 'cama'); // cama elastica
+  const b = PP.cor_borda;
+  caixa(b, x0, yb - 0.04, z0, x1, yb + 0.1, z0 + pd, 'plataforma'); caixa(b, x0, yb - 0.04, z1 - pd, x1, yb + 0.1, z1, 'plataforma');
+  caixa(b, x0, yb - 0.04, z0 + pd, x0 + pd, yb + 0.1, z1 - pd, 'plataforma'); caixa(b, x1 - pd, yb - 0.04, z0 + pd, x1, yb + 0.1, z1 - pd, 'plataforma');
+  const c = PP.cor_estrutura, xa = x0 + ins, xb = x1 - ins, za = z0 + ins, zb = z1 - ins, yr = yb - 0.06;
+  for (const [x, z] of [[xa, za], [xb, za], [xa, zb], [xb, zb]]) tubo(c, [x, 0, z], [x, yr, z], 0.045); // pernas
+  tubo(c, [xa, yr, za], [xb, yr, za], 0.045); tubo(c, [xa, yr, zb], [xb, yr, zb], 0.045); tubo(c, [xa, yr, za], [xa, yr, zb], 0.045); tubo(c, [xb, yr, za], [xb, yr, zb], 0.045);
+}
 // 4) plataforma superior (andar 2) sobre a area direita
 caixa('laranja', wallX, deckY - 0.06, 0.06, slideX, deckY, W - 0.06);
 caixa('azul', wallX - 0.9 < poolX ? poolX : wallX - 0.9, deckY - 0.06, 0.06, wallX, deckY, W * 0.5); // patamar azul a esquerda
@@ -173,6 +187,7 @@ const materiais = {
   plataforma: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.5 } },
   tatame: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.4 } },
   escorregador_plastico: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.22 } },
+  cama: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.85 } },
   bolinhas: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.28 } },
   metal: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0.8, roughnessFactor: 0.35 } },
   rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: 0.25, doubleSided: true },

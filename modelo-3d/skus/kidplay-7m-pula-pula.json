@@ -1,0 +1,84 @@
+{
+  "id": "kidplay-7m-pula-pula",
+  "nome": "Kid Play 7 m com pula-pula",
+  "aviso": "Somente a caixa externa tem medida oficial. Modulos internos sao GENERICOS e ILUSTRATIVOS; nao representam o formato real das pecas da fabrica.",
+  "caixa_externa_m": {
+    "comprimento": 7,
+    "largura": 2,
+    "altura": 2.7
+  },
+  "ficha_oficial": "Ficha cita: 9 passagens, 12 saguinhos, 13 marinhos, 2 curvas; escorregador duplo; area de pula-pula de 2 m x 2 m. Inclui 2.000 bolinhas.",
+  "seed": 7,
+  "niveis": {
+    "quantidade": 1,
+    "deck_m": 1.3,
+    "observacao": "altura do deck e ilustrativa, nao oficial"
+  },
+  "modulos_genericos": [
+    "moldura de tubos acolchoados",
+    "piso de tatames",
+    "piscina de bolinhas",
+    "area de pula-pula 2 x 2 m (cama elastica, borda acolchoada, moldura de tubos)",
+    "deck elevado",
+    "parede de escalada inclinada",
+    "escorregador duplo",
+    "rolo no deck"
+  ],
+  "recursos": {
+    "escorregador_duplo": true,
+    "parede_escalada": true,
+    "piscina_bolinhas": true,
+    "bolinhas_oficiais": 2000,
+    "rede_lateral": true,
+    "pula_pula": true
+  },
+  "proporcoes": {
+    "piscina_fim": 0.5,
+    "parede_fim": 0.72,
+    "escorregador_inicio": 0.86,
+    "travessas_por_lado": 7,
+    "tatame_m": 0.5,
+    "bolinhas_ref": 320,
+    "bolinhas_ref_area_m2": 3.6,
+    "observacao_bolinhas": "quantidade desenhada e ilustrativa (densidade ~constante), nao e a quantidade oficial"
+  },
+  "paleta": {
+    "verde": "#1d8a4a",
+    "rosa": "#d8368a",
+    "amarelo": "#f0c800",
+    "azul": "#2b5fd9",
+    "vermelho": "#d9303f",
+    "laranja": "#f56a2c",
+    "roxo": "#5a3a8c",
+    "branco": "#e8e2d2",
+    "azulclaro": "#2a8fe8",
+    "verdeclaro": "#9fd94a",
+    "preto": "#111111"
+  },
+  "paleta_tatames": [
+    "vermelho",
+    "roxo",
+    "rosa",
+    "azulclaro",
+    "verde",
+    "laranja",
+    "amarelo",
+    "azul"
+  ],
+  "paleta_bolinhas": [
+    "vermelho",
+    "amarelo",
+    "azul",
+    "verde"
+  ],
+  "paleta_observacao": "cores calibradas por amostragem das fotos gp-13 e gp-14 do site da GP Toys (aproximadas, nao oficiais)",
+  "pula_pula": {
+    "x_ini": 0,
+    "comprimento": 2,
+    "largura": 2,
+    "altura_cama_m": 0.45,
+    "cor_borda": "vermelho",
+    "cor_estrutura": "azul",
+    "observacao": "a area de 2 m x 2 m e oficial; cama, borda, moldura e altura da cama sao ILUSTRATIVAS"
+  }
+}
