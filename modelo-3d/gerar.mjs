@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import fs from 'fs';
 import path from 'path';
-import { atlasSolido, vinilTubo, redeLosangos } from './texturas.mjs';
+import { atlasSolido, vinilTubo, redeLosangos, REDE_S } from './texturas.mjs';
 
 const [cfgPath, outDir] = process.argv.slice(2, 4);
 if (!cfgPath || !outDir) { console.error('uso: node gerar.mjs skus/kidplay-6m.json modelos/kidplay-6m'); process.exit(1); }
@@ -154,7 +154,7 @@ add('plataforma', 'roxo', new THREE.CylinderGeometry(0.16, 0.16, Math.min(0.8, W
 
 // 8) rede: 4 paineis com textura de losangos (alphaMode MASK, dupla face, um so material)
 {
-  const f = (FAM.rede = { pos: [], nor: [], uv: [] }), S = 1.0; // a textura cobre 1,0 m
+  const f = (FAM.rede = { pos: [], nor: [], uv: [] }), S = REDE_S; // a textura cobre 1,2 m
   const painel = (a, b, ry, p) => {
     const g = new THREE.PlaneGeometry(a, b); g.rotateY(ry); g.translate(...p);
     const uv = g.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * a / S, uv.getY(i) * b / S);
@@ -175,11 +175,11 @@ const materiais = {
   escorregador_plastico: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.22 } },
   bolinhas: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0, roughnessFactor: 0.28 } },
   metal: { pbrMetallicRoughness: { baseColorTexture: { index: 3 }, metallicFactor: 0.8, roughnessFactor: 0.35 } },
-  rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: 0.5, doubleSided: true },
+  rede: { pbrMetallicRoughness: { baseColorTexture: { index: 4 }, metallicFactor: 0, roughnessFactor: 1 }, alphaMode: 'MASK', alphaCutoff: 0.25, doubleSided: true },
 };
 const partes = []; let off = 0;
 const view = (buf, target) => { const pad = (4 - (off % 4)) % 4; if (pad) { partes.push(Buffer.alloc(pad)); off += pad; } const v = { buffer: 0, byteOffset: off, byteLength: buf.length }; if (target) v.target = target; partes.push(buf); off += buf.length; return v; };
-const j = { asset: { version: '2.0', generator: 'gerar.mjs (GP Toys, prototipo)', extras: { aviso: cfg.aviso, caixa_externa_m: cfg.caixa_externa_m } }, scene: 0, scenes: [{ nodes: [0] }], nodes: [{ name: `KidPlay_${L}x${W}x${H}m`, children: [] }], meshes: [], materials: [], accessors: [], bufferViews: [], images: [], textures: [], samplers: [{ magFilter: 9729, minFilter: 9987, wrapS: 33071, wrapT: 33071 }, { magFilter: 9729, minFilter: 9729, wrapS: 10497, wrapT: 10497 }] };
+const j = { asset: { version: '2.0', generator: 'gerar.mjs (GP Toys, prototipo)', extras: { aviso: cfg.aviso, caixa_externa_m: cfg.caixa_externa_m } }, scene: 0, scenes: [{ nodes: [0] }], nodes: [{ name: `KidPlay_${L}x${W}x${H}m`, children: [] }], meshes: [], materials: [], accessors: [], bufferViews: [], images: [], textures: [], samplers: [{ magFilter: 9729, minFilter: 9987, wrapS: 33071, wrapT: 33071 }, { magFilter: 9729, minFilter: 9987, wrapS: 10497, wrapT: 10497 }] };
 const bv = (v) => j.bufferViews.push(v) - 1, ac = (a) => j.accessors.push(a) - 1;
 imagens.forEach((b, i) => { j.images.push({ name: nomesImg[i], mimeType: 'image/png', bufferView: bv(view(b)) }); j.textures.push({ source: i, sampler: i === 4 ? 1 : 0 }); });
 for (const [nome, f] of Object.entries(FAM)) {

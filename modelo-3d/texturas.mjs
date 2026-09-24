@@ -56,14 +56,16 @@ export function vinilTubo(cores) {
   return { cor: png(N, N, 3, cor), normal: png(N, N, 3, nor), rugosidade: png(N, N, 3, rug) };
 }
 
-// ---- rede de losangos: 512x512 RGBA, mascara binaria por corte de alfa (alphaMode MASK) ----
-// A textura cobre 1,0 m x 1,0 m: losango de ~12 cm, fio de ~8 mm (aproximado das fotos).
+// ---- rede de losangos: 1024x1024 RGBA, mascara por corte de alfa (alphaMode MASK) + mipmaps no sampler ----
+// A textura cobre REDE_S = 1,2 m x 1,2 m: 8 losangos por lado, losango de 15 cm (a foto real mostra ~4 a 5 larguras de tubo),
+// fio de ~4 px = ~4,7 mm (era 12 cm e 8 mm). Borda do fio suavizada (1 px) para os mipmaps calcularem cobertura.
+export const REDE_S = 1.2;
 export function redeLosangos() {
-  const N = 512, p = 64, w = 4, px = new Uint8Array(N * N * 4);
+  const N = 1024, p = 128, w = 4, px = new Uint8Array(N * N * 4);
   const dist = (t) => { const m = ((t % p) + p) % p; return Math.min(m, p - m); };
   for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
-    const d = Math.min(dist(x + y), dist(x - y)) / Math.SQRT2 * 1.0; // distancia ate a diagonal mais proxima
-    const a = Math.max(0, Math.min(1, (w * 0.5 / Math.SQRT2 * 1.4 - d) / 1.2 + 0.5));
+    const d = Math.min(dist(x + y), dist(x - y)) / Math.SQRT2; // distancia perpendicular ate a diagonal mais proxima (px)
+    const a = Math.max(0, Math.min(1, (w * 0.5 - d) + 0.5));
     const o = (y * N + x) * 4; px[o] = 17; px[o + 1] = 17; px[o + 2] = 17; px[o + 3] = Math.round(a * 255);
   }
   return png(N, N, 4, px);

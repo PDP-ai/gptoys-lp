@@ -31,7 +31,7 @@
     <button type="button" data-m="kidplay-6m" aria-pressed="true">Kid Play 6 m</button>
     <button type="button" data-m="kidplay-6m-grande" aria-pressed="false">Kid Play 6 m grande</button>
   </div>
-  <model-viewer id="mv" src="modelos/kidplay-6m/web.glb" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
+  <model-viewer id="mv" src="modelos/kidplay-6m/web.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
     ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed"
     camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
     camera-orbit="-35deg 70deg auto" interaction-prompt="auto">
@@ -50,7 +50,7 @@
   function escolher(b){
     var id=b.dataset.m;
     document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    mv.src='modelos/'+id+'/web.glb'; /* ar.glb existe e hoje e igual ao web.glb; o model-viewer usa o src atual no AR */ mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
+    mv.src='modelos/'+id+'/web.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb = web.glb; ar.usdz e o arquivo do iPhone (Quick Look) */ mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
     document.getElementById('titulo').textContent=M[id][0];
     document.getElementById('medidas').textContent=M[id][1];
   }

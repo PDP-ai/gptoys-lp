@@ -28,12 +28,29 @@ Fontes abertas: developers.google.com/ar/develop/scene-viewer; developer.apple.c
 |---|---|---|---|
 | Materiais (rec. 10) | 7: ok | 7: ok | 7: ok |
 | Com alpha (até 2) | 1: ok | 1: ok | 1: ok |
-| Texturas (máx. 2048; usamos até 512) | 5: ok | 5: ok | 5: ok |
+| Texturas (máx. 2048; usamos até 1024; até 6 por modelo) | 5: ok | 5: ok | 5: ok |
 | UV por malha (1) | 1: ok | 1: ok | 1: ok |
 | Vertex colors (não suportado) | não tem: ok | não tem: ok | não tem: ok |
 | Triângulos (ideal 30 a 50 mil; máx. rec. 100 mil) | 14.920: ok | 18.740: ok | 28.324: ok |
-| Tamanho (rec. 10 MB) | 1,92 MB: ok | 2,34 MB: ok | 3,37 MB: ok |
+| Tamanho (rec. 10 MB) | 1,93 MB: ok | 2,35 MB: ok | 3,38 MB: ok |
 | Extensões glTF | nenhuma: ok | nenhuma: ok | nenhuma: ok |
 
 Antes (semana 1) os 3 tinham 11 materiais (acima do recomendado); agora 7.
 Teste em aparelho real (Android/iPhone): NÃO FEITO. A RA continua não testada. Quick Look: a conversão de GLB para USDZ é feita pelo model-viewer na hora e não foi verificada (texturas, alphaMode MASK, dupla face e normal map podem se comportar diferente).
+
+## Rede afinada (rodada de 23/09/2026, depois da semana 2)
+
+- Antes: losango de 12 cm, fio de 8 mm (no arquivo, ~4 px de 512), textura 512x512 sem mipmap, corte de alfa 0,5. Ficava escuro/denso e fazia chuvisco (moiré) de longe.
+- Agora: losango de 15 cm, fio de ~4,7 mm, textura 1024x1024 (única mudança de tamanho; segue dentro do limite de 1024), mipmap ligado, corte de alfa 0,25, um único material `rede`, MASK, dupla face. Não usa BLEND. Medidas e metas: `medir.mjs` e o validador glTF confirmam 0 erros; nada das metas da semana 2 foi quebrado (ver tabela acima).
+- Por que o corte 0,25: com mipmap, o fio fino vira "meio transparente" ao longe; com corte 0,5 ele sumiria aos pedaços. Com 0,25 o fio permanece e ainda fica fino. Fio de 3 px foi testado e deixou falhas (fios sumindo aos pedaços na distância média); 4 px ficou mais regular.
+- Comparação com a foto real (gp-13-vista-frontal.jpg): a rede ficou mais leve e com losango mais coerente, mas ainda um pouco mais escura/contrastada que a foto na visão geral. Chuvisco reduzido, não eliminado: ainda aparece em ângulo bem rasante na distância média. Capturas em `capturas-rede/` (antes-* e depois-*, 3 distâncias por modelo), feitas em Chrome headless com renderização por software, que não prova como fica no celular.
+- NÃO VERIFICADO: se o Scene Viewer (Android) usa mipmap na textura da rede e se respeita alphaCutoff 0,25. A página oficial do Scene Viewer não diz nada sobre isso. NÃO VERIFICADO: como o Quick Look (iPhone) trata mipmap e o limiar de alfa da rede.
+
+## Arquivo do iPhone (ar.usdz)
+
+- Caminho usado: (c) pacote `usd-core` (módulo `pxr` do Python), script `glb_para_usdz.py`, que lê o `ar.glb` e monta a cena em USD e empacota com `UsdUtils.CreateNewARKitUsdzPackage`. (a) Blender: não está instalado neste computador. (b) exportador USDZ do three.js: não foi tentado, ele precisa de um navegador (canvas) para as texturas e não dá controle do limiar de alfa da rede; por isso ficou o (c).
+- Conteúdo: escala em metros, eixo Y para cima; cor, normal e rugosidade preservadas; rede com UsdPreviewSurface, opacidade lida do canal alfa da textura, `opacityThreshold` = 0,25, dupla face. Cada USDZ tem os mesmos triângulos, 7 materiais e 5 texturas do GLB.
+- Perda conhecida: a intensidade do normal map (0,8 no GLB) vira 1,0 no USDZ, porque o validador da Apple exige escala 2 no normal de 8 bits.
+- Resultado do `usdchecker --arkit`: Success! nos 3. Conferido reabrindo com `verificar_usdz.py`: caixa 4x2x2, 6x2x2 e 6x3x3,8 m (altura no eixo Y), texturas presentes, rede com limiar e dupla face. Pesos: 1,52 MB, 1,87 MB, 2,75 MB (meta: abaixo de 10 MB).
+- Captura do USDZ: feita com `usdrecord` (renderizador de teste do próprio USD, em `capturas-usdz/`). NÃO é o Quick Look da Apple; o `qlmanage` deste Mac travou. NÃO VERIFICADO no iPhone real: abertura, escala na tela, aparência da rede e do normal.
+- Ligado em `index.html` com `ios-src` para os 3 modelos.
