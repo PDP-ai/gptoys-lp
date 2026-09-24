@@ -6,6 +6,16 @@
 <title>GP Toys — Área Kids que Aumenta seu Faturamento</title>
 <meta name="description" content="Fábrica de brinquedões e playgrounds sob medida para restaurantes, escolas, buffets e condomínios. Fabricação própria em Realengo, Rio de Janeiro. Atendemos RJ, SP, MG e ES. Projetos a partir de R$ 15.900.">
 <link rel="canonical" href="https://www.gptoys.com.br/">
+<link rel="icon" type="image/png" href="/assets/logo.png">
+<link rel="apple-touch-icon" href="/assets/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="GP Toys">
+<meta property="og:url" content="https://www.gptoys.com.br/">
+<meta property="og:title" content="GP Toys — Brinquedões e áreas kids sob medida">
+<meta property="og:description" content="Fábrica de brinquedões e playgrounds sob medida para restaurantes, escolas, buffets e condomínios. Fabricação própria no Rio de Janeiro. Projetos a partir de R$ 15.900.">
+<meta property="og:image" content="https://www.gptoys.com.br/assets/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -125,6 +135,9 @@ nav {
   transition: border-color .15s;
 }
 .nav-links a:hover { border-bottom-color: var(--ink); }
+footer a { display: inline-block; padding: 12px 2px; }
+.hero-seg-pill, .seg-tab, .nav-links a { min-height: 44px; }
+.nav-links a.nav-cta { color: var(--white); padding: 12px 22px; border: var(--stroke); }
 .nav-cta {
   background: var(--red); color: var(--white);
   padding: 12px 22px; border-radius: 999px; border: var(--stroke);
@@ -227,7 +240,8 @@ nav {
 }
 @media (max-width: 640px) { .hero-sub { font-size: 17px; } }
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; }
+.hero-note { font-size: 16px; font-weight: 600; color: var(--ink-2); margin-bottom: 32px; }
 
 .btn-primary {
   display: inline-flex; align-items: center; gap: 10px;
@@ -265,6 +279,10 @@ nav {
   display: block; margin-bottom: 4px;
 }
 .stat-label { font-size: 13px; color: var(--muted); font-weight: 600; }
+@media (max-width: 640px) {
+  .hero-stats { flex-wrap: nowrap; gap: 16px; }
+  .stat { min-width: 0; flex: 1; }
+}
 
 /* Hero visual (right side) */
 .hero-toy-wrap {
@@ -582,7 +600,7 @@ nav {
   overflow: hidden;
 }
 .proof-track {
-  display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;
+  display: flex; gap: 18px 40px; flex-wrap: wrap; justify-content: center; padding: 0 24px;
   align-items: center;
 }
 .proof-item {
@@ -590,6 +608,13 @@ nav {
   font-weight: 700; font-size: 14px; color: var(--ink-2);
 }
 .proof-icon { font-size: 22px; }
+.proof-item[aria-hidden="true"] { display: none; }
+@media (max-width: 640px) {
+  .proof-bar { padding: 28px 0; }
+  .proof-track { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px; padding: 0 20px; justify-items: start; align-items: start; }
+  .proof-item { font-size: 15px; line-height: 1.3; align-items: flex-start; }
+  .proof-icon { font-size: 20px; line-height: 1.2; }
+}
 
 /* ═══════════════ CTA SECTION (form + quiz) ═══════════════ */
 .cta-section { padding: 90px 0; background: var(--yellow); border-top: var(--stroke); border-bottom: var(--stroke); position: relative; }
@@ -778,7 +803,7 @@ footer p + p { margin-top: 6px; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .fade-up { opacity: 1; transform: none; }
+  .fade-up, .js-anim .fade-up { opacity: 1; transform: none; }
 }
 
 /* ═══════════════ GALLERY / CARROSSEL ═══════════════ */
@@ -971,6 +996,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#orcamento" class="btn-primary">📋 Quero meu orçamento grátis</a>
         <a href="#como-funciona" class="btn-secondary">Ver como funciona →</a>
       </div>
+      <p class="hero-note">Projetos a partir de R$ 15.900 · Atendemos RJ, SP, MG e ES</p>
     </div>
 
       <div class="hero-toy-wrap">
@@ -989,7 +1015,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="proof-item"><span class="proof-icon">🛡️</span> Garantia de qualidade e instalação</div>
     <div class="proof-item"><span class="proof-icon">⚡</span> Orçamento em até 24 horas</div>
     <div class="proof-item"><span class="proof-icon">🚚</span> Entrega inclusa no orçamento</div>
-    <div class="proof-item"><span class="proof-icon">🗺️</span> Projetos em todo o RJ</div>
+    <div class="proof-item"><span class="proof-icon">🗺️</span> Projetos no RJ, SP, MG e ES</div>
     <div class="proof-item"><span class="proof-icon">🏗️</span> Mais de 800m² de fábrica</div>
     <!-- Set 2 (duplicado para loop contínuo) -->
     <div class="proof-item" aria-hidden="true"><span class="proof-icon">🏭</span> Fábrica própria no Rio de Janeiro</div>
@@ -997,7 +1023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="proof-item" aria-hidden="true"><span class="proof-icon">🛡️</span> Garantia de qualidade e instalação</div>
     <div class="proof-item" aria-hidden="true"><span class="proof-icon">⚡</span> Orçamento em até 24 horas</div>
     <div class="proof-item" aria-hidden="true"><span class="proof-icon">🚚</span> Entrega inclusa no orçamento</div>
-    <div class="proof-item" aria-hidden="true"><span class="proof-icon">🗺️</span> Projetos em todo o RJ</div>
+    <div class="proof-item" aria-hidden="true"><span class="proof-icon">🗺️</span> Projetos no RJ, SP, MG e ES</div>
     <div class="proof-item" aria-hidden="true"><span class="proof-icon">🏗️</span> Mais de 800m² de fábrica</div>
   </div>
 </div>
