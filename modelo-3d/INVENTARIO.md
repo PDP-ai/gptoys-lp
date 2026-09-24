@@ -93,3 +93,6 @@ O atlas de cores tem 256 x 256 (4 x 4 amostras). Cada peça aponta o UV para a a
 - Tatames e plataformas são cor lisa com brilho: não têm a trama/ruga do vinil porque o modelo só pode ter um conjunto de UV e as cores vêm do atlas (trama só nos tubos).
 - Rede: sem mipmap na textura (para o fio não sumir de longe). De longe aparece moiré e a rede é mais densa que na foto ao ver o modelo inteiro. Se o modo de RA (Scene Viewer ou a conversão para USDZ) respeita esse ajuste: NÃO VERIFICADO.
 - RA continua NÃO testada em aparelho real; as capturas foram feitas em Chrome headless (software), que não prova nada sobre iPhone ou Android.
+
+## Peças inspiradas nas fotos (semana 3)
+Acrescentadas aos 4 modelos, INSPIRADAS nas fotos gp-13, gp-14, gp-03 e gp-06 e SEM medida oficial (tamanho, posição e cor são ilustrativos): 3 saquinhos-pêndulo azuis pendurados por cordas numa travessa alta sobre o deck; um túnel cilíndrico deitado no deck (com dois anéis nas pontas); um painel azul com janela triangular vazada na borda do deck; o rolo no deck já existia. Usam os materiais que já existiam (plataforma e metal); nenhum material novo.

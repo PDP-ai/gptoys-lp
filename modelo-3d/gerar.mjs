@@ -166,6 +166,36 @@ for (const z of [zwa - 0.03, zwb + 0.0]) add('plataforma', 'amarelo', new THREE.
 // 7) rolo colorido no deck
 add('plataforma', 'roxo', new THREE.CylinderGeometry(0.16, 0.16, Math.min(0.8, W * 0.4), 14), new THREE.Matrix4().compose(new THREE.Vector3(wallX + 0.6, deckY + 0.16, W * 0.35), new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI / 2, 0, 0)), new THREE.Vector3(1, 1, 1)));
 
+// 7b) pecas INSPIRADAS NAS FOTOS (gp-13, gp-14, gp-03, gp-06), genericas e ilustrativas, SEM medida oficial:
+//     saco/pendulo azul pendurado, tunel cilindrico deitado, painel azul com janela triangular vazada.
+//     Reusam os materiais existentes (plataforma, metal); nenhum material novo.
+{
+  const dx = slideX - wallX;
+  const flip = (g) => { g = g.index ? g.toNonIndexed() : g.clone(); const p = g.attributes.position, n = g.attributes.normal;
+    for (let i = 0; i < p.count; i += 3) for (const at of [p, n, g.attributes.uv]) { const a1 = [at.getX(i + 1), at.getY(i + 1)], a2 = [at.getX(i + 2), at.getY(i + 2)];
+      if (at.itemSize === 3) { const zz = at.getZ(i + 1); at.setXYZ(i + 1, at.getX(i + 2), at.getY(i + 2), at.getZ(i + 2)); at.setXYZ(i + 2, a1[0], a1[1], zz); } else { at.setXY(i + 1, a2[0], a2[1]); at.setXY(i + 2, a1[0], a1[1]); } }
+    for (let i = 0; i < n.count; i++) n.setXYZ(i, -n.getX(i), -n.getY(i), -n.getZ(i)); return g; };
+  // (a) 3 saquinhos-pendulo azuis presos por cordas a uma travessa no alto, sobre o deck
+  const bx = wallX + 0.12, topY = H - r;
+  tubo('vermelho', [bx, topY, r], [bx, topY, W - r]);
+  const cord = 0.35, bag = new THREE.CapsuleGeometry(0.085, 0.26, 3, 8), cg = new THREE.CylinderGeometry(0.008, 0.008, 1, 5);
+  for (const f of [0.25, 0.5, 0.75]) {
+    add('metal', 'metal', cg, new THREE.Matrix4().compose(new THREE.Vector3(bx, topY - cord / 2, W * f), new THREE.Quaternion(), new THREE.Vector3(1, cord, 1)));
+    add('plataforma', 'azul', bag, T(bx, topY - cord - 0.215, W * f), 'centro', true);
+  }
+  // (b) tunel cilindrico deitado (eixo x) no deck, com dois aneis nas pontas
+  const R = 0.22, tl = Math.min(0.7, dx * 0.5), tx = slideX - 0.1 - tl / 2, tz = W * 0.7, ty = deckY + R;
+  const oc = new THREE.CylinderGeometry(R, R, tl, 16, 1, true).rotateZ(Math.PI / 2), ic = flip(new THREE.CylinderGeometry(R - 0.03, R - 0.03, tl, 16, 1, true).rotateZ(Math.PI / 2));
+  add('plataforma', 'verdeclaro', oc, T(tx, ty, tz), 'centro', true); add('plataforma', 'verdeclaro', ic, T(tx, ty, tz), 'centro', true);
+  const ring = new THREE.TorusGeometry(R - 0.015, 0.022, 6, 16).rotateY(Math.PI / 2);
+  for (const sx of [-1, 1]) add('plataforma', 'amarelo', ring, T(tx + sx * tl / 2, ty, tz), 'centro', true);
+  // (c) painel azul com janela triangular vazada, em pe na borda do deck (lado z = W)
+  const pw = Math.min(0.9, dx * 0.6), ph = 0.7, px = wallX + dx * 0.55, tw = Math.min(0.34, pw * 0.5), th = 0.32;
+  const sh = new THREE.Shape([[-pw / 2, 0], [pw / 2, 0], [pw / 2, ph], [-pw / 2, ph]].map(([a, b]) => new THREE.Vector2(a, b)));
+  const hole = new THREE.Path([[-tw / 2, ph / 2 - th / 2], [tw / 2, ph / 2 - th / 2], [0, ph / 2 + th / 2]].map(([a, b]) => new THREE.Vector2(a, b)));
+  sh.holes.push(hole);
+  add('plataforma', 'azul', new THREE.ExtrudeGeometry(sh, { depth: 0.04, bevelEnabled: false }), T(px, deckY, W - 0.14));
+}
 // 8) rede: 4 paineis com textura de losangos (alphaMode MASK, dupla face, um so material)
 {
   const f = (FAM.rede = { pos: [], nor: [], uv: [] }), S = REDE_S; // a textura cobre 1,2 m
