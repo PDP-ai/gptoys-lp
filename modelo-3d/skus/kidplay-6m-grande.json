@@ -1,0 +1,73 @@
+{
+  "id": "kidplay-6m-grande",
+  "nome": "Kid Play 6 m grande",
+  "aviso": "Somente a caixa externa tem medida oficial. Modulos internos sao GENERICOS e ILUSTRATIVOS; nao representam o formato real das pecas da fabrica.",
+  "caixa_externa_m": {
+    "comprimento": 6,
+    "largura": 3.8,
+    "altura": 3
+  },
+  "ficha_oficial": "Ficha cita: 6 passagens, 8 saguinhos, 7 marinhos, 4 curvas; escorregador duplo. 2.500 bolinhas.",
+  "seed": 7,
+  "niveis": {
+    "quantidade": 1,
+    "deck_m": 1.5,
+    "observacao": "altura do deck e ilustrativa, nao oficial"
+  },
+  "modulos_genericos": [
+    "moldura de tubos acolchoados",
+    "piso de tatames",
+    "piscina de bolinhas",
+    "deck elevado",
+    "parede de escalada inclinada",
+    "escorregador duplo",
+    "rolo no deck"
+  ],
+  "recursos": {
+    "escorregador_duplo": true,
+    "parede_escalada": true,
+    "piscina_bolinhas": true,
+    "bolinhas_oficiais": 2500,
+    "rede_lateral": true
+  },
+  "proporcoes": {
+    "piscina_fim": 0.3,
+    "parede_fim": 0.55,
+    "escorregador_inicio": 0.78,
+    "travessas_por_lado": 4,
+    "tatame_m": 0.5,
+    "bolinhas_ref": 320,
+    "bolinhas_ref_area_m2": 3.6,
+    "observacao_bolinhas": "quantidade desenhada e ilustrativa (densidade ~constante), nao e a quantidade oficial"
+  },
+  "paleta": {
+    "verde": "#1d8a4a",
+    "rosa": "#d8368a",
+    "amarelo": "#f0c800",
+    "azul": "#2b5fd9",
+    "vermelho": "#d9303f",
+    "laranja": "#f56a2c",
+    "roxo": "#5a3a8c",
+    "branco": "#e8e2d2",
+    "azulclaro": "#2a8fe8",
+    "verdeclaro": "#9fd94a",
+    "preto": "#111111"
+  },
+  "paleta_tatames": [
+    "vermelho",
+    "roxo",
+    "rosa",
+    "azulclaro",
+    "verde",
+    "laranja",
+    "amarelo",
+    "azul"
+  ],
+  "paleta_bolinhas": [
+    "vermelho",
+    "amarelo",
+    "azul",
+    "verde"
+  ],
+  "paleta_observacao": "cores calibradas por amostragem das fotos gp-13 e gp-14 do site da GP Toys (aproximadas, nao oficiais)"
+}

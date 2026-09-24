@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kid Play em 3D | GP Toys</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<style>
+  :root{--fundo:#faf9f6;--texto:#1d1d1f;--suave:#5c5c60;--linha:#e2e0da;--acento:#1f4fd8}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+  h1{font-size:1.6rem;line-height:1.2;margin:0 0 8px}
+  p{margin:0 0 12px;color:var(--suave)}
+  model-viewer{width:100%;height:62vh;min-height:320px;background:#ecebe6;border-radius:12px;--poster-color:#ecebe6}
+  button[slot=ar-button]{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:var(--acento);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:600 1rem system-ui}
+  .seletor{display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap}
+  .seletor button{flex:1;min-width:96px;background:#fff;color:var(--texto);border:1px solid var(--linha);border-radius:8px;padding:10px 12px;font:600 .95rem system-ui;cursor:pointer}
+  .seletor button[aria-pressed=true]{background:var(--acento);color:#fff;border-color:var(--acento)}
+  .medidas{border-top:1px solid var(--linha);margin-top:20px;padding-top:16px}
+  .aviso{font-size:.9rem;border-left:3px solid var(--acento);padding-left:12px;color:var(--texto)}
+</style>
+</head>
+<body>
+<main>
+  <h1 id="titulo">Kid Play 6 m</h1>
+  <p>Gire o modelo com o dedo. No celular, toque em “Ver no seu espaço” para colocá-lo no tamanho real no ambiente.</p>
+  <div class="seletor" role="group" aria-label="Escolha o modelo">
+    <button type="button" data-m="kidplay-4m" aria-pressed="false">Kid Play 4 m</button>
+    <button type="button" data-m="kidplay-6m" aria-pressed="true">Kid Play 6 m</button>
+    <button type="button" data-m="kidplay-6m-grande" aria-pressed="false">Kid Play 6 m grande</button>
+    <button type="button" data-m="kidplay-7m-pula-pula" aria-pressed="false">Kid Play 7 m com pula-pula</button>
+  </div>
+  <model-viewer id="mv" src="modelos/kidplay-6m/ar.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor"
+    camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
+    camera-orbit="-35deg 70deg auto" interaction-prompt="auto">
+    <button slot="ar-button">Ver no seu espaço (tamanho real)</button>
+  </model-viewer>
+  <p class="aviso"><strong>Tamanho real</strong>: para ver o brinquedão no espaço do cliente. <strong>Miniatura de mesa</strong>: escala 1:10 (o de 6 m vira 60 cm), para mostrar numa mesa. A miniatura sobre a mesa é NÃO VERIFICADO em aparelho.</p>
+  <model-viewer id="mv2" src="modelos/kidplay-6m/mini.glb" ios-src="modelos/kidplay-6m/mini.usdz" alt="Miniatura de mesa 1:10 do brinquedão Kid Play 6 m"
+    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" style="height:90px;min-height:0;margin-top:10px" disable-zoom>
+    <button slot="ar-button">Miniatura de mesa 1:10 (NÃO VERIFICADO em aparelho)</button>
+  </model-viewer>
+  <div class="medidas">
+    <p><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">6 m de comprimento × 2 m de largura × 2 m de altura</span>.</p>
+    <p class="aviso">Representação ilustrativa, as dimensões oficiais são as da caixa externa. O arranjo interno (módulos, plataformas, escorregador, parede de escalada, bolinhas e a cama do pula-pula) é genérico e ilustrativo, não é o formato real das peças, e pode diferir do produto real.</p>
+  </div>
+</main>
+<script>
+  var M={"kidplay-4m":["Kid Play 4 m","4 m de comprimento × 2 m de largura × 2 m de altura"],
+    "kidplay-6m":["Kid Play 6 m","6 m de comprimento × 2 m de largura × 2 m de altura"],
+    "kidplay-6m-grande":["Kid Play 6 m grande","6 m de comprimento × 3,80 m de largura × 3 m de altura"],
+    "kidplay-7m-pula-pula":["Kid Play 7 m com pula-pula","7 m de comprimento × 2 m de largura × 2,70 m de altura, com área de pula-pula de 2 m × 2 m"]};
+  var mv=document.getElementById('mv'), mv2=document.getElementById('mv2');
+  function escolher(b){
+    var id=b.dataset.m;
+    document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    mv.src='modelos/'+id+'/ar.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb (rede em geometria) na tela e no Android; ar.usdz no iPhone (Quick Look) */ mv2.src='modelos/'+id+'/mini.glb'; mv2.iosSrc='modelos/'+id+'/mini.usdz'; mv2.alt='Miniatura de mesa 1:10 do brinquedão '+M[id][0]; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
+    document.getElementById('titulo').textContent=M[id][0];
+    document.getElementById('medidas').textContent=M[id][1];
+  }
+  document.querySelectorAll('.seletor button').forEach(function(b){b.addEventListener('click',function(){escolher(b)});});
+  var q=new URLSearchParams(location.search).get('m'), bq=q&&document.querySelector('.seletor button[data-m="'+q+'"]'); if(bq) escolher(bq);
+</script>
+</body>
+</html>
