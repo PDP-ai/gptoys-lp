@@ -1,0 +1,3 @@
+# Para gerar os USDZ (iPhone): qualquer usd-core recente serve.
+usd-core>=25.8
+# Para o verificador ARKit (o mesmo do "usdchecker --arkit") use, num ambiente separado: usd-core==25.8

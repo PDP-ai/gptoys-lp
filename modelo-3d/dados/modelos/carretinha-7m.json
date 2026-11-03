@@ -1,0 +1,80 @@
+{
+  "$schema": "../../esquema/modelo.schema.json",
+  "id": "carretinha-7m",
+  "nome": "Carretinha 7 m",
+  "ordem": 5,
+  "linha": "Carretinha",
+  "revisao": 2,
+  "status": "ilustrativo",
+  "medidas_m": {
+    "comprimento": 7,
+    "largura": 2,
+    "altura": 2.7
+  },
+  "fonte_medidas": "Medida informada pela fábrica (7 m x 2 m x 2,70 m). Só a caixa externa é considerada oficial.",
+  "ficha_fabrica": "Carretinha de 7 m x 2 m x 2,70 m (medida informada). Desenho interno não informado.",
+  "cores": {
+    "padrao": "arco-iris",
+    "opcoes": [
+      "arco-iris",
+      "azul-amarelo",
+      "rosa-lilas"
+    ]
+  },
+  "estrutura": {
+    "altura_deck_m": 1.0,
+    "trecho_max_m": 1.5
+  },
+  "modulos": [
+    {
+      "tipo": "piscina_bolinhas",
+      "de_m": 0,
+      "ate_m": 1.8,
+      "borda_altura_m": 0.32
+    },
+    {
+      "tipo": "parede_escalada",
+      "de_m": 1.8,
+      "ate_m": 3.2,
+      "pegadas": 14
+    },
+    {
+      "tipo": "deck",
+      "de_m": 3.2,
+      "ate_m": 4.9,
+      "itens": [
+        "patamar",
+        "pilar",
+        "piso_sob_deck",
+        "rolo",
+        "tunel",
+        "sacos_pancada",
+        "painel_janela"
+      ]
+    },
+    {
+      "tipo": "escorregador_duplo",
+      "de_m": 4.9,
+      "ate_m": 6.0
+    }
+  ],
+  "acabamentos": {
+    "piso_tatames_m": 0.5,
+    "rede_lateral": true
+  },
+  "seed": 7,
+  "ilustrativo": [
+    "Premissa: os 7 m x 2 m x 2,70 m incluem cambão, rodas e chassi. A fábrica precisa confirmar.",
+    "Chassi (0,5 m de altura), cambão de 1 m, 2 eixos e rodas: desenho ilustrativo.",
+    "Área de brincar em cima (6 m x 2 m x 2,2 m): arranjo genérico, não é o desenho da fábrica.",
+    "Altura do andar (1,0 m acima do piso da carretinha).",
+    "Cores: ilustrativas."
+  ],
+  "base": {
+    "tipo": "carretinha",
+    "altura_chassi_m": 0.5,
+    "cambao_m": 1.0,
+    "eixos": 2,
+    "raio_roda_m": 0.23
+  }
+}

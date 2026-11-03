@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  
+  "title": "Esquemas de cores por família de peça (GP Toys)",
+  "description": "dados/cores.json. Cada esquema dá as cores de cada família de peça. Listas alternam peça a peça. Até 16 cores de tubo e 64 cores no total por modelo.",
+  "type": "object",
+  "required": [
+    "familias",
+    "fixas",
+    "esquemas"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "observacao": {
+      "type": "string"
+    },
+    "familias": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "fixas": {
+      "type": "object",
+      "required": [
+        "rede",
+        "conexoes_web",
+        "conexoes_ar",
+        "galvanizado",
+        "cama_pula_pula",
+        "chassi",
+        "pneus"
+      ],
+      "properties": {
+        "observacao": {
+          "type": "string"
+        },
+        "rede": {
+          "$ref": "#/$defs/cor"
+        },
+        "conexoes_web": {
+          "$ref": "#/$defs/cor"
+        },
+        "conexoes_ar": {
+          "$ref": "#/$defs/cor"
+        },
+        "galvanizado": {
+          "$ref": "#/$defs/cor"
+        },
+        "cama_pula_pula": {
+          "$ref": "#/$defs/cor"
+        },
+        "chassi": {
+          "$ref": "#/$defs/cor"
+        },
+        "pneus": {
+          "$ref": "#/$defs/cor"
+        }
+      }
+    },
+    "esquemas": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/esquema"
+      }
+    }
+  },
+  "$defs": {
+    "cor": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "esquema": {
+      "type": "object",
+      "required": [
+        "nome",
+        "tubos",
+        "plataformas",
+        "piso",
+        "acolchoados",
+        "escorregador",
+        "pegadas",
+        "bolinhas"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "tubos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cor"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "plataformas": {
+          "type": "object",
+          "required": [
+            "deck",
+            "patamar",
+            "parede",
+            "apoio",
+            "painel"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "deck": {
+              "$ref": "#/$defs/cor"
+            },
+            "patamar": {
+              "$ref": "#/$defs/cor"
+            },
+            "parede": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cor"
+              },
+              "minItems": 1
+            },
+            "apoio": {
+              "$ref": "#/$defs/cor"
+            },
+            "painel": {
+              "$ref": "#/$defs/cor"
+            }
+          }
+        },
+        "piso": {
+          "type": "object",
+          "required": [
+            "tatames",
+            "sob_deck"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tatames": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/cor"
+              },
+              "minItems": 1
+            },
+            "sob_deck": {
+              "$ref": "#/$defs/cor"
+            }
+          }
+        },
+        "acolchoados": {
+          "type": "object",
+          "required": [
+            "piscina_borda",
+            "piscina_fundo",
+            "rolo",
+            "sacos",
+            "tunel",
+            "aneis",
+            "borda_pula_pula",
+            "base_pula_pula"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/cor"
+          }
+        },
+        "escorregador": {
+          "$ref": "#/$defs/cor"
+        },
+        "pegadas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cor"
+          },
+          "minItems": 1
+        },
+        "bolinhas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cor"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

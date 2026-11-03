@@ -1,0 +1,75 @@
+{
+  "$schema": "../../esquema/modelo.schema.json",
+  "id": "kidplay-4m",
+  "nome": "Kid Play 4 m",
+  "ordem": 1,
+  "linha": "Kid Play",
+  "revisao": 2,
+  "status": "ilustrativo",
+  "medidas_m": {
+    "comprimento": 4,
+    "largura": 2,
+    "altura": 2
+  },
+  "fonte_medidas": "Ficha da fábrica. Só a caixa externa (comprimento x largura x altura) é oficial.",
+  "ficha_fabrica": "2 curvas túnel, 4 soquinhos, 2 morrinhos, 2 passagens geométricas; 500 bolinhas.",
+  "bolinhas_ficha": 500,
+  "cores": {
+    "padrao": "arco-iris",
+    "opcoes": [
+      "arco-iris",
+      "azul-amarelo",
+      "rosa-lilas"
+    ]
+  },
+  "estrutura": {
+    "altura_deck_m": 1.0,
+    "trecho_max_m": 1.5
+  },
+  "modulos": [
+    {
+      "tipo": "piscina_bolinhas",
+      "de_m": 0,
+      "ate_m": 1.2,
+      "borda_altura_m": 0.32
+    },
+    {
+      "tipo": "parede_escalada",
+      "de_m": 1.2,
+      "ate_m": 2.2,
+      "pegadas": 14
+    },
+    {
+      "tipo": "deck",
+      "de_m": 2.2,
+      "ate_m": 2.88,
+      "itens": [
+        "patamar",
+        "pilar",
+        "piso_sob_deck",
+        "rolo",
+        "tunel",
+        "sacos_pancada",
+        "painel_janela"
+      ]
+    },
+    {
+      "tipo": "escorregador_duplo",
+      "de_m": 2.88,
+      "ate_m": 4
+    }
+  ],
+  "acabamentos": {
+    "piso_tatames_m": 0.5,
+    "rede_lateral": true
+  },
+  "seed": 7,
+  "ilustrativo": [
+    "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+    "Altura do andar (1,0 m).",
+    "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+    "Quantidade de bolinhas desenhada (a ficha diz 500).",
+    "Cores: ilustrativas.",
+    "Escorregador: a ficha não cita (desenhado como ilustração)."
+  ]
+}

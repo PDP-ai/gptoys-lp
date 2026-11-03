@@ -1,0 +1,570 @@
+{
+  "$schema": "../esquema/catalogo.schema.json",
+  "aviso": "Modelo ilustrativo até validação da fábrica.",
+  "gerado_por": "modelo-3d/gerador/gerar.mjs",
+  "esquemas_cores": {
+    "arco-iris": {
+      "nome": "Arco-íris",
+      "descricao": "Várias cores, como nas fotos reais da fábrica.",
+      "amostra": [
+        "#1d8a4a",
+        "#d8368a",
+        "#f0c800",
+        "#2b5fd9"
+      ]
+    },
+    "azul-amarelo": {
+      "nome": "Azul e amarelo",
+      "descricao": "Duas cores principais.",
+      "amostra": [
+        "#2b5fd9",
+        "#f0c800"
+      ]
+    },
+    "rosa-lilas": {
+      "nome": "Rosa e lilás",
+      "descricao": "Tons de rosa e lilás.",
+      "amostra": [
+        "#d8368a",
+        "#a77bd6",
+        "#f28dbf",
+        "#5a3a8c"
+      ]
+    }
+  },
+  "modelos": [
+    {
+      "id": "kidplay-4m",
+      "nome": "Kid Play 4 m",
+      "linha": "Kid Play",
+      "status": "ilustrativo",
+      "versao": "r2-883913c07c",
+      "medidas_m": {
+        "comprimento": 4,
+        "largura": 2,
+        "altura": 2
+      },
+      "medidas_texto": "4 m de comprimento × 2 m de largura × 2 m de altura",
+      "ficha_fabrica": "2 curvas túnel, 4 soquinhos, 2 morrinhos, 2 passagens geométricas; 500 bolinhas.",
+      "ilustrativo": [
+        "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+        "Altura do andar (1,0 m).",
+        "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+        "Quantidade de bolinhas desenhada (a ficha diz 500).",
+        "Cores: ilustrativas.",
+        "Escorregador: a ficha não cita (desenhado como ilustração)."
+      ],
+      "cor_padrao": "arco-iris",
+      "cores": {
+        "arco-iris": {
+          "nome": "Arco-íris",
+          "amostra": [
+            "#1d8a4a",
+            "#d8368a",
+            "#f0c800",
+            "#2b5fd9"
+          ],
+          "arquivos": {
+            "web": "kidplay-4m/arco-iris/web.glb",
+            "ar": "kidplay-4m/arco-iris/ar.glb",
+            "ar_usdz": "kidplay-4m/arco-iris/ar.usdz",
+            "mini": "kidplay-4m/arco-iris/mini.glb",
+            "mini_usdz": "kidplay-4m/arco-iris/mini.usdz"
+          },
+          "triangulos": {
+            "web": 18832,
+            "ar": 19592,
+            "mini": 19592
+          },
+          "bytes": {
+            "web": 1048356,
+            "ar": 1068072,
+            "mini": 1068284,
+            "ar_usdz": 809489,
+            "mini_usdz": 809482
+          }
+        },
+        "azul-amarelo": {
+          "nome": "Azul e amarelo",
+          "amostra": [
+            "#2b5fd9",
+            "#f0c800"
+          ],
+          "arquivos": {
+            "web": "kidplay-4m/azul-amarelo/web.glb",
+            "ar": "kidplay-4m/azul-amarelo/ar.glb",
+            "ar_usdz": "kidplay-4m/azul-amarelo/ar.usdz",
+            "mini": "kidplay-4m/azul-amarelo/mini.glb",
+            "mini_usdz": "kidplay-4m/azul-amarelo/mini.usdz"
+          },
+          "triangulos": {
+            "web": 18832,
+            "ar": 19592,
+            "mini": 19592
+          },
+          "bytes": {
+            "web": 997004,
+            "ar": 1016728,
+            "mini": 1016940,
+            "ar_usdz": 758087,
+            "mini_usdz": 758080
+          }
+        },
+        "rosa-lilas": {
+          "nome": "Rosa e lilás",
+          "amostra": [
+            "#d8368a",
+            "#a77bd6",
+            "#f28dbf",
+            "#5a3a8c"
+          ],
+          "arquivos": {
+            "web": "kidplay-4m/rosa-lilas/web.glb",
+            "ar": "kidplay-4m/rosa-lilas/ar.glb",
+            "ar_usdz": "kidplay-4m/rosa-lilas/ar.usdz",
+            "mini": "kidplay-4m/rosa-lilas/mini.glb",
+            "mini_usdz": "kidplay-4m/rosa-lilas/mini.usdz"
+          },
+          "triangulos": {
+            "web": 18832,
+            "ar": 19592,
+            "mini": 19592
+          },
+          "bytes": {
+            "web": 1015680,
+            "ar": 1035400,
+            "mini": 1035608,
+            "ar_usdz": 776742,
+            "mini_usdz": 776863
+          }
+        }
+      }
+    },
+    {
+      "id": "kidplay-6m",
+      "nome": "Kid Play 6 m",
+      "linha": "Kid Play",
+      "status": "ilustrativo",
+      "versao": "r2-6ade6ecb23",
+      "medidas_m": {
+        "comprimento": 6,
+        "largura": 2,
+        "altura": 2
+      },
+      "medidas_texto": "6 m de comprimento × 2 m de largura × 2 m de altura",
+      "ficha_fabrica": "3 passagens, 6 saguinhos, 4 marinhos; escorregador duplo; 1.000 bolinhas.",
+      "ilustrativo": [
+        "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+        "Altura do andar (1,0 m).",
+        "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+        "Quantidade de bolinhas desenhada (a ficha diz 1.000).",
+        "Cores: ilustrativas."
+      ],
+      "cor_padrao": "arco-iris",
+      "cores": {
+        "arco-iris": {
+          "nome": "Arco-íris",
+          "amostra": [
+            "#1d8a4a",
+            "#d8368a",
+            "#f0c800",
+            "#2b5fd9"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m/arco-iris/web.glb",
+            "ar": "kidplay-6m/arco-iris/ar.glb",
+            "ar_usdz": "kidplay-6m/arco-iris/ar.usdz",
+            "mini": "kidplay-6m/arco-iris/mini.glb",
+            "mini_usdz": "kidplay-6m/arco-iris/mini.usdz"
+          },
+          "triangulos": {
+            "web": 24156,
+            "ar": 25076,
+            "mini": 25076
+          },
+          "bytes": {
+            "web": 1230484,
+            "ar": 1258836,
+            "mini": 1259052,
+            "ar_usdz": 938804,
+            "mini_usdz": 938796
+          }
+        },
+        "azul-amarelo": {
+          "nome": "Azul e amarelo",
+          "amostra": [
+            "#2b5fd9",
+            "#f0c800"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m/azul-amarelo/web.glb",
+            "ar": "kidplay-6m/azul-amarelo/ar.glb",
+            "ar_usdz": "kidplay-6m/azul-amarelo/ar.usdz",
+            "mini": "kidplay-6m/azul-amarelo/mini.glb",
+            "mini_usdz": "kidplay-6m/azul-amarelo/mini.usdz"
+          },
+          "triangulos": {
+            "web": 24156,
+            "ar": 25076,
+            "mini": 25076
+          },
+          "bytes": {
+            "web": 1179136,
+            "ar": 1207496,
+            "mini": 1207712,
+            "ar_usdz": 887530,
+            "mini_usdz": 887522
+          }
+        },
+        "rosa-lilas": {
+          "nome": "Rosa e lilás",
+          "amostra": [
+            "#d8368a",
+            "#a77bd6",
+            "#f28dbf",
+            "#5a3a8c"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m/rosa-lilas/web.glb",
+            "ar": "kidplay-6m/rosa-lilas/ar.glb",
+            "ar_usdz": "kidplay-6m/rosa-lilas/ar.usdz",
+            "mini": "kidplay-6m/rosa-lilas/mini.glb",
+            "mini_usdz": "kidplay-6m/rosa-lilas/mini.usdz"
+          },
+          "triangulos": {
+            "web": 24156,
+            "ar": 25076,
+            "mini": 25076
+          },
+          "bytes": {
+            "web": 1197804,
+            "ar": 1226164,
+            "mini": 1226380,
+            "ar_usdz": 906185,
+            "mini_usdz": 906177
+          }
+        }
+      }
+    },
+    {
+      "id": "kidplay-6m-grande",
+      "nome": "Kid Play 6 m grande",
+      "linha": "Kid Play",
+      "status": "ilustrativo",
+      "versao": "r2-23d448b5a8",
+      "medidas_m": {
+        "comprimento": 6,
+        "largura": 3.8,
+        "altura": 3
+      },
+      "medidas_texto": "6 m de comprimento × 3,8 m de largura × 3 m de altura",
+      "ficha_fabrica": "6 passagens, 8 saguinhos, 7 marinhos, 4 curvas; escorregador duplo; 2.500 bolinhas.",
+      "ilustrativo": [
+        "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+        "Altura do andar (1,5 m).",
+        "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+        "Quantidade de bolinhas desenhada (a ficha diz 2.500).",
+        "Cores: ilustrativas."
+      ],
+      "cor_padrao": "arco-iris",
+      "cores": {
+        "arco-iris": {
+          "nome": "Arco-íris",
+          "amostra": [
+            "#1d8a4a",
+            "#d8368a",
+            "#f0c800",
+            "#2b5fd9"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m-grande/arco-iris/web.glb",
+            "ar": "kidplay-6m-grande/arco-iris/ar.glb",
+            "ar_usdz": "kidplay-6m-grande/arco-iris/ar.usdz",
+            "mini": "kidplay-6m-grande/arco-iris/mini.glb",
+            "mini_usdz": "kidplay-6m-grande/arco-iris/mini.usdz"
+          },
+          "triangulos": {
+            "web": 38024,
+            "ar": 39248,
+            "mini": 39248
+          },
+          "bytes": {
+            "web": 1713048,
+            "ar": 1757784,
+            "mini": 1757928,
+            "ar_usdz": 1277654,
+            "mini_usdz": 1277772
+          }
+        },
+        "azul-amarelo": {
+          "nome": "Azul e amarelo",
+          "amostra": [
+            "#2b5fd9",
+            "#f0c800"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m-grande/azul-amarelo/web.glb",
+            "ar": "kidplay-6m-grande/azul-amarelo/ar.glb",
+            "ar_usdz": "kidplay-6m-grande/azul-amarelo/ar.usdz",
+            "mini": "kidplay-6m-grande/azul-amarelo/mini.glb",
+            "mini_usdz": "kidplay-6m-grande/azul-amarelo/mini.usdz"
+          },
+          "triangulos": {
+            "web": 38024,
+            "ar": 39248,
+            "mini": 39248
+          },
+          "bytes": {
+            "web": 1661700,
+            "ar": 1706444,
+            "mini": 1706588,
+            "ar_usdz": 1226380,
+            "mini_usdz": 1226498
+          }
+        },
+        "rosa-lilas": {
+          "nome": "Rosa e lilás",
+          "amostra": [
+            "#d8368a",
+            "#a77bd6",
+            "#f28dbf",
+            "#5a3a8c"
+          ],
+          "arquivos": {
+            "web": "kidplay-6m-grande/rosa-lilas/web.glb",
+            "ar": "kidplay-6m-grande/rosa-lilas/ar.glb",
+            "ar_usdz": "kidplay-6m-grande/rosa-lilas/ar.usdz",
+            "mini": "kidplay-6m-grande/rosa-lilas/mini.glb",
+            "mini_usdz": "kidplay-6m-grande/rosa-lilas/mini.usdz"
+          },
+          "triangulos": {
+            "web": 38024,
+            "ar": 39248,
+            "mini": 39248
+          },
+          "bytes": {
+            "web": 1680372,
+            "ar": 1725112,
+            "mini": 1725256,
+            "ar_usdz": 1245035,
+            "mini_usdz": 1245153
+          }
+        }
+      }
+    },
+    {
+      "id": "kidplay-7m-pula-pula",
+      "nome": "Kid Play 7 m com pula-pula",
+      "linha": "Kid Play",
+      "status": "ilustrativo",
+      "versao": "r2-2ef8901045",
+      "medidas_m": {
+        "comprimento": 7,
+        "largura": 2,
+        "altura": 2.7
+      },
+      "medidas_texto": "7 m de comprimento × 2 m de largura × 2,7 m de altura",
+      "ficha_fabrica": "9 passagens, 12 saguinhos, 13 marinhos, 2 curvas; área de pula-pula de 2 m x 2 m; 2.000 bolinhas.",
+      "ilustrativo": [
+        "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+        "Altura do andar (1,3 m).",
+        "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+        "Quantidade de bolinhas desenhada (a ficha diz 2.000).",
+        "Cores: ilustrativas.",
+        "Pula-pula: a área de 2 x 2 m é oficial; cama, borda, moldura, altura (0,45 m) e posição são ilustrativas.",
+        "Escorregador: a ficha não cita (desenhado como ilustração)."
+      ],
+      "cor_padrao": "arco-iris",
+      "cores": {
+        "arco-iris": {
+          "nome": "Arco-íris",
+          "amostra": [
+            "#1d8a4a",
+            "#d8368a",
+            "#f0c800",
+            "#2b5fd9"
+          ],
+          "arquivos": {
+            "web": "kidplay-7m-pula-pula/arco-iris/web.glb",
+            "ar": "kidplay-7m-pula-pula/arco-iris/ar.glb",
+            "ar_usdz": "kidplay-7m-pula-pula/arco-iris/ar.usdz",
+            "mini": "kidplay-7m-pula-pula/arco-iris/mini.glb",
+            "mini_usdz": "kidplay-7m-pula-pula/arco-iris/mini.usdz"
+          },
+          "triangulos": {
+            "web": 29368,
+            "ar": 30496,
+            "mini": 30496
+          },
+          "bytes": {
+            "web": 1496920,
+            "ar": 1536468,
+            "mini": 1536764,
+            "ar_usdz": 1101690,
+            "mini_usdz": 1101682
+          }
+        },
+        "azul-amarelo": {
+          "nome": "Azul e amarelo",
+          "amostra": [
+            "#2b5fd9",
+            "#f0c800"
+          ],
+          "arquivos": {
+            "web": "kidplay-7m-pula-pula/azul-amarelo/web.glb",
+            "ar": "kidplay-7m-pula-pula/azul-amarelo/ar.glb",
+            "ar_usdz": "kidplay-7m-pula-pula/azul-amarelo/ar.usdz",
+            "mini": "kidplay-7m-pula-pula/azul-amarelo/mini.glb",
+            "mini_usdz": "kidplay-7m-pula-pula/azul-amarelo/mini.usdz"
+          },
+          "triangulos": {
+            "web": 29368,
+            "ar": 30496,
+            "mini": 30496
+          },
+          "bytes": {
+            "web": 1445572,
+            "ar": 1485116,
+            "mini": 1485416,
+            "ar_usdz": 1050422,
+            "mini_usdz": 1050414
+          }
+        },
+        "rosa-lilas": {
+          "nome": "Rosa e lilás",
+          "amostra": [
+            "#d8368a",
+            "#a77bd6",
+            "#f28dbf",
+            "#5a3a8c"
+          ],
+          "arquivos": {
+            "web": "kidplay-7m-pula-pula/rosa-lilas/web.glb",
+            "ar": "kidplay-7m-pula-pula/rosa-lilas/ar.glb",
+            "ar_usdz": "kidplay-7m-pula-pula/rosa-lilas/ar.usdz",
+            "mini": "kidplay-7m-pula-pula/rosa-lilas/mini.glb",
+            "mini_usdz": "kidplay-7m-pula-pula/rosa-lilas/mini.usdz"
+          },
+          "triangulos": {
+            "web": 29368,
+            "ar": 30496,
+            "mini": 30496
+          },
+          "bytes": {
+            "web": 1464268,
+            "ar": 1503816,
+            "mini": 1504112,
+            "ar_usdz": 1069052,
+            "mini_usdz": 1069044
+          }
+        }
+      }
+    },
+    {
+      "id": "carretinha-7m",
+      "nome": "Carretinha 7 m",
+      "linha": "Carretinha",
+      "status": "ilustrativo",
+      "versao": "r2-f4298ec3d3",
+      "medidas_m": {
+        "comprimento": 7,
+        "largura": 2,
+        "altura": 2.7
+      },
+      "medidas_texto": "7 m de comprimento × 2 m de largura × 2,7 m de altura",
+      "ficha_fabrica": "Carretinha de 7 m x 2 m x 2,70 m (medida informada). Desenho interno não informado.",
+      "ilustrativo": [
+        "Premissa: os 7 m x 2 m x 2,70 m incluem cambão, rodas e chassi. A fábrica precisa confirmar.",
+        "Chassi (0,5 m de altura), cambão de 1 m, 2 eixos e rodas: desenho ilustrativo.",
+        "Área de brincar em cima (6 m x 2 m x 2,2 m): arranjo genérico, não é o desenho da fábrica.",
+        "Altura do andar (1,0 m acima do piso da carretinha).",
+        "Cores: ilustrativas."
+      ],
+      "cor_padrao": "arco-iris",
+      "cores": {
+        "arco-iris": {
+          "nome": "Arco-íris",
+          "amostra": [
+            "#1d8a4a",
+            "#d8368a",
+            "#f0c800",
+            "#2b5fd9"
+          ],
+          "arquivos": {
+            "web": "carretinha-7m/arco-iris/web.glb",
+            "ar": "carretinha-7m/arco-iris/ar.glb",
+            "ar_usdz": "carretinha-7m/arco-iris/ar.usdz",
+            "mini": "carretinha-7m/arco-iris/mini.glb",
+            "mini_usdz": "carretinha-7m/arco-iris/mini.usdz"
+          },
+          "triangulos": {
+            "web": 25584,
+            "ar": 26536,
+            "mini": 26536
+          },
+          "bytes": {
+            "web": 1296360,
+            "ar": 1326404,
+            "mini": 1326636,
+            "ar_usdz": 988688,
+            "mini_usdz": 988681
+          }
+        },
+        "azul-amarelo": {
+          "nome": "Azul e amarelo",
+          "amostra": [
+            "#2b5fd9",
+            "#f0c800"
+          ],
+          "arquivos": {
+            "web": "carretinha-7m/azul-amarelo/web.glb",
+            "ar": "carretinha-7m/azul-amarelo/ar.glb",
+            "ar_usdz": "carretinha-7m/azul-amarelo/ar.usdz",
+            "mini": "carretinha-7m/azul-amarelo/mini.glb",
+            "mini_usdz": "carretinha-7m/azul-amarelo/mini.usdz"
+          },
+          "triangulos": {
+            "web": 25584,
+            "ar": 26536,
+            "mini": 26536
+          },
+          "bytes": {
+            "web": 1245008,
+            "ar": 1275048,
+            "mini": 1275280,
+            "ar_usdz": 937294,
+            "mini_usdz": 937287
+          }
+        },
+        "rosa-lilas": {
+          "nome": "Rosa e lilás",
+          "amostra": [
+            "#d8368a",
+            "#a77bd6",
+            "#f28dbf",
+            "#5a3a8c"
+          ],
+          "arquivos": {
+            "web": "carretinha-7m/rosa-lilas/web.glb",
+            "ar": "carretinha-7m/rosa-lilas/ar.glb",
+            "ar_usdz": "carretinha-7m/rosa-lilas/ar.usdz",
+            "mini": "carretinha-7m/rosa-lilas/mini.glb",
+            "mini_usdz": "carretinha-7m/rosa-lilas/mini.usdz"
+          },
+          "triangulos": {
+            "web": 25584,
+            "ar": 26536,
+            "mini": 26536
+          },
+          "bytes": {
+            "web": 1263716,
+            "ar": 1293756,
+            "mini": 1293984,
+            "ar_usdz": 956040,
+            "mini_usdz": 956033
+          }
+        }
+      }
+    }
+  ]
+}

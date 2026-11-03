@@ -1,0 +1,58 @@
+{
+  "$schema": "../esquema/cores.schema.json",
+  "observacao": "Cores ILUSTRATIVAS por família de peça. O esquema arco-íris foi calibrado amostrando as fotos reais do site (gp-13 e gp-14). As cores disponíveis de verdade são confirmadas com a fábrica.",
+  "familias": {
+    "tubos": "Isotubos coloridos (espuma sobre o tubo galvanizado). Lista: as cores se alternam peça a peça.",
+    "plataformas": "Base MDF 18 mm com napa: andar (deck), patamar, parede de escalada, apoio da parede, painel com janela.",
+    "piso": "Tatames de espuma com napa no chão. Lista: alternam em xadrez.",
+    "acolchoados": "Espuma com napa: borda e fundo da piscina, rolo, saquinhos, túnel, borda do pula-pula.",
+    "escorregador": "Escorregador de plástico.",
+    "pegadas": "Pegadas de plástico da parede de escalada. Lista.",
+    "bolinhas": "Bolas atóxicas. Lista."
+  },
+  "fixas": {
+    "observacao": "Cores que não mudam com o esquema (padrão da fábrica).",
+    "rede": "#333333",
+    "conexoes_web": "#c3c7cc",
+    "conexoes_ar": "#8a8f96",
+    "galvanizado": "#9aa0a6",
+    "cama_pula_pula": "#151515",
+    "chassi": "#8d9298",
+    "pneus": "#1c1c1c"
+  },
+  "esquemas": {
+    "arco-iris": {
+      "nome": "Arco-íris",
+      "descricao": "Várias cores, como nas fotos reais da fábrica.",
+      "tubos": ["#1d8a4a", "#d8368a", "#f0c800", "#2b5fd9", "#9fd94a", "#d9303f", "#5a3a8c", "#f56a2c"],
+      "plataformas": { "deck": "#f56a2c", "patamar": "#2b5fd9", "parede": ["#d9303f", "#e8e2d2"], "apoio": "#f0c800", "painel": "#2b5fd9" },
+      "piso": { "tatames": ["#d9303f", "#5a3a8c", "#d8368a", "#2a8fe8", "#1d8a4a", "#f56a2c", "#f0c800", "#2b5fd9"], "sob_deck": "#d8368a" },
+      "acolchoados": { "piscina_borda": "#2b5fd9", "piscina_fundo": "#2a8fe8", "rolo": "#5a3a8c", "sacos": "#2b5fd9", "tunel": "#9fd94a", "aneis": "#f0c800", "borda_pula_pula": "#d9303f", "base_pula_pula": "#5a3a8c" },
+      "escorregador": "#2b5fd9",
+      "pegadas": ["#2b5fd9", "#f56a2c", "#f0c800", "#5a3a8c", "#1d8a4a", "#d8368a", "#2a8fe8"],
+      "bolinhas": ["#d9303f", "#f0c800", "#2b5fd9", "#1d8a4a", "#d8368a", "#f56a2c"]
+    },
+    "azul-amarelo": {
+      "nome": "Azul e amarelo",
+      "descricao": "Duas cores principais.",
+      "tubos": ["#2b5fd9", "#f0c800"],
+      "plataformas": { "deck": "#f0c800", "patamar": "#2b5fd9", "parede": ["#2b5fd9", "#f0c800"], "apoio": "#2b5fd9", "painel": "#2b5fd9" },
+      "piso": { "tatames": ["#2b5fd9", "#f0c800", "#2a8fe8"], "sob_deck": "#2a8fe8" },
+      "acolchoados": { "piscina_borda": "#2b5fd9", "piscina_fundo": "#2a8fe8", "rolo": "#f0c800", "sacos": "#2b5fd9", "tunel": "#f0c800", "aneis": "#2b5fd9", "borda_pula_pula": "#2b5fd9", "base_pula_pula": "#2a8fe8" },
+      "escorregador": "#f0c800",
+      "pegadas": ["#f0c800", "#2b5fd9", "#2a8fe8"],
+      "bolinhas": ["#2b5fd9", "#f0c800", "#2a8fe8", "#f4f4f4"]
+    },
+    "rosa-lilas": {
+      "nome": "Rosa e lilás",
+      "descricao": "Tons de rosa e lilás.",
+      "tubos": ["#d8368a", "#a77bd6", "#f28dbf", "#5a3a8c"],
+      "plataformas": { "deck": "#d8368a", "patamar": "#5a3a8c", "parede": ["#a77bd6", "#e8e2d2"], "apoio": "#f28dbf", "painel": "#5a3a8c" },
+      "piso": { "tatames": ["#d8368a", "#a77bd6", "#f28dbf", "#5a3a8c"], "sob_deck": "#a77bd6" },
+      "acolchoados": { "piscina_borda": "#5a3a8c", "piscina_fundo": "#a77bd6", "rolo": "#d8368a", "sacos": "#a77bd6", "tunel": "#f28dbf", "aneis": "#5a3a8c", "borda_pula_pula": "#d8368a", "base_pula_pula": "#a77bd6" },
+      "escorregador": "#d8368a",
+      "pegadas": ["#5a3a8c", "#d8368a", "#f4f4f4", "#a77bd6"],
+      "bolinhas": ["#d8368a", "#a77bd6", "#f4f4f4", "#f28dbf", "#5a3a8c"]
+    }
+  }
+}

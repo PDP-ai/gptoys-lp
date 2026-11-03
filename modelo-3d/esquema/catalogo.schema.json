@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  
+  "title": "Catálogo gerado (saida/catalogo.json)",
+  "description": "Gerado pelo gerar.mjs. É o que a página de RA e o GP Toys Studio leem para saber quais modelos, cores e arquivos existem. Não edite à mão.",
+  "type": "object",
+  "required": [
+    "aviso",
+    "esquemas_cores",
+    "modelos"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "aviso": {
+      "type": "string"
+    },
+    "gerado_por": {
+      "type": "string"
+    },
+    "esquemas_cores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "nome"
+        ],
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "amostra": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          }
+        }
+      }
+    },
+    "modelos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "versao",
+          "medidas_m",
+          "cor_padrao",
+          "cores"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "linha": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "versao": {
+            "type": "string",
+            "description": "Igual dentro dos 5 arquivos de todas as cores deste modelo (asset.extras.versao no GLB; customLayerData.versao no USDZ)."
+          },
+          "medidas_m": {
+            "type": "object"
+          },
+          "medidas_texto": {
+            "type": "string"
+          },
+          "ficha_fabrica": {
+            "type": "string"
+          },
+          "ilustrativo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cor_padrao": {
+            "type": "string"
+          },
+          "cores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "nome",
+                "arquivos"
+              ],
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "amostra": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^#[0-9a-fA-F]{6}$"
+                  }
+                },
+                "arquivos": {
+                  "type": "object",
+                  "required": [
+                    "web",
+                    "ar",
+                    "ar_usdz",
+                    "mini",
+                    "mini_usdz"
+                  ],
+                  "properties": {
+                    "web": {
+                      "type": "string",
+                      "description": "Caminho relativo a saida/."
+                    },
+                    "ar": {
+                      "type": "string",
+                      "description": "Caminho relativo a saida/."
+                    },
+                    "ar_usdz": {
+                      "type": "string",
+                      "description": "Caminho relativo a saida/."
+                    },
+                    "mini": {
+                      "type": "string",
+                      "description": "Caminho relativo a saida/."
+                    },
+                    "mini_usdz": {
+                      "type": "string",
+                      "description": "Caminho relativo a saida/."
+                    }
+                  }
+                },
+                "triangulos": {
+                  "type": "object"
+                },
+                "bytes": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

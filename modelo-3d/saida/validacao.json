@@ -1,0 +1,2007 @@
+{
+ "data": "2026-11-03T14:45:59.050Z",
+ "limites": {
+  "tri_max": 100000,
+  "tri_ideal": 50000,
+  "materiais_max": 10,
+  "alpha_ar": 0,
+  "alpha_max": 2,
+  "textura_max": 2048,
+  "mb_rec": 10,
+  "mb_max": 15,
+  "uv_por_malha": 1,
+  "ext_permitidas": [
+   "KHR_materials_unlit",
+   "KHR_texture_transform"
+  ],
+  "tol_m": 0.001
+ },
+ "total_glb": 45,
+ "total_usdz": 30,
+ "falhas": [],
+ "avisos": [],
+ "glb": [
+  {
+   "modelo": "kidplay-4m",
+   "cor": "arco-iris",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-4m/arco-iris/web.glb",
+   "triangulos": 18832,
+   "vertices": 15226,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/arco-iris/ar.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.02,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/arco-iris/mini.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.02,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "azul-amarelo",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-4m/azul-amarelo/web.glb",
+   "triangulos": 18832,
+   "vertices": 15226,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 0.95,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/azul-amarelo/ar.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 0.97,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/azul-amarelo/mini.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 0.97,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "rosa-lilas",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-4m/rosa-lilas/web.glb",
+   "triangulos": 18832,
+   "vertices": 15226,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 0.97,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/rosa-lilas/ar.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 0.99,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/rosa-lilas/mini.glb",
+   "triangulos": 19592,
+   "vertices": 16746,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 0.99,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "arco-iris",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m/arco-iris/web.glb",
+   "triangulos": 24156,
+   "vertices": 19028,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.17,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/arco-iris/ar.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.2,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/arco-iris/mini.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.2,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "azul-amarelo",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m/azul-amarelo/web.glb",
+   "triangulos": 24156,
+   "vertices": 19028,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.12,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/azul-amarelo/ar.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.15,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/azul-amarelo/mini.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.15,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "rosa-lilas",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m/rosa-lilas/web.glb",
+   "triangulos": 24156,
+   "vertices": 19028,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.14,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/rosa-lilas/ar.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.17,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/rosa-lilas/mini.glb",
+   "triangulos": 25076,
+   "vertices": 20868,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.17,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "arco-iris",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m-grande/arco-iris/web.glb",
+   "triangulos": 38024,
+   "vertices": 29154,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.63,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/arco-iris/ar.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.68,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/arco-iris/mini.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.68,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "azul-amarelo",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m-grande/azul-amarelo/web.glb",
+   "triangulos": 38024,
+   "vertices": 29154,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.58,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/azul-amarelo/ar.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.63,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/azul-amarelo/mini.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.63,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "rosa-lilas",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-6m-grande/rosa-lilas/web.glb",
+   "triangulos": 38024,
+   "vertices": 29154,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.6,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/rosa-lilas/ar.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.65,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/rosa-lilas/mini.glb",
+   "triangulos": 39248,
+   "vertices": 31602,
+   "malhas": 8,
+   "materiais": 8,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.65,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "arco-iris",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-7m-pula-pula/arco-iris/web.glb",
+   "triangulos": 29368,
+   "vertices": 23782,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.43,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/arco-iris/ar.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.47,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/arco-iris/mini.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.47,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "azul-amarelo",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-7m-pula-pula/azul-amarelo/web.glb",
+   "triangulos": 29368,
+   "vertices": 23782,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.38,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/azul-amarelo/ar.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.42,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/azul-amarelo/mini.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.42,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "rosa-lilas",
+   "tipo": "web",
+   "arquivo": "saida/kidplay-7m-pula-pula/rosa-lilas/web.glb",
+   "triangulos": 29368,
+   "vertices": 23782,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.4,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/rosa-lilas/ar.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.43,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/rosa-lilas/mini.glb",
+   "triangulos": 30496,
+   "vertices": 26038,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.43,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "arco-iris",
+   "tipo": "web",
+   "arquivo": "saida/carretinha-7m/arco-iris/web.glb",
+   "triangulos": 25584,
+   "vertices": 20516,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.24,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/arco-iris/ar.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.26,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/arco-iris/mini.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.27,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "azul-amarelo",
+   "tipo": "web",
+   "arquivo": "saida/carretinha-7m/azul-amarelo/web.glb",
+   "triangulos": 25584,
+   "vertices": 20516,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.19,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/azul-amarelo/ar.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.22,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/azul-amarelo/mini.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.22,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "rosa-lilas",
+   "tipo": "web",
+   "arquivo": "saida/carretinha-7m/rosa-lilas/web.glb",
+   "triangulos": 25584,
+   "vertices": 20516,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 1,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256",
+    "1024x1024"
+   ],
+   "mb": 1.21,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/rosa-lilas/ar.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.23,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/rosa-lilas/mini.glb",
+   "triangulos": 26536,
+   "vertices": 22420,
+   "malhas": 9,
+   "materiais": 9,
+   "com_transparencia": 0,
+   "texturas": [
+    "512x512",
+    "512x512",
+    "512x512",
+    "256x256"
+   ],
+   "mb": 1.23,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "erros_glTF": 0,
+   "avisos_glTF": 0,
+   "infos_glTF": 0,
+   "versao": "r2-f4298ec3d3"
+  }
+ ],
+ "usdz": [
+  {
+   "modelo": "kidplay-4m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/arco-iris/ar.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.77,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/arco-iris/mini.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.77,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/azul-amarelo/ar.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.72,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/azul-amarelo/mini.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.72,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-4m/rosa-lilas/ar.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.74,
+   "caixa_m": [
+    4,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-4m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-4m/rosa-lilas/mini.usdz",
+   "triangulos": 19592,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.74,
+   "caixa_m": [
+    0.4,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-883913c07c"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/arco-iris/ar.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.9,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/arco-iris/mini.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.9,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/azul-amarelo/ar.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.85,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/azul-amarelo/mini.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.85,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m/rosa-lilas/ar.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.86,
+   "caixa_m": [
+    6,
+    2,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m/rosa-lilas/mini.usdz",
+   "triangulos": 25076,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.86,
+   "caixa_m": [
+    0.6,
+    0.2,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-6ade6ecb23"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/arco-iris/ar.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.22,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/arco-iris/mini.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.22,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/azul-amarelo/ar.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.17,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/azul-amarelo/mini.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.17,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-6m-grande/rosa-lilas/ar.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.19,
+   "caixa_m": [
+    6,
+    3,
+    3.8
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-6m-grande",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-6m-grande/rosa-lilas/mini.usdz",
+   "triangulos": 39248,
+   "malhas": 8,
+   "materiais": 8,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.19,
+   "caixa_m": [
+    0.6,
+    0.3,
+    0.38
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-23d448b5a8"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/arco-iris/ar.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.05,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/arco-iris/mini.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.05,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/azul-amarelo/ar.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/azul-amarelo/mini.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/kidplay-7m-pula-pula/rosa-lilas/ar.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.02,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "kidplay-7m-pula-pula",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/kidplay-7m-pula-pula/rosa-lilas/mini.usdz",
+   "triangulos": 30496,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 1.02,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-2ef8901045"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "arco-iris",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/arco-iris/ar.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.94,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "arco-iris",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/arco-iris/mini.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.94,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "azul-amarelo",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/azul-amarelo/ar.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.89,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "azul-amarelo",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/azul-amarelo/mini.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.89,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "rosa-lilas",
+   "tipo": "ar",
+   "arquivo": "saida/carretinha-7m/rosa-lilas/ar.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.91,
+   "caixa_m": [
+    7,
+    2.7,
+    2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  },
+  {
+   "modelo": "carretinha-7m",
+   "cor": "rosa-lilas",
+   "tipo": "mini",
+   "arquivo": "saida/carretinha-7m/rosa-lilas/mini.usdz",
+   "triangulos": 26536,
+   "malhas": 9,
+   "materiais": 9,
+   "texturas": [
+    "256x256",
+    "512x512",
+    "512x512",
+    "512x512"
+   ],
+   "mb": 0.91,
+   "caixa_m": [
+    0.7,
+    0.27,
+    0.2
+   ],
+   "arkit": "Success",
+   "usd_validation": "0 erros (24 validadores)",
+   "usd": "0.25.8",
+   "versao": "r2-f4298ec3d3"
+  }
+ ]
+}

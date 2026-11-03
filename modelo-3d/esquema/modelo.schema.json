@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  
+  "title": "Modelo de brinquedão GP Toys (entrada do gerador 3D)",
+  "description": "Um arquivo por modelo em dados/modelos/. O gerador (gerador/gerar.mjs) transforma este JSON em web.glb, ar.glb, ar.usdz, mini.glb e mini.usdz para cada esquema de cores. Só medidas_m é oficial; o resto é ilustrativo até a fábrica validar. Não coloque preço aqui: preço fica no GP Toys Studio.",
+  "type": "object",
+  "required": [
+    "id",
+    "nome",
+    "revisao",
+    "status",
+    "medidas_m",
+    "cores",
+    "estrutura",
+    "modulos"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Identificador estável (vira pasta em saida/ e parâmetro ?m= da página)."
+    },
+    "nome": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ordem": {
+      "type": "integer",
+      "description": "Posição na lista da página de RA."
+    },
+    "linha": {
+      "type": "string",
+      "description": "Linha de produto, ex.: Kid Play, Carretinha."
+    },
+    "revisao": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Suba quando mudar o desenho de propósito. A versão final dos arquivos é revisao + resumo (hash) do JSON e do código."
+    },
+    "status": {
+      "enum": [
+        "ilustrativo",
+        "validado_fabrica"
+      ],
+      "description": "ilustrativo até a fábrica validar o desenho interno."
+    },
+    "medidas_m": {
+      "type": "object",
+      "description": "Caixa externa OFICIAL, em metros.",
+      "required": [
+        "comprimento",
+        "largura",
+        "altura"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "comprimento": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "largura": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "altura": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "fonte_medidas": {
+      "type": "string"
+    },
+    "ficha_fabrica": {
+      "type": "string",
+      "description": "Texto da ficha da fábrica (o que ela cita)."
+    },
+    "bolinhas_ficha": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Quantidade de bolinhas da ficha (o desenho NÃO usa esse número)."
+    },
+    "cores": {
+      "type": "object",
+      "required": [
+        "padrao",
+        "opcoes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "padrao": {
+          "type": "string",
+          "description": "Chave de um esquema em dados/cores.json."
+        },
+        "opcoes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "base": {
+      "type": "object",
+      "description": "Opcional. Carretinha: o brinquedão vai em cima de um chassi com cambão e rodas.",
+      "required": [
+        "tipo",
+        "altura_chassi_m",
+        "cambao_m",
+        "raio_roda_m"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tipo": {
+          "const": "carretinha"
+        },
+        "altura_chassi_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cambao_m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "eixos": {
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "raio_roda_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "estrutura": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "altura_deck_m": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Altura do andar (deck), medida do piso da área de brincar."
+        },
+        "trecho_max_m": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Comprimento máximo de cada isotubo antes de trocar de cor."
+        }
+      }
+    },
+    "modulos": {
+      "type": "array",
+      "description": "Peças em sequência ao longo do comprimento. Postes e conexões são colocados nos limites dos módulos.",
+      "items": {
+        "$ref": "#/$defs/modulo"
+      }
+    },
+    "acabamentos": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "piso_tatames_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "rede_lateral": {
+          "type": "boolean"
+        }
+      }
+    },
+    "seed": {
+      "type": "integer",
+      "description": "Semente do sorteio das bolinhas (mesmo número = mesmo desenho)."
+    },
+    "ilustrativo": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Lista, em linguagem simples, do que NÃO é oficial neste modelo (aparece na página)."
+    }
+  },
+  "$defs": {
+    "modulo": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "tipo",
+            "de_m",
+            "ate_m"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tipo": {
+              "const": "piscina_bolinhas"
+            },
+            "de_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Início do módulo, em metros, medido ao longo do comprimento da área de brincar (0 = começo da área)."
+            },
+            "ate_m": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Fim do módulo, em metros (maior que de_m e no máximo o comprimento da área)."
+            },
+            "borda_altura_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "tipo",
+            "de_m",
+            "ate_m"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tipo": {
+              "const": "parede_escalada"
+            },
+            "de_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Início do módulo, em metros, medido ao longo do comprimento da área de brincar (0 = começo da área)."
+            },
+            "ate_m": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Fim do módulo, em metros (maior que de_m e no máximo o comprimento da área)."
+            },
+            "pegadas": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "tipo",
+            "de_m",
+            "ate_m"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tipo": {
+              "const": "deck"
+            },
+            "de_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Início do módulo, em metros, medido ao longo do comprimento da área de brincar (0 = começo da área)."
+            },
+            "ate_m": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Fim do módulo, em metros (maior que de_m e no máximo o comprimento da área)."
+            },
+            "itens": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "patamar",
+                  "pilar",
+                  "piso_sob_deck",
+                  "rolo",
+                  "tunel",
+                  "sacos_pancada",
+                  "painel_janela"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "tipo",
+            "de_m",
+            "ate_m"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tipo": {
+              "const": "escorregador_duplo"
+            },
+            "de_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Início do módulo, em metros, medido ao longo do comprimento da área de brincar (0 = começo da área)."
+            },
+            "ate_m": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Fim do módulo, em metros (maior que de_m e no máximo o comprimento da área)."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "tipo",
+            "de_m",
+            "ate_m",
+            "largura_m",
+            "altura_cama_m"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tipo": {
+              "const": "pula_pula"
+            },
+            "de_m": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Início do módulo, em metros, medido ao longo do comprimento da área de brincar (0 = começo da área)."
+            },
+            "ate_m": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Fim do módulo, em metros (maior que de_m e no máximo o comprimento da área)."
+            },
+            "largura_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "altura_cama_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

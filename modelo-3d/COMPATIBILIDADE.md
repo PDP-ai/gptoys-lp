@@ -1,3 +1,5 @@
+> Histórico das rodadas de setembro (protótipo). O estado atual, os números novos e o que testar estão em `RELATORIO.md`. Os arquivos citados aqui em `modelos/` e `skus/` foram substituídos por `saida/` e `dados/modelos/`.
+
 # Compatibilidade dos modelos 3D com web e realidade aumentada (RA)
 
 Quem lê: pessoa leiga. "Limite" = o que a documentação oficial diz. Consultado em 23/09/2026. Onde não consegui abrir a fonte, está escrito NÃO VERIFICADO.

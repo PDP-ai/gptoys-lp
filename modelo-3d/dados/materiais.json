@@ -1,0 +1,43 @@
+{
+  "observacao": "Materiais reais da fábrica e como cada um vira material 3D. 'web' = arquivo da tela do site (web.glb); 'ar' = arquivos de realidade aumentada (ar.glb, ar.usdz, mini.glb, mini.usdz). Um material por família: no máximo 9 por modelo (o Scene Viewer recomenda até 10).",
+  "materiais": {
+    "isotubo": {
+      "nome": "Isotubo colorido (espuma sobre o tubo galvanizado)",
+      "cores": "tubos",
+      "rugosidade": 1.0,
+      "metal": 0,
+      "relevo": 0.18,
+      "como_desenhado": "Tubo em gomos de 15 cm encostados (sulco entre gomos), 11 cm de diâmetro, textura de espuma gerada por código. Termina 1,2 cm antes de cada conexão, mostrando o tubo galvanizado."
+    },
+    "metal": {
+      "nome": "Tubo galvanizado e conexões de alumínio",
+      "cores": "fixas: galvanizado, conexoes_web, conexoes_ar",
+      "web": { "metal": 0.8, "rugosidade": 0.35 },
+      "ar": { "metal": 0, "rugosidade": 0.5 },
+      "por_que": "No teste no iPhone (23/09) os cantos de metal refletiram o ambiente e ficaram brancos. Nos arquivos de RA o metal é cinza sem efeito de metal."
+    },
+    "plataforma": { "nome": "Base MDF 18 mm com napa", "cores": "plataformas", "rugosidade": 0.5, "metal": 0 },
+    "piso": { "nome": "Tatame de espuma com napa (borda arredondada)", "cores": "piso", "rugosidade": 0.45, "metal": 0 },
+    "acolchoado": { "nome": "Espuma com napa", "cores": "acolchoados", "rugosidade": 0.5, "metal": 0 },
+    "plastico": { "nome": "Escorregador e pegadas de plástico", "cores": "escorregador e pegadas", "rugosidade": 0.22, "metal": 0 },
+    "bolinhas": { "nome": "Bolas atóxicas (9 cm no desenho)", "cores": "bolinhas", "rugosidade": 0.28, "metal": 0 },
+    "rede": {
+      "nome": "Rede de nylon preta",
+      "cores": "fixas: rede",
+      "rugosidade": 0.8,
+      "metal": 0,
+      "web": "textura de losangos de 15 cm com corte de transparência (MASK), dupla face",
+      "ar": "fios de verdade em geometria (faixas de 10 mm, losango de 20 cm), opacos, com as duas faces desenhadas",
+      "por_que": "No iPhone a rede feita com textura transparente não apareceu (23/09). O renderizador da Apple (RealityKit) não desenha 'dupla face', por isso a face de trás de cada fio também é geometria."
+    },
+    "borracha": { "nome": "Cama elástica do pula-pula e pneus", "cores": "fixas: cama_pula_pula, pneus", "rugosidade": 0.85, "metal": 0 }
+  },
+  "nao_usar": [
+    "Tubo transparente: a fábrica não faz.",
+    "Transparência nos arquivos de RA.",
+    "Metal brilhante nos arquivos de RA."
+  ],
+  "a_confirmar": [
+    "Etaflon 10 mm: está na lista de materiais da fábrica, mas o uso exato não foi informado. Não foi desenhado como peça própria."
+  ]
+}

@@ -1,3 +1,5 @@
+> Histórico das rodadas de setembro (protótipo). O estado atual, os números novos e o que testar estão em `RELATORIO.md`. Os arquivos citados aqui em `modelos/` e `skus/` foram substituídos por `saida/` e `dados/modelos/`.
+
 # Inventário dos modelos Kid Play (semana 1 base, semana 2 realismo)
 
 Texto para leigo. Regra deste projeto: só a caixa externa tem medida oficial. Nada aqui tem preço, prazo ou promessa. Nenhuma foto está identificada com um modelo específico (4 m, 6 m ou 6 m grande), então não afirmamos que "a foto X é o modelo Y".

@@ -1,0 +1,83 @@
+{
+  "$schema": "../../esquema/modelo.schema.json",
+  "id": "kidplay-7m-pula-pula",
+  "nome": "Kid Play 7 m com pula-pula",
+  "ordem": 4,
+  "linha": "Kid Play",
+  "revisao": 2,
+  "status": "ilustrativo",
+  "medidas_m": {
+    "comprimento": 7,
+    "largura": 2,
+    "altura": 2.7
+  },
+  "fonte_medidas": "Ficha da fábrica. Só a caixa externa (comprimento x largura x altura) é oficial.",
+  "ficha_fabrica": "9 passagens, 12 saguinhos, 13 marinhos, 2 curvas; área de pula-pula de 2 m x 2 m; 2.000 bolinhas.",
+  "bolinhas_ficha": 2000,
+  "cores": {
+    "padrao": "arco-iris",
+    "opcoes": [
+      "arco-iris",
+      "azul-amarelo",
+      "rosa-lilas"
+    ]
+  },
+  "estrutura": {
+    "altura_deck_m": 1.3,
+    "trecho_max_m": 1.5
+  },
+  "modulos": [
+    {
+      "tipo": "pula_pula",
+      "de_m": 0,
+      "ate_m": 2,
+      "largura_m": 2,
+      "altura_cama_m": 0.45
+    },
+    {
+      "tipo": "piscina_bolinhas",
+      "de_m": 2.02,
+      "ate_m": 3.5,
+      "borda_altura_m": 0.32
+    },
+    {
+      "tipo": "parede_escalada",
+      "de_m": 3.5,
+      "ate_m": 5.04,
+      "pegadas": 14
+    },
+    {
+      "tipo": "deck",
+      "de_m": 5.04,
+      "ate_m": 6.02,
+      "itens": [
+        "patamar",
+        "pilar",
+        "piso_sob_deck",
+        "rolo",
+        "tunel",
+        "sacos_pancada",
+        "painel_janela"
+      ]
+    },
+    {
+      "tipo": "escorregador_duplo",
+      "de_m": 6.02,
+      "ate_m": 7
+    }
+  ],
+  "acabamentos": {
+    "piso_tatames_m": 0.5,
+    "rede_lateral": true
+  },
+  "seed": 7,
+  "ilustrativo": [
+    "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+    "Altura do andar (1,3 m).",
+    "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+    "Quantidade de bolinhas desenhada (a ficha diz 2.000).",
+    "Cores: ilustrativas.",
+    "Pula-pula: a área de 2 x 2 m é oficial; cama, borda, moldura, altura (0,45 m) e posição são ilustrativas.",
+    "Escorregador: a ficha não cita (desenhado como ilustração)."
+  ]
+}

@@ -1,16 +1,19 @@
 {
-  "name": "gptoys-modelo-3d","private": true,"type": "module",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "gptoys-modelo-3d",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Gerador 3D por JSON e página de realidade aumentada dos brinquedões GP Toys (ilustrativo até validação da fábrica)",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gerar": "node gerador/gerar.mjs",
+    "validar": "node validar/validar.mjs",
+    "tudo": "node gerador/gerar.mjs && node validar/validar.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "three": "^0.170.0"
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "ajv": "8.17.1",
+    "gltf-validator": "2.0.0-dev.3.10"
   }
 }

@@ -1,0 +1,74 @@
+{
+  "$schema": "../../esquema/modelo.schema.json",
+  "id": "kidplay-6m-grande",
+  "nome": "Kid Play 6 m grande",
+  "ordem": 3,
+  "linha": "Kid Play",
+  "revisao": 2,
+  "status": "ilustrativo",
+  "medidas_m": {
+    "comprimento": 6,
+    "largura": 3.8,
+    "altura": 3
+  },
+  "fonte_medidas": "Ficha da fábrica. Só a caixa externa (comprimento x largura x altura) é oficial.",
+  "ficha_fabrica": "6 passagens, 8 saguinhos, 7 marinhos, 4 curvas; escorregador duplo; 2.500 bolinhas.",
+  "bolinhas_ficha": 2500,
+  "cores": {
+    "padrao": "arco-iris",
+    "opcoes": [
+      "arco-iris",
+      "azul-amarelo",
+      "rosa-lilas"
+    ]
+  },
+  "estrutura": {
+    "altura_deck_m": 1.5,
+    "trecho_max_m": 1.5
+  },
+  "modulos": [
+    {
+      "tipo": "piscina_bolinhas",
+      "de_m": 0,
+      "ate_m": 1.8,
+      "borda_altura_m": 0.32
+    },
+    {
+      "tipo": "parede_escalada",
+      "de_m": 1.8,
+      "ate_m": 3.3,
+      "pegadas": 14
+    },
+    {
+      "tipo": "deck",
+      "de_m": 3.3,
+      "ate_m": 4.68,
+      "itens": [
+        "patamar",
+        "pilar",
+        "piso_sob_deck",
+        "rolo",
+        "tunel",
+        "sacos_pancada",
+        "painel_janela"
+      ]
+    },
+    {
+      "tipo": "escorregador_duplo",
+      "de_m": 4.68,
+      "ate_m": 6
+    }
+  ],
+  "acabamentos": {
+    "piso_tatames_m": 0.5,
+    "rede_lateral": true
+  },
+  "seed": 7,
+  "ilustrativo": [
+    "Arranjo interno (piscina, parede, andar, escorregador): genérico, não é o desenho da fábrica.",
+    "Altura do andar (1,5 m).",
+    "Saguinho, marinho, passagem e soquinho: formato desconhecido, não desenhados.",
+    "Quantidade de bolinhas desenhada (a ficha diz 2.500).",
+    "Cores: ilustrativas."
+  ]
+}

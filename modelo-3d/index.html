@@ -2,67 +2,130 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Kid Play em 3D | GP Toys</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFD23F">
+<title>Brinquedão em RA | GP Toys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<script src="vendor/qrcode.js" defer></script>
+<script src="ra.js" defer></script>
 <style>
-  :root{--fundo:#faf9f6;--texto:#1d1d1f;--suave:#5c5c60;--linha:#e2e0da;--acento:#1f4fd8}
+  :root{--amarelo:#FFD23F;--amarelo-creme:#FFF6D1;--vermelho:#E3001B;--azul:#1E7BE0;--verde:#2FAE5B;--tinta:#141414;--tinta-2:#2b2b2b;--suave:#5f574f;--papel:#FFFCEF;--branco:#fff;--linha:2px solid var(--tinta);--pop:4px 4px 0 var(--tinta);--pop-sm:3px 3px 0 var(--tinta)}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-  main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
-  h1{font-size:1.6rem;line-height:1.2;margin:0 0 8px}
-  p{margin:0 0 12px;color:var(--suave)}
-  model-viewer{width:100%;height:62vh;min-height:320px;background:#ecebe6;border-radius:12px;--poster-color:#ecebe6}
-  button[slot=ar-button]{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:var(--acento);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:600 1rem system-ui}
-  .seletor{display:flex;gap:8px;margin:0 0 12px;flex-wrap:wrap}
-  .seletor button{flex:1;min-width:96px;background:#fff;color:var(--texto);border:1px solid var(--linha);border-radius:8px;padding:10px 12px;font:600 .95rem system-ui;cursor:pointer}
-  .seletor button[aria-pressed=true]{background:var(--acento);color:#fff;border-color:var(--acento)}
-  .medidas{border-top:1px solid var(--linha);margin-top:20px;padding-top:16px}
-  .aviso{font-size:.9rem;border-left:3px solid var(--acento);padding-left:12px;color:var(--texto)}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--papel);color:var(--tinta);font:16px/1.5 'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+  header{background:var(--amarelo);border-bottom:var(--linha);padding:10px 16px;display:flex;align-items:center;gap:10px}
+  header img{height:34px;width:auto}
+  header span{font:600 1rem 'Fredoka',sans-serif}
+  main{max-width:760px;margin:0 auto;padding:16px 16px 40px}
+  h1{font:700 1.65rem/1.15 'Fredoka',sans-serif;margin:6px 0 12px}
+  h2{font:600 1.1rem/1.2 'Fredoka',sans-serif;margin:0 0 10px}
+  section{margin:18px 0}
+  .aviso{background:var(--amarelo-creme);border:var(--linha);border-radius:12px;box-shadow:var(--pop-sm);padding:12px 14px;font-size:.95rem}
+  .aviso strong{display:block;font:600 1.05rem 'Fredoka',sans-serif;color:var(--vermelho);margin-bottom:2px}
+  .opcoes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .opcao{appearance:none;text-align:left;background:var(--branco);color:var(--tinta);border:var(--linha);border-radius:12px;padding:10px 12px;font:inherit;cursor:pointer;min-height:64px;box-shadow:var(--pop-sm);transition:transform .08s}
+  .opcao:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--tinta)}
+  .opcao[aria-checked=true]{background:var(--amarelo);box-shadow:var(--pop)}
+  .opcao b{display:block;font:600 1rem 'Fredoka',sans-serif}
+  .opcao small{display:block;color:var(--suave);font-size:.82rem;line-height:1.3;margin-top:2px}
+  .opcao[aria-checked=true] small{color:var(--tinta-2)}
+  .amostras{display:flex;gap:4px;margin-top:6px}
+  .amostras i{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--tinta);display:block}
+  .visor{background:var(--branco);border:var(--linha);border-radius:14px;box-shadow:var(--pop);overflow:hidden}
+  model-viewer{display:block;width:100%;height:52vh;min-height:280px;max-height:560px;background:#eeece4;--poster-color:#eeece4}
+  .carregando{position:absolute;inset:auto 0 12px 0;text-align:center;font-size:.9rem;color:var(--suave)}
+  .medidas{margin:0;padding:10px 14px;border-top:var(--linha);font-size:.95rem}
+  .botoes{display:grid;gap:10px}
+  .btn{appearance:none;display:block;width:100%;border:var(--linha);border-radius:12px;padding:14px 16px;font:600 1.05rem 'Fredoka',sans-serif;cursor:pointer;background:var(--branco);color:var(--tinta);box-shadow:var(--pop-sm);text-align:center}
+  .btn.principal{background:var(--vermelho);color:var(--branco);font-size:1.15rem;padding:16px}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--tinta)}
+  .btn small{display:block;font:400 .85rem 'DM Sans',sans-serif;margin-top:2px;opacity:.9}
+  .nota{background:var(--branco);border:var(--linha);border-left:8px solid var(--azul);border-radius:10px;padding:10px 12px;font-size:.95rem}
+  .nota.erro{border-left-color:var(--vermelho)}
+  details{background:var(--branco);border:var(--linha);border-radius:12px;padding:10px 14px;margin-top:10px}
+  summary{font:600 1rem 'Fredoka',sans-serif;cursor:pointer}
+  details ol,details ul{margin:8px 0 2px;padding-left:20px}
+  details li{margin:4px 0}
+  .qr{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;background:var(--branco);border:var(--linha);border-radius:14px;box-shadow:var(--pop-sm);padding:14px}
+  #qr svg{display:block;width:150px;height:150px;background:#fff}
+  .qr p{margin:0 0 10px;font-size:.95rem}
+  .qr .btn{padding:10px 12px;font-size:.95rem;margin-top:8px}
+  ul.lista{margin:0;padding-left:20px}
+  ul.lista li{margin:3px 0}
+  footer{max-width:760px;margin:0 auto;padding:0 16px 32px;color:var(--suave);font-size:.8rem}
+  [hidden]{display:none !important}
+  @media (max-width:640px){.opcoes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 6px 8px 2px;margin:0 -16px 0 0;-webkit-overflow-scrolling:touch}.opcao{flex:0 0 auto;width:150px;scroll-snap-align:start}model-viewer{height:46vh}}
+  @media (max-width:420px){.qr{grid-template-columns:1fr;justify-items:center;text-align:center}#qr svg{width:180px;height:180px}h1{font-size:1.45rem}}
 </style>
 </head>
 <body>
+<header><img src="../assets/logo.png" alt="GP Toys" onerror="this.hidden=true"><span>Visita técnica · Realidade aumentada</span></header>
 <main>
-  <h1 id="titulo">Kid Play 6 m</h1>
-  <p>Gire o modelo com o dedo. No celular, toque em “Ver no seu espaço” para colocá-lo no tamanho real no ambiente.</p>
-  <div class="seletor" role="group" aria-label="Escolha o modelo">
-    <button type="button" data-m="kidplay-4m" aria-pressed="false">Kid Play 4 m</button>
-    <button type="button" data-m="kidplay-6m" aria-pressed="true">Kid Play 6 m</button>
-    <button type="button" data-m="kidplay-6m-grande" aria-pressed="false">Kid Play 6 m grande</button>
-    <button type="button" data-m="kidplay-7m-pula-pula" aria-pressed="false">Kid Play 7 m com pula-pula</button>
-  </div>
-  <model-viewer id="mv" src="modelos/kidplay-6m/ar.glb" ios-src="modelos/kidplay-6m/ar.usdz" alt="Modelo 3D ilustrativo do brinquedão Kid Play 6 m"
-    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor"
-    camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.6" shadow-softness="0.9" exposure="1.05"
-    camera-orbit="-35deg 70deg auto" interaction-prompt="auto">
-    <button slot="ar-button">Ver no seu espaço (tamanho real)</button>
-  </model-viewer>
-  <p class="aviso"><strong>Tamanho real</strong>: para ver o brinquedão no espaço do cliente. <strong>Miniatura de mesa</strong>: escala 1:10 (o de 6 m vira 60 cm), para mostrar numa mesa. A miniatura sobre a mesa é NÃO VERIFICADO em aparelho.</p>
-  <model-viewer id="mv2" src="modelos/kidplay-6m/mini.glb" ios-src="modelos/kidplay-6m/mini.usdz" alt="Miniatura de mesa 1:10 do brinquedão Kid Play 6 m"
-    ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" style="height:90px;min-height:0;margin-top:10px" disable-zoom>
-    <button slot="ar-button">Miniatura de mesa 1:10 (NÃO VERIFICADO em aparelho)</button>
-  </model-viewer>
-  <div class="medidas">
-    <p><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">6 m de comprimento × 2 m de largura × 2 m de altura</span>.</p>
-    <p class="aviso">Representação ilustrativa, as dimensões oficiais são as da caixa externa. O arranjo interno (módulos, plataformas, escorregador, parede de escalada, bolinhas e a cama do pula-pula) é genérico e ilustrativo, não é o formato real das peças, e pode diferir do produto real.</p>
-  </div>
+  <h1 id="titulo">Brinquedão em realidade aumentada</h1>
+  <div class="aviso" role="note"><strong>Modelo ilustrativo até validação da fábrica.</strong>Só as medidas externas (comprimento, largura e altura) são oficiais. O desenho de dentro, as peças e as cores ainda serão confirmados pela fábrica.</div>
+
+  <p id="erro-catalogo" class="nota erro" hidden>Não consegui carregar a lista de modelos. Abra esta página pelo link do site (não pelo arquivo no computador).</p>
+
+  <section class="visor" aria-label="Modelo 3D">
+    <model-viewer id="mv" camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.7" shadow-softness="0.9" exposure="1.05" camera-orbit="-35deg 70deg auto" interaction-prompt="auto" alt="Modelo 3D ilustrativo do brinquedão">
+      <div slot="progress-bar" class="carregando" id="carregando">Carregando o modelo…</div>
+    </model-viewer>
+    <p class="medidas"><strong>Medidas oficiais (caixa externa):</strong> <span id="medidas">—</span></p>
+  </section>
+
+  <section aria-labelledby="t-modelo">
+    <h2 id="t-modelo">1. Escolha o modelo</h2>
+    <div id="modelos" class="opcoes" role="radiogroup" aria-labelledby="t-modelo"></div>
+  </section>
+
+  <section aria-labelledby="t-cor">
+    <h2 id="t-cor">2. Escolha as cores</h2>
+    <div id="cores" class="opcoes" role="radiogroup" aria-labelledby="t-cor"></div>
+  </section>
+
+
+  <section aria-labelledby="t-ra">
+    <h2 id="t-ra">3. Veja no espaço do cliente</h2>
+    <div class="botoes" id="botoes-ra">
+      <button type="button" class="btn principal" id="ra-real">Ver no espaço — tamanho real<small>aponte o celular para o chão</small></button>
+      <button type="button" class="btn" id="ra-mini">Ver em miniatura na mesa (1:10)<small id="mini-medida">o modelo fica 10 vezes menor</small></button>
+    </div>
+    <p id="sem-ra" class="nota" hidden>A realidade aumentada abre no celular (iPhone ou Android). Neste aparelho dá para girar o modelo acima. Para ver no espaço, abra esta página no celular pelo código QR abaixo.</p>
+    <p id="falha-android" class="nota erro" hidden>O Android não abriu a realidade aumentada. Confira se o app <b>Google Play Services para RA</b> está instalado e atualizado (Play Store) e tente de novo.</p>
+    <details>
+      <summary>Como usar na visita</summary>
+      <ol>
+        <li>Escolha o modelo e as cores. Espere o modelo aparecer acima.</li>
+        <li>Toque em <b>Ver no espaço — tamanho real</b>. Aponte o celular para o chão e mova devagar até o brinquedão aparecer.</li>
+        <li>Se o brinquedão aparecer "em cima" de você, dê alguns passos para trás: ele tem o tamanho de verdade.</li>
+        <li>Para mostrar numa mesa, use <b>miniatura (1:10)</b>: o de 6 m fica com 60 cm.</li>
+        <li>O tamanho fica travado (não dá para aumentar com os dedos), para não enganar a medida.</li>
+      </ol>
+    </details>
+  </section>
+
+  <section aria-labelledby="t-qr">
+    <h2 id="t-qr">Abrir no celular do cliente</h2>
+    <div class="qr">
+      <div id="qr" aria-label="Código QR para abrir esta página com o modelo escolhido"></div>
+      <div>
+        <p>Aponte a câmera do celular para o código. Ele abre esta página já com o modelo e as cores escolhidos.</p>
+        <button type="button" class="btn" id="compartilhar" hidden>Enviar link (WhatsApp, etc.)</button>
+        <button type="button" class="btn" id="copiar">Copiar link</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-ilustr">
+    <h2 id="t-ilustr">O que ainda é ilustrativo neste modelo</h2>
+    <ul class="lista" id="ilustrativo"></ul>
+    <p id="ficha" class="nota" hidden></p>
+  </section>
 </main>
-<script>
-  var M={"kidplay-4m":["Kid Play 4 m","4 m de comprimento × 2 m de largura × 2 m de altura"],
-    "kidplay-6m":["Kid Play 6 m","6 m de comprimento × 2 m de largura × 2 m de altura"],
-    "kidplay-6m-grande":["Kid Play 6 m grande","6 m de comprimento × 3,80 m de largura × 3 m de altura"],
-    "kidplay-7m-pula-pula":["Kid Play 7 m com pula-pula","7 m de comprimento × 2 m de largura × 2,70 m de altura, com área de pula-pula de 2 m × 2 m"]};
-  var mv=document.getElementById('mv'), mv2=document.getElementById('mv2');
-  function escolher(b){
-    var id=b.dataset.m;
-    document.querySelectorAll('.seletor button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    mv.src='modelos/'+id+'/ar.glb'; mv.iosSrc='modelos/'+id+'/ar.usdz'; /* ar.glb (rede em geometria) na tela e no Android; ar.usdz no iPhone (Quick Look) */ mv2.src='modelos/'+id+'/mini.glb'; mv2.iosSrc='modelos/'+id+'/mini.usdz'; mv2.alt='Miniatura de mesa 1:10 do brinquedão '+M[id][0]; mv.alt='Modelo 3D ilustrativo do brinquedão '+M[id][0];
-    document.getElementById('titulo').textContent=M[id][0];
-    document.getElementById('medidas').textContent=M[id][1];
-  }
-  document.querySelectorAll('.seletor button').forEach(function(b){b.addEventListener('click',function(){escolher(b)});});
-  var q=new URLSearchParams(location.search).get('m'), bq=q&&document.querySelector('.seletor button[data-m="'+q+'"]'); if(bq) escolher(bq);
-</script>
+<footer><span id="versao"></span></footer>
 </body>
 </html>
