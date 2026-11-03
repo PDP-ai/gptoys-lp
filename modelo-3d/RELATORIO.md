@@ -116,7 +116,7 @@ Notas para quem for rodar a validação:
 
 - Arquivos: `index.html`, `ra.js`, `vendor/qrcode.js` (gerador de QR, licença MIT, Kazuhiko Arase) e `saida/`.
 - Lê só o `saida/catalogo.json`: um modelo novo aparece sozinho depois do `npm run tudo`.
-- Link direto: `.../modelo-3d/?m=kidplay-6m&c=azul-amarelo` (o QR usa esse formato).
+- Link direto: `.../modelo-3d/?m=kidplay-6m&c=azul-amarelo` (o QR usa esse formato). Se o link vier sem a barra final (`.../modelo-3d`), a página corrige sozinha.
 - iPhone: abre `ar.usdz` ou `mini.usdz` com o tamanho travado. Android: abre `ar.glb` ou `mini.glb` no Scene Viewer com o tamanho travado e sem oclusão (as pessoas na frente não "cortam" o modelo).
 - Precisa de internet: o visualizador 3D (model-viewer 4.0.0) vem do servidor do Google e as fontes do Google Fonts, como no protótipo.
 - `noindex`: a página não aparece no Google.
