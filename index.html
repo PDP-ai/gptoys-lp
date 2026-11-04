@@ -1496,9 +1496,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="quiz-step" id="ctaSuccess">
           <div style="text-align:center;padding:20px 0">
             <div class="brand-celebrate" aria-hidden="true"><picture><source srcset="assets/marca/logo-selo-320.webp" type="image/webp"><img src="assets/marca/logo-selo-320.png" alt="" width="130" height="119" loading="lazy"></picture></div>
-            <div style="font-family:'Fredoka',sans-serif;font-size:32px;font-weight:700;color:var(--green);margin-bottom:8px">Recebemos seu pedido!</div>
-            <p style="font-size:15px;color:var(--gray-dark);line-height:1.7;margin-bottom:24px">Nossa equipe entra em contato em até 24 horas com seu orçamento personalizado.</p>
-            <a href="#" id="ctaWaBtn" class="btn-primary" style="display:none;margin:0 auto;justify-content:center" target="_blank" rel="noopener">💬 Falar agora no WhatsApp</a>
+            <div style="font-family:'Fredoka',sans-serif;font-size:32px;font-weight:700;color:var(--green);margin-bottom:8px">Falta só enviar!</div>
+            <p style="font-size:15px;color:var(--gray-dark);line-height:1.7;margin-bottom:24px">Toque no botão abaixo para mandar seu pedido no WhatsApp da GP Toys. Seus dados já vão preenchidos.</p>
+            <a href="#" id="ctaWaBtn" class="btn-primary" style="display:none;margin:0 auto;justify-content:center" target="_blank" rel="noopener">💬 Enviar meu pedido no WhatsApp</a>
           </div>
         </div>
       </div>
@@ -1676,7 +1676,8 @@ window.dataLayer.push({
     const waUrl = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(linhas.join('\n'))}`;
     const btn = document.getElementById('ctaWaBtn');
     if (btn) { btn.href = waUrl; btn.style.display = 'inline-flex'; }
-    setTimeout(() => window.open(waUrl, '_blank', 'noopener'), 2000);
+    // (04/11/2026) o motor que recebia o POST está fora do ar: o pedido só chega se a pessoa enviar pelo WhatsApp.
+    // Abrir por toque no botão (a abertura automática depois de 2 s era bloqueada no celular).
   }
 }
 
